@@ -9,12 +9,12 @@
 import Foundation
 
 /**
- Represents an user on StackExchange.
+ Represents a user on StackExchange.
  
  - author: FelixSFD
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/user)
  */
-public struct User {
+public class User {
     
 }
