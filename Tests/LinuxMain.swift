@@ -2,5 +2,5 @@ import XCTest
 @testable import SwiftStackTests
 
 XCTMain([
-     testCase(SwiftStackTests.allTests),
+     testCase(BasicRequestTests.allTests),
 ])
