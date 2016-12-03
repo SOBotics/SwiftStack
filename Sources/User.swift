@@ -79,4 +79,64 @@ public class User {
     
     // - MARK: Values returned from API
     
+    public var about_me: String?
+    
+    //note: Int according to the docs. But is that possible?
+    public var accept_rate: Int?
+    
+    public var account_id: Int?
+    
+    public var age: Int?
+    
+    public var answer_count: Int?
+    
+    // todo: implement badge_count
+    public var badge_counts: Any?
+    
+    public var creation_date: Date?
+    
+    public var display_name: String?
+    
+    public var down_vote_count: Int?
+    
+    //note: An optional bool would not make any sense
+    public var is_employee = false
+    
+    public var last_access_date: Date?
+    
+    public var last_modified_date: Date?
+    
+    public var link: URL?
+    
+    public var location: String?
+    
+    public var profile_image: URL?
+    
+    public var question_count: Int?
+    
+    public var reputation: Int?
+    
+    public var reputation_change_day: Int?
+    
+    public var reputation_change_month: Int?
+    
+    public var reputation_change_quarter: Int?
+    
+    public var reputation_change_week: Int?
+    
+    public var reputation_change_year: Int?
+    
+    public var timed_penalty_date: Date?
+    
+    public var up_vote_count: Int?
+    
+    public var user_id: Int?
+    
+    public var user_type: Any?
+    
+    public var view_count: Int?
+    
+    //note: I guess, you can put anything to that field. So we should not use `URL` for it
+    public var website_url: String?
+    
 }
