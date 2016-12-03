@@ -90,8 +90,7 @@ public class User {
     
     public var answer_count: Int?
     
-    // todo: implement badge_count
-    public var badge_counts: Any?
+    public var badge_counts: BadgeCount?
     
     public var creation_date: Date?
     
