@@ -39,6 +39,9 @@ public class User {
          */
         case undefined = "undefined"
         
+        /**
+         Initializes the enum with `.undefined` as default value.
+         */
         public init() {
             self = .undefined
         }
@@ -52,6 +55,25 @@ public class User {
      This does not affect the other properties. It's just for the developers to see, which data they can expect.
      */
     public var type = User.UserType.undefined
+    
+    
+    // - MARK: Initializers
+    
+    /**
+     Simple initializer with an `UserType` as possible parameter.
+     
+     - parameter type: The `UserType` the new instance should have
+     
+     - author: FelixSFD
+     */
+    public init(type: UserType) {
+        self.type = type
+    }
+    
+    /**
+     Basic initializer without any parameters
+     */
+    public init() { }
     
     
     
