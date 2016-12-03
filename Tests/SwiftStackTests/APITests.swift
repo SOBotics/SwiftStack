@@ -49,7 +49,7 @@ class APITests: XCTestCase {
 			statusCode: 200,
 			httpVersion: nil,
 			headerFields: nil
-		)!
+			)!
 	}
 	
 	func parameters(from url: URL) -> [String:String] {
@@ -158,5 +158,66 @@ class APITests: XCTestCase {
 		
 		XCTAssert(client.maxQuota == expectedMaxQuota,
 		          "quotaMax \"\(client.maxQuota)\" is incorrect (should be \"\(expectedMaxQuota)\")")
+	}
+	
+	
+	let backoffTime: TimeInterval = 1
+	
+	
+	func prepareBackoff() throws {
+		client.onRequest {task in
+			let responseJSON = "{\"backoff\": \(Int(self.backoffTime))}"
+			
+			return (responseJSON.data(using: .utf8), self.blankResponse(task), nil)
+		}
+		
+		let _ = try client.performAPIRequest("info")
+		
+		client.onRequest {task in
+			return ("{}".data(using: .utf8), self.blankResponse(task), nil)
+		}
+	}
+	
+	func testBackoff() throws {
+		try prepareBackoff()
+		
+		let expiration = client.backoffs["/info"]?.timeIntervalSinceReferenceDate
+		
+		XCTAssertNotNil(expiration, "backoff missing")
+		XCTAssertEqualWithAccuracy(
+			expiration!,
+			backoffTime + Date().timeIntervalSinceReferenceDate,
+			accuracy: 0.1, "backoff incorrect"
+		)
+	}
+	
+	func testThrowingBackoff() throws {
+		try prepareBackoff()
+		
+		XCTAssertThrowsError(try client.performAPIRequest("info", backoffBehavior: .throwError))
+	}
+	
+	func testWaitingBackoff() throws {
+		try prepareBackoff()
+		let expiration = client.backoffs["/info"]?.timeIntervalSinceReferenceDate
+		
+		//test waiting backoff
+		let _ = try client.performAPIRequest("info", backoffBehavior: .wait)
+		XCTAssertEqualWithAccuracy(
+			Date().timeIntervalSinceReferenceDate,
+			expiration ?? 0,
+			accuracy: 0.1, "waiting time incorrect"
+		)
+		
+		//make sure the backoff is cleaned up
+		XCTAssertNil(client.backoffs["/info"], "backoff was not cleaned up after waiting")
+	}
+	
+	func testBackoffCleanup() throws {
+		try prepareBackoff()
+		
+		client.backoffs["/info"] = Date.distantPast
+		let _ = try client.performAPIRequest("users/1")
+		XCTAssertNil(client.backoffs["/info"], "backoff was not cleaned up")
 	}
 }

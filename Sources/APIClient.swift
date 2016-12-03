@@ -87,7 +87,6 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		case throwError
 	}
 	
-	
 	///Performs an API request.  All functions using API calls should funnel into this one.
 	///
 	///- parameter request: The request to make, for example `users/{ids}/answers`.
@@ -115,30 +114,21 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		
 		//Build the URL.
 		var url = "https://api.stackexchange.com/2.2"
-		if request.hasPrefix("/") {
-			url += request
-		} else {
-			url += "/" + request
-		}
+		
+		let prefixedRequest = (request.hasPrefix("/") ? request : "/" + request)
+		url += prefixedRequest
 		
 		let queryString = String(urlParameters: params)
 		if !queryString.isEmpty {
 			url += "?" + queryString
 		}
 		
-		//Remove backoffs that have expired.
-		var filteredBackoffs = [String:Date]()
-		let now = Date()
-		for (request, expiration) in backoffs {
-			if now < expiration {
-				filteredBackoffs[request] = expiration
-			}
-		}
 		
+		cleanBackoffs()
 		
 		//If there is a backoff for this request, wait for the backoff to
 		//expire or throw an error, depending on the backoff behavior.
-		if let backoffExpiration = backoffs[request] {
+		if let backoffExpiration = backoffs[prefixedRequest] {
 			switch backoffBehavior {
 			case .wait: Thread.sleep(until: backoffExpiration)
 			case .throwError: throw APIError.backoff(expiration: backoffExpiration)
@@ -154,8 +144,9 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		}
 		
 		if let backoff = json["backoff"] as? Int {
-			backoffs[request] = Date().addingTimeInterval(TimeInterval(backoff))
+			backoffs[prefixedRequest] = Date().addingTimeInterval(TimeInterval(backoff))
 		}
+		cleanBackoffs()
 		
 		guard json["error_id"] == nil, json["error_message"] == nil else {
 			throw APIError.apiError(id: json["error_id"] as? Int, message: json["error_message"] as? String)
@@ -167,7 +158,19 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		return (json["items"] as? [Any]) ?? []
 	}
 	
-	
+	private func cleanBackoffs() {
+		//Remove backoffs that have expired.
+		var filteredBackoffs = [String:Date]()
+		let now = Date()
+		for (request, expiration) in backoffs {
+			if now < expiration {
+				filteredBackoffs[request] = expiration
+			} else {
+				print("Removing backoff.")
+			}
+		}
+		backoffs = filteredBackoffs
+	}
 	
 	
 	
