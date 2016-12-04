@@ -126,9 +126,17 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		
 		cleanBackoffs()
 		
+		let backoffName: String
+		let pathComponents = prefixedRequest.components(separatedBy: "/")
+		if pathComponents.count >= 2 {
+			backoffName = pathComponents[1]
+		} else {
+			backoffName = ""
+		}
+		
 		//If there is a backoff for this request, wait for the backoff to
 		//expire or throw an error, depending on the backoff behavior.
-		if let backoffExpiration = backoffs[prefixedRequest] {
+		if let backoffExpiration = backoffs[backoffName] {
 			switch backoffBehavior {
 			case .wait: Thread.sleep(until: backoffExpiration)
 			case .throwError: throw APIError.backoff(expiration: backoffExpiration)
@@ -144,7 +152,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		}
 		
 		if let backoff = json["backoff"] as? Int {
-			backoffs[prefixedRequest] = Date().addingTimeInterval(TimeInterval(backoff))
+			backoffs[backoffName] = Date().addingTimeInterval(TimeInterval(backoff))
 		}
 		cleanBackoffs()
 		
@@ -165,8 +173,6 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		for (request, expiration) in backoffs {
 			if now < expiration {
 				filteredBackoffs[request] = expiration
-			} else {
-				print("Removing backoff.")
 			}
 		}
 		backoffs = filteredBackoffs

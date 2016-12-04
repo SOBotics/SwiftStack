@@ -181,11 +181,11 @@ class APITests: XCTestCase {
 	func testBackoff() throws {
 		try prepareBackoff()
 		
-		let expiration = client.backoffs["/info"]?.timeIntervalSinceReferenceDate
+		let expiration = client.backoffs["info"]?.timeIntervalSinceReferenceDate
 		
 		XCTAssertNotNil(expiration, "backoff missing")
 		XCTAssertEqualWithAccuracy(
-			expiration!,
+			expiration ?? 0,
 			backoffTime + Date().timeIntervalSinceReferenceDate,
 			accuracy: 0.1, "backoff incorrect"
 		)
@@ -198,26 +198,29 @@ class APITests: XCTestCase {
 	}
 	
 	func testWaitingBackoff() throws {
-		try prepareBackoff()
-		let expiration = client.backoffs["/info"]?.timeIntervalSinceReferenceDate
+		client.onRequest {("{}".data(using: .utf8), self.blankResponse($0), nil)}
+		
+		//set a backoff of 1/2 second instead of the normal 1 second minimum
+		let expiration = Date().addingTimeInterval(0.5)
+		client.backoffs["info"] = expiration
 		
 		//test waiting backoff
 		let _ = try client.performAPIRequest("info", backoffBehavior: .wait)
 		XCTAssertEqualWithAccuracy(
 			Date().timeIntervalSinceReferenceDate,
-			expiration ?? 0,
+			expiration.timeIntervalSinceReferenceDate,
 			accuracy: 0.1, "waiting time incorrect"
 		)
 		
 		//make sure the backoff is cleaned up
-		XCTAssertNil(client.backoffs["/info"], "backoff was not cleaned up after waiting")
+		XCTAssertNil(client.backoffs["info"], "backoff was not cleaned up after waiting")
 	}
 	
 	func testBackoffCleanup() throws {
 		try prepareBackoff()
 		
-		client.backoffs["/info"] = Date.distantPast
+		client.backoffs["info"] = Date.distantPast
 		let _ = try client.performAPIRequest("users/1")
-		XCTAssertNil(client.backoffs["/info"], "backoff was not cleaned up")
+		XCTAssertNil(client.backoffs["info"], "backoff was not cleaned up")
 	}
 }
