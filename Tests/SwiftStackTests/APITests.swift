@@ -12,9 +12,14 @@ import XCTest
 ///An APIClient that allows inspecting and overriding requests and responses.
 class TestableClient: APIClient {
 	var requestHandler: ((URLSessionTask) -> (Data?, HTTPURLResponse?, Error?))?
+	var waitHandler: ((Date) -> Void)?
 	
 	func onRequest(_ handler: ((URLSessionTask) -> (Data?, HTTPURLResponse?, Error?))?) {
 		requestHandler = handler
+	}
+	
+	func onWait(_ handler: ((Date) -> Void)?) {
+		waitHandler = handler
 	}
 	
 	override func performTask(_ task: URLSessionTask, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) {
@@ -23,6 +28,14 @@ class TestableClient: APIClient {
 			completion(result.0, result.1, result.2)
 		} else {
 			super.performTask(task, completion: completion)
+		}
+	}
+	
+	override func wait(until date: Date) {
+		if let handler = waitHandler {
+			handler(date)
+		} else {
+			super.wait(until: date)
 		}
 	}
 }
@@ -185,7 +198,7 @@ class APITests: XCTestCase {
 		
 		XCTAssertNotNil(expiration, "backoff missing")
 		XCTAssertEqualWithAccuracy(
-			expiration ?? 0,
+			expiration ?? -1,
 			backoffTime + Date().timeIntervalSinceReferenceDate,
 			accuracy: 0.1, "backoff incorrect"
 		)
@@ -198,19 +211,21 @@ class APITests: XCTestCase {
 	}
 	
 	func testWaitingBackoff() throws {
-		client.onRequest {("{}".data(using: .utf8), self.blankResponse($0), nil)}
+		try prepareBackoff()
 		
-		//set a backoff of 1/2 second instead of the normal 1 second minimum
-		let expiration = Date().addingTimeInterval(0.5)
-		client.backoffs["info"] = expiration
+		let expiration = client.backoffs["info"]?.timeIntervalSinceReferenceDate ?? -1
+		
+		client.onWait {date in
+			XCTAssertEqualWithAccuracy(
+				date.timeIntervalSinceReferenceDate,
+				expiration,
+				accuracy: 0.1, "waiting time incorrect"
+			)
+			self.client.backoffs["info"] = Date()
+		}
 		
 		//test waiting backoff
 		let _ = try client.performAPIRequest("info", backoffBehavior: .wait)
-		XCTAssertEqualWithAccuracy(
-			Date().timeIntervalSinceReferenceDate,
-			expiration.timeIntervalSinceReferenceDate,
-			accuracy: 0.1, "waiting time incorrect"
-		)
 		
 		//make sure the backoff is cleaned up
 		XCTAssertNil(client.backoffs["info"], "backoff was not cleaned up after waiting")

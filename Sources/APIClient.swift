@@ -138,7 +138,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		//expire or throw an error, depending on the backoff behavior.
 		if let backoffExpiration = backoffs[backoffName] {
 			switch backoffBehavior {
-			case .wait: Thread.sleep(until: backoffExpiration)
+			case .wait: wait(until: backoffExpiration)
 			case .throwError: throw APIError.backoff(expiration: backoffExpiration)
 				
 			}
@@ -164,6 +164,10 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		quota = (json["quota_remaining"] as? Int) ?? quota
 		
 		return (json["items"] as? [Any]) ?? []
+	}
+	
+	internal func wait(until date: Date) {
+		Thread.sleep(until: date)
 	}
 	
 	private func cleanBackoffs() {
