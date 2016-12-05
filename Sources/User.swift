@@ -83,6 +83,56 @@ public class User {
     }
     
     /**
+     Initializes the object from a JSON string.
+     
+     - parameter json: The JSON string returned by the API
+     
+     - author: FelixSFD
+     */
+    public init?(jsonString json: String) {
+        do {
+            guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
+                return nil
+            }
+            
+            print(dictionary)
+            
+            self.about_me = dictionary["about_me"] as? String
+            self.accept_rate = dictionary["accept_rate"] as? Int
+            self.account_id = dictionary["account_id"] as? Int
+            self.age = dictionary["age"] as? Int
+            self.answer_count = dictionary["anser_count"] as? Int
+            //self.badge_counts = nil
+            //self.creation_date = Date(timeIntervalSince1970: dictionary["creation_date"] as? Int)
+            self.display_name = dictionary["display_name"] as? String
+            self.down_vote_count = dictionary["down_vote_count"] as? Int
+            self.is_employee = dictionary["is_employee"] as? Bool
+            //self.last_access_date = nil
+            //self.last_modified_date = nil
+            //self.link = nil
+            self.location = dictionary["location"] as? String
+            //self.profile_image = nil
+            self.question_count = dictionary["question_count"] as? Int
+            self.reputation = dictionary["reputation"] as? Int
+            self.reputation_change_day = dictionary["reputation_change_day"] as? Int
+            self.reputation_change_week = dictionary["reputation_change_week"] as? Int
+            self.reputation_change_month = dictionary["reputation_change_month"] as? Int
+            self.reputation_change_quarter = dictionary["reputation_change_quarter"] as? Int
+            self.reputation_change_year = dictionary["reputation_change_year"] as? Int
+            //self.timed_penalty_date = nil
+            self.up_vote_count = dictionary["up_vote_count"] as? Int
+            self.user_id = dictionary["user_id"] as? Int
+            //self.user_type = UserType(rawValue: dictionary["user_type"] as? String)
+            self.view_count = dictionary["view_count"] as? Int
+            self.website_url = dictionary["website_url"] as? String
+            
+            
+        } catch {
+            return nil
+        }
+    }
+    
+    /**
      Basic initializer without any parameters
      */
     public init() { }
