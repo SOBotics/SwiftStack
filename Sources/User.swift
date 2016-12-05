@@ -93,7 +93,6 @@ public class User {
     
     public var about_me: String?
     
-    //note: Int according to the docs. But is that possible?
     public var accept_rate: Int?
     
     public var account_id: Int?
@@ -142,11 +141,10 @@ public class User {
     
     public var user_id: Int?
     
-    public var user_type: UserType?
+    public var user_type: UserType = .doesNotExist
     
     public var view_count: Int?
     
-    //note: I guess, you can put anything to that field. So we should not use `URL` for it
     public var website_url: String?
     
 }
