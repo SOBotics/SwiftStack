@@ -98,8 +98,7 @@ public class User {
     
     public var down_vote_count: Int?
     
-    //note: An optional bool would not make any sense
-    public var is_employee = false
+    public var is_employee: Bool?
     
     public var last_access_date: Date?
     
