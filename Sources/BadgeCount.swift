@@ -15,7 +15,7 @@ import Foundation
  
  - seealso: [StackExchage API](https://api.stackexchange.com/docs/types/badge-count)
  */
-public struct BadgeCount: JsonConvertible {
+public struct BadgeCount: JsonConvertible, CustomStringConvertible {
     public var bronze: Int?
     public var silver: Int?
     public var gold: Int?
@@ -39,6 +39,10 @@ public struct BadgeCount: JsonConvertible {
         } catch {
             return nil
         }
+    }
+    
+    public var description: String {
+        return "\(dictionary)"
     }
     
     // - MARK: Initializers
