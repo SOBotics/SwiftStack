@@ -15,10 +15,31 @@ import Foundation
  
  - seealso: [StackExchage API](https://api.stackexchange.com/docs/types/badge-count)
  */
-public struct BadgeCount {
+public struct BadgeCount: JsonConvertible {
     public var bronze: Int?
     public var silver: Int?
     public var gold: Int?
+    
+    public var dictionary: [String: Any] {
+        var dict = [String: Any]()
+        
+        dict["bronze"] = bronze ?? nil
+        dict["silver"] = silver ?? nil
+        dict["gold"] = gold ?? nil
+        
+        return dict
+    }
+    
+    public var jsonString: String? {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+            
+            let string = String(data: data, encoding: .utf8)
+            return string
+        } catch {
+            return nil
+        }
+    }
     
     // - MARK: Initializers
     
@@ -55,6 +76,9 @@ public struct BadgeCount {
             self.silver = dictionary["silver"] as? Int
             self.gold = dictionary["gold"] as? Int
             
+            if bronze == nil, silver == nil, gold == nil {
+                return nil
+            }
         } catch {
             return nil
         }
