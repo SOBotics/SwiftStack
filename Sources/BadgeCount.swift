@@ -16,9 +16,9 @@ import Foundation
  - seealso: [StackExchage API](https://api.stackexchange.com/docs/types/badge-count)
  */
 public struct BadgeCount {
-    public var bronze: Int
-    public var silver: Int
-    public var gold: Int
+    public var bronze: Int?
+    public var silver: Int?
+    public var gold: Int?
     
     // - MARK: Initializers
     
@@ -38,5 +38,40 @@ public struct BadgeCount {
         self.bronze = bronze
         self.silver = silver
         self.gold = gold
+    }
+    
+    /**
+     Initializes the struct from a JSON-string.
+     
+     - author: FelixSFD
+     */
+    public init?(jsonString json: String) {
+        do {
+            guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
+                return nil
+            }
+            
+            self.bronze = dictionary["bronze"] as? Int
+            self.silver = dictionary["silver"] as? Int
+            self.gold = dictionary["gold"] as? Int
+            
+        } catch {
+            return nil
+        }
+    }
+    
+    /**
+     Initializes the struct from a `Dictionary<String: Any>`
+     
+     - author: FelixSFD
+     */
+    public init?(dictionary: [String: Any]) {
+        self.bronze = dictionary["bronze"] as? Int
+        self.silver = dictionary["silver"] as? Int
+        self.gold = dictionary["gold"] as? Int
+        
+        if bronze == nil, silver == nil, gold == nil {
+            return nil
+        }
     }
 }

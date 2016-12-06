@@ -94,15 +94,19 @@ public class User {
             guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
                 return nil
             }
-            
-            print(dictionary)
-            
+                        
             self.about_me = dictionary["about_me"] as? String
             self.accept_rate = dictionary["accept_rate"] as? Int
             self.account_id = dictionary["account_id"] as? Int
             self.age = dictionary["age"] as? Int
-            self.answer_count = dictionary["anser_count"] as? Int
-            //self.badge_counts = nil
+            self.answer_count = dictionary["answer_count"] as? Int
+            
+            if let badgeCounts = dictionary["badge_counts"] as? [String: Any] {
+                if let badges = BadgeCount(dictionary: badgeCounts) {
+                    self.badge_counts = badges
+                }
+            }
+            
             //self.creation_date = Date(timeIntervalSince1970: dictionary["creation_date"] as? Int)
             self.display_name = dictionary["display_name"] as? String
             self.down_vote_count = dictionary["down_vote_count"] as? Int
