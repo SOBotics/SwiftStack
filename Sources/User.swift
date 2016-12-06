@@ -15,7 +15,7 @@ import Foundation
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/user)
  */
-public class User {
+public class User: JsonConvertible, CustomStringConvertible {
     
     // - MARK: The user-type
     
@@ -89,76 +89,78 @@ public class User {
      
      - author: FelixSFD
      */
-    public init?(jsonString json: String) {
+    public convenience required init?(jsonString json: String) {
         do {
             guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
                 return nil
             }
-                        
-            self.about_me = dictionary["about_me"] as? String
-            self.accept_rate = dictionary["accept_rate"] as? Int
-            self.account_id = dictionary["account_id"] as? Int
-            self.age = dictionary["age"] as? Int
-            self.answer_count = dictionary["answer_count"] as? Int
             
-            if let badgeCounts = dictionary["badge_counts"] as? [String: Any] {
-                if let badges = BadgeCount(dictionary: badgeCounts) {
-                    self.badge_counts = badges
-                }
-            }
-            
-            if let creationTimestamp = dictionary["creation_date"] as? Double {
-                self.creation_date = Date(timeIntervalSince1970: creationTimestamp)
-            }
-            
-            self.display_name = dictionary["display_name"] as? String
-            self.down_vote_count = dictionary["down_vote_count"] as? Int
-            self.is_employee = dictionary["is_employee"] as? Bool
-            
-            if let lastAccessTimestamp = dictionary["last_access_date"] as? Double {
-                self.last_access_date = Date(timeIntervalSince1970: lastAccessTimestamp)
-            }
-            
-            if let lastModifiedTimestamp = dictionary["last_modified_date"] as? Double {
-                self.last_modified_date = Date(timeIntervalSince1970: lastModifiedTimestamp)
-            }
-            
-            if let urlString = dictionary["link"] as? String {
-                self.link = URL(string: urlString)
-            }
-            
-            self.location = dictionary["location"] as? String
-            
-            if let urlString = dictionary["profile_image"] as? String {
-                self.link = URL(string: urlString)
-            }
-            
-            self.question_count = dictionary["question_count"] as? Int
-            self.reputation = dictionary["reputation"] as? Int
-            self.reputation_change_day = dictionary["reputation_change_day"] as? Int
-            self.reputation_change_week = dictionary["reputation_change_week"] as? Int
-            self.reputation_change_month = dictionary["reputation_change_month"] as? Int
-            self.reputation_change_quarter = dictionary["reputation_change_quarter"] as? Int
-            self.reputation_change_year = dictionary["reputation_change_year"] as? Int
-            
-            if let timedPenaltyTimestamp = dictionary["timed_penalty_date"] as? Double {
-                self.timed_penalty_date = Date(timeIntervalSince1970: timedPenaltyTimestamp)
-            }
-            
-            self.up_vote_count = dictionary["up_vote_count"] as? Int
-            self.user_id = dictionary["user_id"] as? Int
-            
-            if let userTypeString = dictionary["user_type"] as? String {
-                self.user_type = UserType(rawValue: userTypeString)
-            }
-            
-            self.view_count = dictionary["view_count"] as? Int
-            self.website_url = dictionary["website_url"] as? String
-            
-            
+            self.init(dictionary: dictionary)
         } catch {
             return nil
         }
+    }
+    
+    public required init(dictionary: [String: Any]) {
+        self.about_me = dictionary["about_me"] as? String
+        self.accept_rate = dictionary["accept_rate"] as? Int
+        self.account_id = dictionary["account_id"] as? Int
+        self.age = dictionary["age"] as? Int
+        self.answer_count = dictionary["answer_count"] as? Int
+        
+        if let badgeCounts = dictionary["badge_counts"] as? [String: Any] {
+            if let badges = BadgeCount(dictionary: badgeCounts) {
+                self.badge_counts = badges
+            }
+        }
+        
+        if let creationTimestamp = dictionary["creation_date"] as? Double {
+            self.creation_date = Date(timeIntervalSince1970: creationTimestamp)
+        }
+        
+        self.display_name = dictionary["display_name"] as? String
+        self.down_vote_count = dictionary["down_vote_count"] as? Int
+        self.is_employee = dictionary["is_employee"] as? Bool
+        
+        if let lastAccessTimestamp = dictionary["last_access_date"] as? Double {
+            self.last_access_date = Date(timeIntervalSince1970: lastAccessTimestamp)
+        }
+        
+        if let lastModifiedTimestamp = dictionary["last_modified_date"] as? Double {
+            self.last_modified_date = Date(timeIntervalSince1970: lastModifiedTimestamp)
+        }
+        
+        if let urlString = dictionary["link"] as? String {
+            self.link = URL(string: urlString)
+        }
+        
+        self.location = dictionary["location"] as? String
+        
+        if let urlString = dictionary["profile_image"] as? String {
+            self.link = URL(string: urlString)
+        }
+        
+        self.question_count = dictionary["question_count"] as? Int
+        self.reputation = dictionary["reputation"] as? Int
+        self.reputation_change_day = dictionary["reputation_change_day"] as? Int
+        self.reputation_change_week = dictionary["reputation_change_week"] as? Int
+        self.reputation_change_month = dictionary["reputation_change_month"] as? Int
+        self.reputation_change_quarter = dictionary["reputation_change_quarter"] as? Int
+        self.reputation_change_year = dictionary["reputation_change_year"] as? Int
+        
+        if let timedPenaltyTimestamp = dictionary["timed_penalty_date"] as? Double {
+            self.timed_penalty_date = Date(timeIntervalSince1970: timedPenaltyTimestamp)
+        }
+        
+        self.up_vote_count = dictionary["up_vote_count"] as? Int
+        self.user_id = dictionary["user_id"] as? Int
+        
+        if let userTypeString = dictionary["user_type"] as? String {
+            self.user_type = UserType(rawValue: userTypeString)
+        }
+        
+        self.view_count = dictionary["view_count"] as? Int
+        self.website_url = dictionary["website_url"] as? String
     }
     
     /**
@@ -166,7 +168,59 @@ public class User {
      */
     public init() { }
     
+    // - MARK: JsonConvertible
     
+    public var dictionary: [String: Any] {
+        var dict = [String: Any]()
+        
+        dict["about_me"] = about_me
+        dict["accept_rate"] = accept_rate
+        dict["account_id"] = account_id
+        dict["age"] = age
+        dict["answer_count"] = answer_count
+        dict["badge_counts"] = badge_counts?.dictionary
+        dict["creation_date"] = creation_date
+        dict["display_name"] = display_name
+        dict["down_vote_count"] = down_vote_count
+        dict["is_employee"] = is_employee
+        dict["last_access_date"] = last_access_date
+        dict["last_modified_date"] = last_modified_date
+        dict["link"] = link
+        dict["location"] = location
+        dict["profile_image"] = profile_image
+        dict["question_count"] = question_count
+        dict["reputation"] = reputation
+        dict["reputation_change_day"] = reputation_change_day
+        dict["reputation_change_week"] = reputation_change_week
+        dict["reputation_change_month"] = reputation_change_month
+        dict["reputation_change_quarter"] = reputation_change_quarter
+        dict["reputation_change_year"] = reputation_change_year
+        dict["timed_penalty_date"] = timed_penalty_date
+        dict["up_vote_count"] = up_vote_count
+        dict["user_id"] = user_id
+        dict["user_type"] = user_type
+        dict["view_count"] = view_count
+        dict["website_url"] = website_url
+        
+        return dict
+    }
+    
+    public var jsonString: String? {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+            // TODO: Convert dates back to timestamp!
+            let string = String(data: data, encoding: .utf8)
+            return string
+        } catch {
+            return nil
+        }
+    }
+    
+    // - MARK: CustomStrinConvertible
+    
+    public var description: String {
+        return "\(dictionary)"
+    }
     
     // - MARK: Values returned from API
     
