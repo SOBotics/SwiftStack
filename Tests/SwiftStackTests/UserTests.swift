@@ -22,6 +22,11 @@ class UserTests: XCTestCase {
         
         let user = User(jsonString: json)
         print(user)
+        
+        if user?.jsonString == nil {
+            XCTFail("User could not be represented as JSON!")
+        }
+        
         XCTAssertNotNil(user)
     }
     
