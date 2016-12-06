@@ -107,15 +107,32 @@ public class User {
                 }
             }
             
-            //self.creation_date = Date(timeIntervalSince1970: dictionary["creation_date"] as? Int)
+            if let creationTimestamp = dictionary["creation_date"] as? Double {
+                self.creation_date = Date(timeIntervalSince1970: creationTimestamp)
+            }
+            
             self.display_name = dictionary["display_name"] as? String
             self.down_vote_count = dictionary["down_vote_count"] as? Int
             self.is_employee = dictionary["is_employee"] as? Bool
-            //self.last_access_date = nil
-            //self.last_modified_date = nil
-            //self.link = nil
+            
+            if let lastAccessTimestamp = dictionary["last_access_date"] as? Double {
+                self.last_access_date = Date(timeIntervalSince1970: lastAccessTimestamp)
+            }
+            
+            if let lastModifiedTimestamp = dictionary["last_modified_date"] as? Double {
+                self.last_modified_date = Date(timeIntervalSince1970: lastModifiedTimestamp)
+            }
+            
+            if let urlString = dictionary["link"] as? String {
+                self.link = URL(string: urlString)
+            }
+            
             self.location = dictionary["location"] as? String
-            //self.profile_image = nil
+            
+            if let urlString = dictionary["profile_image"] as? String {
+                self.link = URL(string: urlString)
+            }
+            
             self.question_count = dictionary["question_count"] as? Int
             self.reputation = dictionary["reputation"] as? Int
             self.reputation_change_day = dictionary["reputation_change_day"] as? Int
@@ -123,10 +140,18 @@ public class User {
             self.reputation_change_month = dictionary["reputation_change_month"] as? Int
             self.reputation_change_quarter = dictionary["reputation_change_quarter"] as? Int
             self.reputation_change_year = dictionary["reputation_change_year"] as? Int
-            //self.timed_penalty_date = nil
+            
+            if let timedPenaltyTimestamp = dictionary["timed_penalty_date"] as? Double {
+                self.timed_penalty_date = Date(timeIntervalSince1970: timedPenaltyTimestamp)
+            }
+            
             self.up_vote_count = dictionary["up_vote_count"] as? Int
             self.user_id = dictionary["user_id"] as? Int
-            //self.user_type = UserType(rawValue: dictionary["user_type"] as? String)
+            
+            if let userTypeString = dictionary["user_type"] as? String {
+                self.user_type = UserType(rawValue: userTypeString)
+            }
+            
             self.view_count = dictionary["view_count"] as? Int
             self.website_url = dictionary["website_url"] as? String
             
@@ -195,7 +220,7 @@ public class User {
     
     public var user_id: Int?
     
-    public var user_type: UserType = .doesNotExist
+    public var user_type: UserType?
     
     public var view_count: Int?
     
