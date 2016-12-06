@@ -198,7 +198,7 @@ public class User: JsonConvertible, CustomStringConvertible {
         dict["timed_penalty_date"] = timed_penalty_date
         dict["up_vote_count"] = up_vote_count
         dict["user_id"] = user_id
-        dict["user_type"] = user_type
+        dict["user_type"] = user_type?.rawValue
         dict["view_count"] = view_count
         dict["website_url"] = website_url
         
