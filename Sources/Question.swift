@@ -8,6 +8,13 @@
 
 import Foundation
 
+/**
+ This class represents a question with all fields, the API can return.
+ 
+ - author: FelixSFD
+ 
+ - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/question)
+ */
 public class Question: Post {
     
     // - MARK: Closed details
