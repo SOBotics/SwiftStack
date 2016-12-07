@@ -11,6 +11,10 @@ import Foundation
 public class Question: Post {
     
     
+    // - MARK: Initializers
+    
+    
+    
     // - MARK: Properties returned from API
     
     public var accepted_answer_id: Int?

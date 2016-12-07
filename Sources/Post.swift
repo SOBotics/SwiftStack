@@ -38,6 +38,27 @@ public class Post {
         
     }
     
+    public init(dictionary: [String: Any]) {
+        self.body = dictionary["body"] as? String
+        self.body_markdown = dictionary["body_markdown"] as? String
+        self.comment_count = dictionary["comment_count"] as? Int
+        //self.comments = nil
+        self.down_vote_count = dictionary["down_vote_count"] as? Int
+        self.downvoted = dictionary["downvoted"] as? Bool
+        //self.last_activity_date = nil
+        //self.last_edit_date = nil
+        //self.last_editor = nil
+        //self.link = nil
+        //self.owner = nil
+        self.post_id = dictionary["post_id"] as? Int
+        //self.post_type = nil
+        self.score = dictionary["score"] as? Int
+        //self.share_link = nil
+        self.title = dictionary["title"] as? String
+        self.up_vote_count = dictionary["up_vote_count"] as? Int
+        self.upvoted = dictionary["upvoted"] as? Bool
+    }
+    
     
     // - MARK: Properties returned from API
     
