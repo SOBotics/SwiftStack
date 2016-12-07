@@ -85,7 +85,8 @@ public class Question: Post {
         
         self.question_id = dictionary["question_id"] as? Int
         self.reopen_vote_count = dictionary["reopen_vote_count"] as? Int
-        //self.tags = nil
+        self.tags = dictionary["tags"] as? [String]
+        
         self.view_count = dictionary["view_count"] as? Int
     }
     
