@@ -38,7 +38,26 @@ public class Post {
         
     }
     
-    public init(dictionary: [String: Any]) {
+    /**
+     Initializes the object from a JSON string.
+     
+     - parameter json: The JSON string returned by the API
+     
+     - author: FelixSFD
+     */
+    public required convenience init?(jsonString json: String) {
+        do {
+            guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
+                return nil
+            }
+            
+            self.init(dictionary: dictionary)
+        } catch {
+            return nil
+        }
+    }
+    
+    public required init(dictionary: [String: Any]) {
         self.body = dictionary["body"] as? String
         self.body_markdown = dictionary["body_markdown"] as? String
         self.comment_count = dictionary["comment_count"] as? Int

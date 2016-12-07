@@ -2,7 +2,7 @@
 //  Question.swift
 //  SwiftStack
 //
-//  Created by Felix Deil on 06.12.16.
+//  Created by FelixSFD on 06.12.16.
 //
 //
 
@@ -13,7 +13,26 @@ public class Question: Post {
     
     // - MARK: Initializers
     
-    public override init(dictionary: [String: Any]) {
+    /**
+     Initializes the object from a JSON string.
+     
+     - parameter json: The JSON string returned by the API
+     
+     - author: FelixSFD
+     */
+    public required convenience init?(jsonString json: String) {
+        do {
+            guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
+                return nil
+            }
+            
+            self.init(dictionary: dictionary)
+        } catch {
+            return nil
+        }
+    }
+    
+    public required init(dictionary: [String: Any]) {
         super.init(dictionary: dictionary)
         
         //only set the new properties here. The rest is managed by the superclass
@@ -69,6 +88,8 @@ public class Question: Post {
         //self.tags = nil
         self.view_count = dictionary["view_count"] as? Int
     }
+    
+    
     
     // - MARK: Properties returned from API
     
