@@ -10,6 +10,60 @@ import Foundation
 
 public class Question: Post {
     
+    // - MARK: Closed details
+    
+    /**
+     This type represents details about a question closure.
+     
+     - author: FelixSFD
+     */
+    public struct ClosedDetails {
+        
+        // - MARK: Initializers
+        
+        public init?(jsonString json: String) {
+            do {
+                guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
+                    return nil
+                }
+                
+                self.init(dictionary: dictionary)
+            } catch {
+                return nil
+            }
+        }
+        
+        public init(dictionary: [String: Any]) {
+            //self.by_users = nil
+            self.description = dictionary["description"] as? String
+            self.on_hold = dictionary["on_hold"] as? Bool
+            
+            if let questionsArray = dictionary["original_questions"] as? [[String: Any]] {
+                var questionsTmp = [Question]()
+                
+                for question in questionsArray {
+                    let questionTmp = Question(dictionary: question)
+                    questionsTmp.append(questionTmp)
+                }
+            }
+            
+            self.reason = dictionary["reason"] as? String
+        }
+        
+        // - MARK: Fields
+        
+        //NOTE: Wait for PR #1
+        public var by_users: [Any]?
+        
+        public var description: String?
+        
+        public var on_hold: Bool?
+        
+        public var original_questions: [Question]?
+        
+        public var reason: String?
+    }
+    
     
     // - MARK: Initializers
     
@@ -55,7 +109,11 @@ public class Question: Post {
             self.closed_date = Date(timeIntervalSince1970: timestamp)
         }
         
-        //self.closed_details = nil
+        if let closedDetailsDict = dictionary["closed_details"] as? [String: Any] {
+            self.closed_details = ClosedDetails(dictionary: closedDetailsDict)
+        }
+        
+        
         self.closed_reason = dictionary["closed_reason"] as? String
         
         if let timestamp = dictionary["community_owned_date"] as? Double {
@@ -120,7 +178,7 @@ public class Question: Post {
     public var closed_date: Date?
     
     //NOTE: closed_Details
-    public var closed_details: Any?
+    public var closed_details: ClosedDetails?
     
     public var closed_reason: String?
     
