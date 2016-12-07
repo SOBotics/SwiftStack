@@ -29,6 +29,43 @@ public class Post {
         case question = "question"
     }
     
+    // - MARK: Post.Notice
+    
+    /**
+     Represents a notice on a post.
+     
+     - author: FelixSFD
+     */
+    public struct Notice {
+        
+        public init?(jsonString json: String) {
+            do {
+                guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
+                    return nil
+                }
+                
+                self.init(dictionary: dictionary)
+            } catch {
+                return nil
+            }
+        }
+        
+        public init(dictionary: [String: Any]) {
+            self.body = dictionary["body"] as? String
+            
+            if let timestamp = dictionary["creation_date"] as? Double {
+                self.creation_date = Date(timeIntervalSince1970: timestamp)
+            }
+            
+            self.owner_user_id = dictionary["owner_user_id"] as? Int
+        }
+        
+        
+        public var body: String?
+        public var creation_date: Date?
+        public var owner_user_id: Int?
+    }
+    
     // - MARK: Initializers
     
     /**

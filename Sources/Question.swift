@@ -77,7 +77,10 @@ public class Question: Post {
         
         //self.migrated_from = nil
         //self.migrated_to = nil
-        //self.notice = nil
+        
+        if let noticeArray = dictionary["notice"] as? [String: Any] {
+            self.notice = Notice(dictionary: noticeArray)
+        }
         
         if let timestamp = dictionary["protected_date"] as? Double {
             self.protected_date = Date(timeIntervalSince1970: timestamp)
@@ -140,8 +143,7 @@ public class Question: Post {
     
     public var migrated_to: Any?
     
-    //NOTE: notice object
-    public var notice: Any?
+    public var notice: Notice?
     
     public var protected_date: Date?
     
