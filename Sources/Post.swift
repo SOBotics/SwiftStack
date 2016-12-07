@@ -45,15 +45,34 @@ public class Post {
         //self.comments = nil
         self.down_vote_count = dictionary["down_vote_count"] as? Int
         self.downvoted = dictionary["downvoted"] as? Bool
-        //self.last_activity_date = nil
-        //self.last_edit_date = nil
+        
+        if let timestamp = dictionary["last_activity_date"] as? Double {
+            self.last_activity_date = Date(timeIntervalSince1970: timestamp)
+        }
+        
+        if let timestamp = dictionary["last_edit_date"] as? Double {
+            self.last_edit_date = Date(timeIntervalSince1970: timestamp)
+        }
+        
         //self.last_editor = nil
-        //self.link = nil
+        
+        if let urlString = dictionary["link"] as? String {
+            self.link = URL(string: urlString)
+        }
+        
         //self.owner = nil
         self.post_id = dictionary["post_id"] as? Int
-        //self.post_type = nil
+        
+        if let type = dictionary["post_type"] as? String {
+            self.post_type = PostType(rawValue: type)
+        }
+                
         self.score = dictionary["score"] as? Int
-        //self.share_link = nil
+        
+        if let urlString = dictionary["share_link"] as? String {
+            self.share_link = URL(string: urlString)
+        }
+        
         self.title = dictionary["title"] as? String
         self.up_vote_count = dictionary["up_vote_count"] as? Int
         self.upvoted = dictionary["upvoted"] as? Bool
