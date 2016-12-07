@@ -98,7 +98,16 @@ public class Post {
         self.body = dictionary["body"] as? String
         self.body_markdown = dictionary["body_markdown"] as? String
         self.comment_count = dictionary["comment_count"] as? Int
-        //self.comments = nil
+        
+        if let commentsArray = dictionary["comments"] as? [[String: Any]] {
+            var commentsTmp = [Comment]()
+            
+            for commentDictionary in commentsArray {
+                let commentTmp = Comment(dictionary: commentDictionary)
+                commentsTmp.append(commentTmp)
+            }
+        }
+        
         self.down_vote_count = dictionary["down_vote_count"] as? Int
         self.downvoted = dictionary["downvoted"] as? Bool
         
@@ -143,8 +152,7 @@ public class Post {
     
     public var comment_count: Int?
     
-    //NOTE: Add comment class
-    public var comments: [Any]?
+    public var comments: [Comment]?
     
     public var down_vote_count: Int?
     
