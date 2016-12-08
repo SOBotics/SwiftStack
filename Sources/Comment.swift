@@ -88,30 +88,7 @@ public class Comment: JsonConvertible {
     }
     
     public var jsonString: String? {
-        //convert objects back to their original type as returned by the API
-        var tmpDictionary = dictionary
-        for key in tmpDictionary.keys {
-            
-            //Date to timestamp
-            if tmpDictionary[key] is Date {
-                tmpDictionary[key] = (tmpDictionary[key] as? Date)?.timeIntervalSince1970
-            }
-            
-            //URL to String
-            if tmpDictionary[key] is URL {
-                tmpDictionary[key] = (tmpDictionary[key] as? URL)?.absoluteString
-            }
-        }
-        
-        
-        do {
-            let data = try JSONSerialization.data(withJSONObject: tmpDictionary, options: .prettyPrinted)
-            
-            let string = String(data: data, encoding: .utf8)
-            return string
-        } catch {
-            return nil
-        }
+        return (try? JsonHelper.jsonString(from: self)) ?? nil
     }
     
     

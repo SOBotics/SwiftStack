@@ -42,6 +42,14 @@ public struct JsonHelper {
                 dict[key] = JsonHelper.encode(object: dict[key] as! DictionaryConvertible)
             }
             
+            if dict[key] is EncodedArray {
+                dict[key] = JsonHelper.encode(object: dict[key] as! EncodedArray)
+            }
+            
+            if dict[key] is EncodedDictionary {
+                dict[key] = JsonHelper.encode(object: dict[key] as! EncodedDictionary)
+            }
+            
             if dict[key] is StringRepresentable {
                 dict[key] = JsonHelper.encode(object: dict[key] as! StringRepresentable)
             }
@@ -70,6 +78,14 @@ public struct JsonHelper {
             
             if array[index] is DictionaryConvertible {
                 array[index] = JsonHelper.encode(object: item as! DictionaryConvertible)
+            }
+            
+            if array[index] is EncodedArray {
+                array[index] = JsonHelper.encode(object: item as! EncodedArray)
+            }
+            
+            if array[index] is EncodedDictionary {
+                array[index] = JsonHelper.encode(object: item as! EncodedDictionary)
             }
             
             if array[index] is StringRepresentable {

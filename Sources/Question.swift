@@ -24,7 +24,7 @@ public class Question: Post {
      
      - author: FelixSFD
      */
-    public struct ClosedDetails {
+    public struct ClosedDetails: JsonConvertible {
         
         // - MARK: Initializers
         
@@ -55,6 +55,24 @@ public class Question: Post {
             }
             
             self.reason = dictionary["reason"] as? String
+        }
+        
+        // - MARK: JsonConvertible
+        
+        public var dictionary: [String: Any] {
+            var dict = [String: Any]()
+            
+            dict["by_users"] = by_users
+            dict["description"] = description
+            dict["on_hold"] = on_hold
+            dict["original_questions"] = original_questions
+            dict["reason"] = reason
+            
+            return dict
+        }
+        
+        public var jsonString: String? {
+            return (try? JsonHelper.jsonString(from: self)) ?? nil
         }
         
         // - MARK: Fields
