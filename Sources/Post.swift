@@ -15,7 +15,7 @@ import Foundation
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/post)
  */
-public class Post {
+public class Post: JsonConvertible, CustomStringConvertible {
     
     // - MARK: The type of the post
     
@@ -36,7 +36,7 @@ public class Post {
      
      - author: FelixSFD
      */
-    public struct Notice {
+    public struct Notice: JsonConvertible {
         
         public init?(jsonString json: String) {
             do {
@@ -58,6 +58,38 @@ public class Post {
             }
             
             self.owner_user_id = dictionary["owner_user_id"] as? Int
+        }
+        
+        public var dictionary: [String: Any] {
+            var dict = [String: Any]()
+            
+            dict["body"] = body
+            dict["creation_date"] = creation_date
+            dict["owner_user_id"] = owner_user_id
+            
+            return dict
+        }
+        
+        public var jsonString: String? {
+            //convert objects back to their original type as returned by the API
+            var tmpDictionary = dictionary
+            for key in tmpDictionary.keys {
+                
+                //Date to timestamp
+                if tmpDictionary[key] is Date {
+                    tmpDictionary[key] = (tmpDictionary[key] as? Date)?.timeIntervalSince1970
+                }
+            }
+            
+            
+            do {
+                let data = try JSONSerialization.data(withJSONObject: tmpDictionary, options: .prettyPrinted)
+                
+                let string = String(data: data, encoding: .utf8)
+                return string
+            } catch {
+                return nil
+            }
         }
         
         
@@ -119,13 +151,18 @@ public class Post {
             self.last_edit_date = Date(timeIntervalSince1970: timestamp)
         }
         
-        //self.last_editor = nil
+        if let user = dictionary["last_editor"] as? [String: Any] {
+            self.last_editor = User(dictionary: user)
+        }
         
         if let urlString = dictionary["link"] as? String {
             self.link = URL(string: urlString)
         }
         
-        //self.owner = nil
+        if let user = dictionary["owner"] as? [String: Any] {
+            self.owner = User(dictionary: user)
+        }
+        
         self.post_id = dictionary["post_id"] as? Int
         
         if let type = dictionary["post_type"] as? String {
@@ -141,6 +178,68 @@ public class Post {
         self.title = dictionary["title"] as? String
         self.up_vote_count = dictionary["up_vote_count"] as? Int
         self.upvoted = dictionary["upvoted"] as? Bool
+    }
+    
+    
+    // - MARK: JsonConvertible
+    
+    public var dictionary: [String: Any] {
+        var dict = [String: Any]()
+        
+        dict["body"] = body
+        dict["body_markdown"] = body_markdown
+        dict["comment_count"] = comment_count
+        dict["comments"] = comments
+        dict["down_vote_count"] = down_vote_count
+        dict["downvoted"] = downvoted
+        dict["down_vote_count"] = down_vote_count
+        dict["last_activity_date"] = last_activity_date
+        dict["last_edit_date"] = last_edit_date
+        dict["last_editor"] = last_editor?.dictionary
+        dict["link"] = link
+        dict["owner"] = owner?.dictionary
+        dict["post_id"] = post_id
+        dict["post_type"] = post_type
+        dict["score"] = score
+        dict["share_link"] = share_link
+        dict["title"] = title
+        dict["up_vote_count"] = up_vote_count
+        dict["upvoted"] = upvoted
+        
+        return dict
+    }
+    
+    public var jsonString: String? {
+        //convert objects back to their original type as returned by the API
+        var tmpDictionary = dictionary
+        for key in tmpDictionary.keys {
+            
+            //Date to timestamp
+            if tmpDictionary[key] is Date {
+                tmpDictionary[key] = (tmpDictionary[key] as? Date)?.timeIntervalSince1970
+            }
+            
+            //URL to String
+            if tmpDictionary[key] is URL {
+                tmpDictionary[key] = (tmpDictionary[key] as? URL)?.absoluteString
+            }
+        }
+        
+        
+        do {
+            let data = try JSONSerialization.data(withJSONObject: tmpDictionary, options: .prettyPrinted)
+            
+            let string = String(data: data, encoding: .utf8)
+            return string
+        } catch {
+            return nil
+        }
+    }
+    
+    // - MARK: CustomStrinConvertible
+    
+    public var description: String {
+        return "\(dictionary)"
     }
     
     
@@ -162,13 +261,11 @@ public class Post {
     
     public var last_edit_date: Date?
     
-    //NOTE: wait for pull reuqest #1
-    public var last_editor: Any?
+    public var last_editor: User?
     
     public var link: URL?
     
-    //NOTE: see above
-    public var owner: Any?
+    public var owner: User?
     
     public var post_id: Int?
     

@@ -59,8 +59,7 @@ public class Question: Post {
         
         // - MARK: Fields
         
-        //NOTE: Wait for PR #1
-        public var by_users: [Any]?
+        public var by_users: [User]?
         
         public var description: String?
         
@@ -159,6 +158,41 @@ public class Question: Post {
     }
     
     
+    // - MARK: JsonConvertible
+    
+    public override var dictionary: [String: Any] {
+        var dict = super.dictionary
+        
+        dict["accepted_answer_id"] = accepted_answer_id
+        dict["answer_count"] = answer_count
+        //answers
+        dict["bounty_amount"] = bounty_amount
+        dict["bounty_user"] = bounty_user?.dictionary
+        dict["can_close"] = can_close
+        dict["can_flag"] = can_flag
+        dict["close_vote_count"] = close_vote_count
+        dict["closed_date"] = closed_date
+        //closed details
+        dict["closed_reason"] = closed_reason
+        dict["community_owned_date"] = community_owned_date
+        dict["creation_date"] = creation_date
+        dict["delete_vote_count"] = delete_vote_count
+        dict["favorite_count"] = favorite_count
+        dict["favorited"] = favorited
+        dict["is_answered"] = is_answered
+        dict["locked_date"] = locked_date
+        //migrated from & to
+        //notice
+        dict["protected_date"] = protected_date
+        dict["question_id"] = question_id
+        dict["reopen_vote_count"] = reopen_vote_count
+        dict["tags"] = tags
+        dict["view_count"] = view_count
+        
+        return dict
+    }
+    
+    
     
     // - MARK: Properties returned from API
     
@@ -173,8 +207,7 @@ public class Question: Post {
     
     public var bounty_closes_date: Date?
     
-    //NOTE: Wait for PR #1
-    public var bounty_user: Any?
+    public var bounty_user: User?
     
     public var can_close: Bool?
     
@@ -184,7 +217,6 @@ public class Question: Post {
     
     public var closed_date: Date?
     
-    //NOTE: closed_Details
     public var closed_details: ClosedDetails?
     
     public var closed_reason: String?

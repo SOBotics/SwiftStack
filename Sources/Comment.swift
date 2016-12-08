@@ -15,7 +15,7 @@ import Foundation
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/comment)
  */
-public class Comment {
+public class Comment: JsonConvertible {
     
     // - MARK: Initializers
     
@@ -47,16 +47,71 @@ public class Comment {
             self.link = URL(string: urlString)
         }
         
-        //self.owner = nil
+        if let user = dictionary["owner"] as? [String: Any] {
+            self.owner = User(dictionary: user)
+        }
+        
         self.post_id = dictionary["post_id"] as? Int
         
         if let postTypeRaw = dictionary["post_type"] as? String {
             self.post_type = Post.PostType(rawValue: postTypeRaw)
         }
         
-        //self.reply_to_user = nil
+        if let user = dictionary["reply_to_user"] as? [String: Any] {
+            self.reply_to_user = User(dictionary: user)
+        }
+        
         self.score = dictionary["score"] as? Int
         self.upvoted = dictionary["upvoted"] as? Bool
+    }
+    
+    // - MARK: JsonConvertible
+    
+    public var dictionary: [String: Any] {
+        var dict = [String: Any]()
+        
+        dict["body"] = body
+        dict["body_markdown"] = body_markdown
+        dict["can_flag"] = can_flag
+        dict["comment_id"] = comment_id
+        dict["creation_date"] = creation_date
+        dict["edited"] = edited
+        dict["link"] = link
+        dict["owner"] = owner?.dictionary
+        dict["post_id"] = post_id
+        dict["post_type"] = post_type
+        dict["reply_to_user"] = reply_to_user?.dictionary
+        dict["score"] = score
+        dict["upvoted"] = upvoted
+        
+        return dict
+    }
+    
+    public var jsonString: String? {
+        //convert objects back to their original type as returned by the API
+        var tmpDictionary = dictionary
+        for key in tmpDictionary.keys {
+            
+            //Date to timestamp
+            if tmpDictionary[key] is Date {
+                tmpDictionary[key] = (tmpDictionary[key] as? Date)?.timeIntervalSince1970
+            }
+            
+            //URL to String
+            if tmpDictionary[key] is URL {
+                tmpDictionary[key] = (tmpDictionary[key] as? URL)?.absoluteString
+            }
+        }
+        
+        
+        do {
+            let data = try JSONSerialization.data(withJSONObject: tmpDictionary, options: .prettyPrinted)
+            
+            let string = String(data: data, encoding: .utf8)
+            return string
+        } catch {
+            return nil
+        }
     }
     
     
@@ -76,15 +131,13 @@ public class Comment {
     
     public var link: URL?
     
-    //NOTE: wait for PR#1
-    public var owner: Any?
+    public var owner: User?
     
     public var post_id: Int?
     
     public var post_type: Post.PostType?
     
-    //NOTE: PR #1
-    public var reply_to_user: Any?
+    public var reply_to_user: User?
     
     public var score: Int?
     
