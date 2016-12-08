@@ -169,9 +169,9 @@ public struct JsonHelper {
     public static func jsonString(from object: DictionaryConvertible) throws -> String? {
         let encoded = JsonHelper.encode(object: object)
         let data = try JSONSerialization.data(withJSONObject: encoded, options: .prettyPrinted)
-            
+        
         let string = String(data: data, encoding: .utf8)
-            
+        
         return string
     }
     
