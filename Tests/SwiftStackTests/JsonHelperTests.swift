@@ -21,9 +21,9 @@ class JsonHelperTests: XCTestCase {
         print(encoded)
         XCTAssertNotNil(encoded)*/
         
-        let jsonUser = user?.jsonString
-        print(jsonUser)
-        XCTAssertNotNil(jsonUser)
+		let jsonUser = user?.jsonString
+		print(jsonUser ?? "nil")
+		XCTAssertNotNil(jsonUser)
     }
     
 }
