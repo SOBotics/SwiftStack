@@ -455,6 +455,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		
 		task.completion(task.data, task.response, task.error)
 		
+		
 		tasks[sessionTask] = nil
 	}
 	
@@ -472,5 +473,11 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		}
 		
 		completionHandler(request)
+	}
+	
+	
+	
+	deinit {
+		session.invalidateAndCancel()
 	}
 }
