@@ -31,14 +31,7 @@ public struct BadgeCount: JsonConvertible, CustomStringConvertible {
     }
     
     public var jsonString: String? {
-        do {
-            let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
-            
-            let string = String(data: data, encoding: .utf8)
-            return string
-        } catch {
-            return nil
-        }
+        return (try? JsonHelper.jsonString(from: self)) ?? nil
     }
     
     public var description: String {
