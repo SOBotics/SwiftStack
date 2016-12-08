@@ -185,4 +185,29 @@ public struct JsonHelper {
     }
     
     
+    // - MARK: Decode JSON-String
+    
+    /**
+     Decodes a given JSON-string
+     
+     - note: Unlike the `jsonString(from:)` method, this will not convert the String to custom objects. You will have to use their initializers.
+     
+     - note: Try to avoid this method. It's easier to use the JSON-initializer of `JsonConvertible` objects.
+     
+     - parameter json: The JSON-string
+     
+     - returns: An object or `nil`, if the decoding failed.
+     
+     - author: FelixSFD
+     */
+    public static func decode(jsonString json: String) -> Any? {
+        do {
+            return try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments)
+        } catch {
+            //ERROR
+            return nil
+        }
+    }
+    
+    
 }
