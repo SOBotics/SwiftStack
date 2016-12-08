@@ -52,7 +52,7 @@ public class User: JsonConvertible, CustomStringConvertible {
      
      - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/user)
      */
-    public enum UserType: String {
+    public enum UserType: String, StringRepresentable {
         case unregistered = "unregistered"
         case registered = "registered"
         case moderator = "moderator"
@@ -198,7 +198,7 @@ public class User: JsonConvertible, CustomStringConvertible {
         dict["timed_penalty_date"] = timed_penalty_date
         dict["up_vote_count"] = up_vote_count
         dict["user_id"] = user_id
-        dict["user_type"] = user_type?.rawValue
+        dict["user_type"] = user_type
         dict["view_count"] = view_count
         dict["website_url"] = website_url
         
@@ -206,30 +206,7 @@ public class User: JsonConvertible, CustomStringConvertible {
     }
     
     public var jsonString: String? {
-        //convert objects back to their original type as returned by the API
-        var tmpDictionary = dictionary
-        for key in tmpDictionary.keys {
-            
-            //Date to timestamp
-            if tmpDictionary[key] is Date {
-                tmpDictionary[key] = (tmpDictionary[key] as? Date)?.timeIntervalSince1970
-            }
-            
-            //URL to String
-            if tmpDictionary[key] is URL {
-                tmpDictionary[key] = (tmpDictionary[key] as? URL)?.absoluteString
-            }
-        }
-        
-        
-        do {
-            let data = try JSONSerialization.data(withJSONObject: tmpDictionary, options: .prettyPrinted)
-            
-            let string = String(data: data, encoding: .utf8)
-            return string
-        } catch {
-            return nil
-        }
+        return JsonHelper.jsonString(from: self)
     }
     
     // - MARK: CustomStrinConvertible
