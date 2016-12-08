@@ -120,22 +120,19 @@ public struct JsonHelper {
      
      - parameter dictionary: The dictionary to encode
      
-     - returns: The JSON-string or `nil` if an error occurred
+     - returns: The JSON-string
+     
+     - throws: An error if the decoding failed
      
      - author: FelixSFD
      */
-    public static func jsonString(from dictionary: [String: Any]) -> String? {
-        do {
-            let encoded = JsonHelper.encode(object: dictionary)
-            let data = try JSONSerialization.data(withJSONObject: encoded, options: .prettyPrinted)
-            
-            let string = String(data: data, encoding: .utf8)
-            
-            return string
-        } catch {
-            //ERROR
-            return nil
-        }
+    public static func jsonString(from dictionary: [String: Any]) throws -> String? {
+        let encoded = JsonHelper.encode(object: dictionary)
+        let data = try JSONSerialization.data(withJSONObject: encoded, options: .prettyPrinted)
+        
+        let string = String(data: data, encoding: .utf8)
+        
+        return string
     }
     
     /**
@@ -143,22 +140,19 @@ public struct JsonHelper {
      
      - parameter array: The array to encode
      
-     - returns: The JSON-string or `nil` if an error occurred
+     - returns: The JSON-string
+     
+     - throws: An error if the decoding failed
      
      - author: FelixSFD
      */
-    public static func jsonString(from array: [Any]) -> String? {
-        do {
-            let encoded = JsonHelper.encode(object: array)
-            let data = try JSONSerialization.data(withJSONObject: encoded, options: .prettyPrinted)
-            
-            let string = String(data: data, encoding: .utf8)
-            
-            return string
-        } catch {
-            //ERROR
-            return nil
-        }
+    public static func jsonString(from array: [Any]) throws -> String? {
+        let encoded = JsonHelper.encode(object: array)
+        let data = try JSONSerialization.data(withJSONObject: encoded, options: .prettyPrinted)
+        
+        let string = String(data: data, encoding: .utf8)
+        
+        return string
     }
     
     /**
@@ -166,22 +160,19 @@ public struct JsonHelper {
      
      - parameter object: The object to encode
      
-     - returns: The JSON-string or `nil` if an error occurred
+     - returns: The JSON-string
+     
+     - throws: An error if the decoding failed
      
      - author: FelixSFD
      */
-    public static func jsonString(from object: DictionaryConvertible) -> String? {
-        do {
-            let encoded = JsonHelper.encode(object: object)
-            let data = try JSONSerialization.data(withJSONObject: encoded, options: .prettyPrinted)
-            
-            let string = String(data: data, encoding: .utf8)
-            
-            return string
-        } catch {
-            //ERROR
-            return nil
-        }
+    public static func jsonString(from object: DictionaryConvertible) throws -> String? {
+        let encoded = JsonHelper.encode(object: object)
+        let data = try JSONSerialization.data(withJSONObject: encoded, options: .prettyPrinted)
+        
+        let string = String(data: data, encoding: .utf8)
+        
+        return string
     }
     
     
@@ -196,17 +187,14 @@ public struct JsonHelper {
      
      - parameter json: The JSON-string
      
-     - returns: An object or `nil`, if the decoding failed.
+     - returns: The decoded object
+     
+     - throws: An error if the decoding failed
      
      - author: FelixSFD
      */
-    public static func decode(jsonString json: String) -> Any? {
-        do {
-            return try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments)
-        } catch {
-            //ERROR
-            return nil
-        }
+    public static func decode(jsonString json: String) throws -> Any {
+        return try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments)
     }
     
     

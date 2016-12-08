@@ -31,7 +31,7 @@ public struct BadgeCount: JsonConvertible, CustomStringConvertible {
     }
     
     public var jsonString: String? {
-        return JsonHelper.jsonString(from: self)
+        return (try? JsonHelper.jsonString(from: self)) ?? nil
     }
     
     public var description: String {
