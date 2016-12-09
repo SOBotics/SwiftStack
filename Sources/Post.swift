@@ -171,7 +171,16 @@ public class Post: JsonConvertible, CustomStringConvertible {
         dict["body"] = body
         dict["body_markdown"] = body_markdown
         dict["comment_count"] = comment_count
-        dict["comments"] = comments
+        
+        if comments != nil && (comments?.count)! > 0 {
+            var tmpComments = [[String: Any]]()
+            for comment in comments! {
+                tmpComments.append(comment.dictionary)
+            }
+            
+            dict["comments"] = tmpComments
+        }
+        
         dict["down_vote_count"] = down_vote_count
         dict["downvoted"] = downvoted
         dict["down_vote_count"] = down_vote_count
