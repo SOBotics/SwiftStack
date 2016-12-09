@@ -124,7 +124,10 @@ public class Question: Post {
             self.bounty_closes_date = Date(timeIntervalSince1970: timestamp)
         }
         
-        //self.bounty_user = nil
+        if let user = dictionary["bounty_user"] as? [String: Any] {
+            self.bounty_user = User(dictionary: user)
+        }
+        
         self.can_close = dictionary["can_close"] as? Bool
         self.can_flag = dictionary["can_flag"] as? Bool
         self.close_vote_count = dictionary["close_vote_count"] as? Int
@@ -190,7 +193,7 @@ public class Question: Post {
         dict["can_flag"] = can_flag
         dict["close_vote_count"] = close_vote_count
         dict["closed_date"] = closed_date
-        //closed details
+        dict["closed_details"] = closed_details?.dictionary
         dict["closed_reason"] = closed_reason
         dict["community_owned_date"] = community_owned_date
         dict["creation_date"] = creation_date
@@ -200,7 +203,7 @@ public class Question: Post {
         dict["is_answered"] = is_answered
         dict["locked_date"] = locked_date
         //migrated from & to
-        //notice
+        dict["notice"] = notice?.dictionary
         dict["protected_date"] = protected_date
         dict["question_id"] = question_id
         dict["reopen_vote_count"] = reopen_vote_count
