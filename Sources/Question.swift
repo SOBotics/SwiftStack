@@ -117,7 +117,20 @@ public class Question: Post {
         
         self.accepted_answer_id = dictionary["accepted_answer_id"] as? Int
         self.answer_count = dictionary["answer_count"] as? Int
-        //self.answers = nil
+        
+        if let answers = dictionary["answers"] as? [[String: Any]] {
+            var tmpAnswers = [Answer]()
+            
+            for answer in answers {
+                let tmpAnswer = Answer(dictionary: answer)
+                tmpAnswers.append(tmpAnswer)
+            }
+            
+            if tmpAnswers.count > 0 {
+                self.answers = tmpAnswers
+            }
+        }
+        
         self.bounty_amount = dictionary["bounty_amount"] as? Int
         
         if let timestamp = dictionary["bounty_closes_date"] as? Double {
@@ -186,7 +199,16 @@ public class Question: Post {
         
         dict["accepted_answer_id"] = accepted_answer_id
         dict["answer_count"] = answer_count
-        //answers
+        
+        if answers != nil && (answers?.count)! > 0 {
+            var tmpAnswers = [[String: Any]]()
+            for answer in answers! {
+                tmpAnswers.append(answer.dictionary)
+            }
+            
+            dict["answers"] = tmpAnswers
+        }
+        
         dict["bounty_amount"] = bounty_amount
         dict["bounty_user"] = bounty_user?.dictionary
         dict["can_close"] = can_close
@@ -221,8 +243,7 @@ public class Question: Post {
     
     public var answer_count: Int?
     
-    //NOTE: [Answer]
-    public var answers: [Any]?
+    public var answers: [Answer]?
     
     public var bounty_amount: Int?
     
