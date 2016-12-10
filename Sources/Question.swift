@@ -41,7 +41,18 @@ public class Question: Post {
         }
         
         public init(dictionary: [String: Any]) {
-            //self.by_users = nil
+            if let users = dictionary["by_users"] as? [[String: Any]] {
+                var tmpUsers = [User]()
+                for user in users {
+                    let tmpUser = User(dictionary: user)
+                    tmpUsers.append(tmpUser)
+                }
+                
+                if tmpUsers.count > 0 {
+                    self.by_users = tmpUsers
+                }
+            }
+            
             self.description = dictionary["description"] as? String
             self.on_hold = dictionary["on_hold"] as? Bool
             
@@ -61,8 +72,16 @@ public class Question: Post {
         
         public var dictionary: [String: Any] {
             var dict = [String: Any]()
+                        
+            if by_users != nil && (by_users?.count)! > 0 {
+                var tmpUsers = [[String: Any]]()
+                for user in by_users! {
+                    tmpUsers.append(user.dictionary)
+                }
+                
+                dict["by_users"] = tmpUsers
+            }
             
-            dict["by_users"] = by_users
             dict["description"] = description
             dict["on_hold"] = on_hold
             dict["original_questions"] = original_questions
