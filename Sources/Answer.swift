@@ -34,7 +34,7 @@ public class Answer: Post {
         
         self.can_flag = dictionary["can_flag"] as? Bool
         
-        if let timestamp = dictionary["community_owned_cate"] as? Double {
+        if let timestamp = dictionary["community_owned_date"] as? Double {
             self.community_owned_date = Date(timeIntervalSince1970: timestamp)
         }
         
