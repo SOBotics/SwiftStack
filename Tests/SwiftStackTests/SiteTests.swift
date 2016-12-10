@@ -2,7 +2,7 @@
 //  SiteTests.swift
 //  SwiftStack
 //
-//  Created by Felix Deil on 10.12.16.
+//  Created by FelixSFD on 10.12.16.
 //
 //
 
