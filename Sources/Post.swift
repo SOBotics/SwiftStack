@@ -8,6 +8,20 @@
 
 import Foundation
 
+// - MARK: The type of the post
+
+/**
+ Defines the type of a post. Either a question or an answer
+ 
+ - author: FelixSFD
+ */
+public enum PostType: String, StringRepresentable {
+    case answer = "answer"
+    case question = "question"
+}
+
+// - MARK: Post
+
 /**
  The base class of `Question`s and `Answer`s
  
@@ -15,19 +29,7 @@ import Foundation
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/post)
  */
-public class Post: JsonConvertible, CustomStringConvertible {
-    
-    // - MARK: The type of the post
-    
-    /**
-     Defines the type of a post. Either a question or an answer
-     
-     - author: FelixSFD
-     */
-    public enum PostType: String, StringRepresentable {
-        case answer = "answer"
-        case question = "question"
-    }
+public class Post: Content, CustomStringConvertible {
     
     // - MARK: Post.Notice
     
@@ -85,8 +87,8 @@ public class Post: JsonConvertible, CustomStringConvertible {
     /**
      Basic initializer without default values
      */
-    public init() {
-        
+    public override init() {
+        super.init()
     }
     
     /**
@@ -109,8 +111,10 @@ public class Post: JsonConvertible, CustomStringConvertible {
     }
     
     public required init(dictionary: [String: Any]) {
-        self.body = dictionary["body"] as? String
-        self.body_markdown = dictionary["body_markdown"] as? String
+        super.init(dictionary: dictionary)
+        
+        //only initialize the properties that are not part of the superclass
+        
         self.comment_count = dictionary["comment_count"] as? Int
         
         if let commentsArray = dictionary["comments"] as? [[String: Any]] {
@@ -137,39 +141,20 @@ public class Post: JsonConvertible, CustomStringConvertible {
             self.last_editor = User(dictionary: user)
         }
         
-        if let urlString = dictionary["link"] as? String {
-            self.link = URL(string: urlString)
-        }
-        
-        if let user = dictionary["owner"] as? [String: Any] {
-            self.owner = User(dictionary: user)
-        }
-        
-        self.post_id = dictionary["post_id"] as? Int
-        
-        if let type = dictionary["post_type"] as? String {
-            self.post_type = PostType(rawValue: type)
-        }
-                
-        self.score = dictionary["score"] as? Int
-        
         if let urlString = dictionary["share_link"] as? String {
             self.share_link = URL(string: urlString)
         }
         
         self.title = dictionary["title"] as? String
         self.up_vote_count = dictionary["up_vote_count"] as? Int
-        self.upvoted = dictionary["upvoted"] as? Bool
     }
     
     
     // - MARK: JsonConvertible
     
-    public var dictionary: [String: Any] {
-        var dict = [String: Any]()
+    public override var dictionary: [String: Any] {
+        var dict = super.dictionary
         
-        dict["body"] = body
-        dict["body_markdown"] = body_markdown
         dict["comment_count"] = comment_count
         
         if comments != nil && (comments?.count)! > 0 {
@@ -183,26 +168,19 @@ public class Post: JsonConvertible, CustomStringConvertible {
         
         dict["down_vote_count"] = down_vote_count
         dict["downvoted"] = downvoted
-        dict["down_vote_count"] = down_vote_count
         dict["last_activity_date"] = last_activity_date
         dict["last_edit_date"] = last_edit_date
         dict["last_editor"] = last_editor?.dictionary
-        dict["link"] = link
-        dict["owner"] = owner?.dictionary
-        dict["post_id"] = post_id
-        dict["post_type"] = post_type
-        dict["score"] = score
         dict["share_link"] = share_link
         dict["title"] = title
         dict["up_vote_count"] = up_vote_count
-        dict["upvoted"] = upvoted
         
         return dict
     }
     
-    public var jsonString: String? {
+    /*public var jsonString: String? {
         return (try? JsonHelper.jsonString(from: self)) ?? nil
-    }
+    }*/
     
     // - MARK: CustomStrinConvertible
     
@@ -211,11 +189,7 @@ public class Post: JsonConvertible, CustomStringConvertible {
     }
     
     
-    // - MARK: Properties returned from API
-    
-    public var body: String?
-    
-    public var body_markdown: String?
+    // - MARK: Fields
     
     public var comment_count: Int?
     
@@ -231,22 +205,10 @@ public class Post: JsonConvertible, CustomStringConvertible {
     
     public var last_editor: User?
     
-    public var link: URL?
-    
-    public var owner: User?
-    
-    public var post_id: Int?
-    
-    public var post_type: PostType?
-    
-    public var score: Int?
-    
     public var share_link: URL?
     
     public var title: String?
     
     public var up_vote_count: Int?
-    
-    public var upvoted: Bool?
     
 }

@@ -221,7 +221,6 @@ public class Question: Post {
         }
         
         self.can_close = dictionary["can_close"] as? Bool
-        self.can_flag = dictionary["can_flag"] as? Bool
         self.close_vote_count = dictionary["close_vote_count"] as? Int
         
         if let timestamp = dictionary["closed_date"] as? Double {
@@ -294,9 +293,9 @@ public class Question: Post {
         }
         
         dict["bounty_amount"] = bounty_amount
+        dict["bounty_closes_date"] = bounty_closes_date
         dict["bounty_user"] = bounty_user?.dictionary
         dict["can_close"] = can_close
-        dict["can_flag"] = can_flag
         dict["close_vote_count"] = close_vote_count
         dict["closed_date"] = closed_date
         dict["closed_details"] = closed_details?.dictionary
@@ -338,8 +337,6 @@ public class Question: Post {
     
     public var can_close: Bool?
     
-    public var can_flag: Bool?
-    
     public var close_vote_count: Int?
     
     public var closed_date: Date?
@@ -377,8 +374,5 @@ public class Question: Post {
     public var tags: [String]?
     
     public var view_count: Int?
-    
-    
-    
     
 }

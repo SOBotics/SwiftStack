@@ -31,9 +31,7 @@ public class Answer: Post {
                 self.awarded_bounty_users = array
             }
         }
-        
-        self.can_flag = dictionary["can_flag"] as? Bool
-        
+                
         if let timestamp = dictionary["community_owned_date"] as? Double {
             self.community_owned_date = Date(timeIntervalSince1970: timestamp)
         }
@@ -48,6 +46,7 @@ public class Answer: Post {
             self.locked_date = Date(timeIntervalSince1970: timestamp)
         }
         
+        self.question_id = dictionary["question_id"] as? Int
         self.tags = dictionary["tags"] as? [String]
     }
     
@@ -72,8 +71,6 @@ public class Answer: Post {
     public var awarded_bounty_amount: Int?
     
     public var awarded_bounty_users: [User]?
-    
-    public var can_flag: Bool?
     
     public var community_owned_date: Date?
     
