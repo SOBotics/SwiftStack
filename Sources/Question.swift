@@ -89,6 +89,66 @@ public class Question: Post {
     }
     
     
+    // - MARK: Migration info
+    
+    /**
+     This type represents a question's migration to or from a different site in the Stack Exchange network
+     */
+    public struct MigrationInfo: JsonConvertible {
+        
+        // - MARK: Initializers
+        
+        public init?(jsonString json: String) {
+            do {
+                guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
+                    return nil
+                }
+                
+                self.init(dictionary: dictionary)
+            } catch {
+                return nil
+            }
+        }
+        
+        public init?(dictionary: [String : Any]) {
+            if let timestamp = dictionary["on_date"] as? Double {
+                self.on_date = Date(timeIntervalSince1970: timestamp)
+            }
+            
+            if let site = dictionary["other_site"] as? [String: Any] {
+                self.other_site = Site(dictionary: site)
+            }
+            
+            self.question_id = dictionary["question_id"] as? Int
+        }
+        
+        // - MARK: JsonConvertible
+        
+        public var dictionary: [String: Any] {
+            var dict = [String: Any]()
+            
+            dict["on_date"] = on_date
+            dict["other_site"] = other_site?.dictionary
+            dict["question_id"] = question_id
+            
+            return dict
+        }
+        
+        public var jsonString: String? {
+            return (try? JsonHelper.jsonString(from: self)) ?? nil
+        }
+        
+        // - MARK: Fields
+        
+        public var on_date: Date?
+        
+        public var other_site: Site?
+        
+        public var question_id: Int?
+        
+    }
+    
+    
     // - MARK: Initializers
     
     /**
@@ -173,9 +233,14 @@ public class Question: Post {
             self.locked_date = Date(timeIntervalSince1970: timestamp)
         }
         
-        //self.migrated_from = nil
-        //self.migrated_to = nil
+        if let migration = dictionary["migrated_from"] as? [String: Any] {
+            self.migrated_from = MigrationInfo(dictionary: migration)
+        }
         
+        if let migration = dictionary["migrated_to"] as? [String: Any] {
+            self.migrated_to = MigrationInfo(dictionary: migration)
+        }
+                
         if let noticeArray = dictionary["notice"] as? [String: Any] {
             self.notice = Notice(dictionary: noticeArray)
         }
@@ -224,7 +289,8 @@ public class Question: Post {
         dict["favorited"] = favorited
         dict["is_answered"] = is_answered
         dict["locked_date"] = locked_date
-        //migrated from & to
+        dict["migrated_from"] = migrated_from?.dictionary
+        dict["migrated_to"] = migrated_to?.dictionary
         dict["notice"] = notice?.dictionary
         dict["protected_date"] = protected_date
         dict["question_id"] = question_id
@@ -277,10 +343,9 @@ public class Question: Post {
     
     public var locked_date: Date?
     
-    //NOTE: migration info
-    public var migrated_from: Any?
+    public var migrated_from: MigrationInfo?
     
-    public var migrated_to: Any?
+    public var migrated_to: MigrationInfo?
     
     public var notice: Notice?
     
