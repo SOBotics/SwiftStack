@@ -8,6 +8,13 @@
 
 import Foundation
 
+/**
+ The superclass of `Post` and `Comment`.
+ 
+ - note: This class is not part of the StackExchange API!
+ 
+ - author: FelixSFD
+ */
 public class Content: JsonConvertible {
     
     // - MARK: Initializers
