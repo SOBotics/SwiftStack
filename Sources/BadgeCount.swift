@@ -86,13 +86,9 @@ public struct BadgeCount: JsonConvertible, CustomStringConvertible {
      
      - author: FelixSFD
      */
-    public init?(dictionary: [String: Any]) {
+    public init(dictionary: [String: Any]) {
         self.bronze = dictionary["bronze"] as? Int
         self.silver = dictionary["silver"] as? Int
         self.gold = dictionary["gold"] as? Int
-        
-        if bronze == nil, silver == nil, gold == nil {
-            return nil
-        }
     }
 }

@@ -238,4 +238,15 @@ class APITests: XCTestCase {
 		let _ = try client.performAPIRequest("users/1")
 		XCTAssertNil(client.backoffs["info"], "backoff was not cleaned up")
 	}
+    
+    
+    
+    func testSitesRequest() {
+        //not working yet. Just to show how to use the test method
+        client.fetchSites() {
+            response, error in
+            print(error)
+        }
+    }
+    
 }
