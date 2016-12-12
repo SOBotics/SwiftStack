@@ -16,7 +16,7 @@ class SiteTests: XCTestCase {
         
         let site = Site(jsonString: json)
         let jsonSite = site?.jsonString
-        print(jsonSite)
+        print(jsonSite ?? "nil")
         XCTAssertNotNil(jsonSite)
     }
     

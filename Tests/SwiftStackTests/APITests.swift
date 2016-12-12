@@ -109,7 +109,7 @@ class APITests: XCTestCase {
 			return ("{}".data(using: .utf8), self.blankResponse(task), nil)
 		}
 		
-		let _ = try client.performAPIRequest("info")
+		let _ = try client.performAPIRequest("info") as APIResponse<Site>
 	}
 	
 	
@@ -129,7 +129,7 @@ class APITests: XCTestCase {
 			return ("{}".data(using: .utf8), self.blankResponse(task), nil)
 		}
 		
-		let _ = try client.performAPIRequest("info", ["page":"1"])
+		let _ = try client.performAPIRequest("info", ["page":"1"]) as APIResponse<Site>
 	}
 	
 	
@@ -149,7 +149,8 @@ class APITests: XCTestCase {
 			return ("{}".data(using: .utf8), self.blankResponse(task), nil)
 		}
 		
-		let _ = try client.performAPIRequest("info", parameters)
+		let _ = try client.performAPIRequest("info", parameters) as APIResponse<Site>
+		//not actually a Site, but Info isn't implemented yet.
 	}
 	
 	
@@ -164,7 +165,7 @@ class APITests: XCTestCase {
 			return (responseJSON.data(using: .utf8)!, self.blankResponse(task), nil)
 		}
 		
-		let _ = try client.performAPIRequest("info")
+		let _ = try client.performAPIRequest("info") as APIResponse<Site>
 		
 		XCTAssert(client.quota == expectedQuota,
 		          "quota \"\(client.quota)\" is incorrect (should be \"\(expectedQuota)\")")
@@ -184,7 +185,7 @@ class APITests: XCTestCase {
 			return (responseJSON.data(using: .utf8), self.blankResponse(task), nil)
 		}
 		
-		let _ = try client.performAPIRequest("info")
+		let _ = try client.performAPIRequest("info") as APIResponse<Site>
 		
 		client.onRequest {task in
 			return ("{}".data(using: .utf8), self.blankResponse(task), nil)
@@ -207,7 +208,7 @@ class APITests: XCTestCase {
 	func testThrowingBackoff() throws {
 		try prepareBackoff()
 		
-		XCTAssertThrowsError(try client.performAPIRequest("info", backoffBehavior: .throwError))
+		XCTAssertThrowsError(try client.performAPIRequest("info", backoffBehavior: .throwError) as APIResponse<Site>)
 	}
 	
 	func testWaitingBackoff() throws {
@@ -225,7 +226,7 @@ class APITests: XCTestCase {
 		}
 		
 		//test waiting backoff
-		let _ = try client.performAPIRequest("info", backoffBehavior: .wait)
+		let _ = try client.performAPIRequest("info", backoffBehavior: .wait) as APIResponse<Site>
 		
 		//make sure the backoff is cleaned up
 		XCTAssertNil(client.backoffs["info"], "backoff was not cleaned up after waiting")
@@ -235,18 +236,26 @@ class APITests: XCTestCase {
 		try prepareBackoff()
 		
 		client.backoffs["info"] = Date.distantPast
-		let _ = try client.performAPIRequest("users/1")
+		let _ = try client.performAPIRequest("users/1") as APIResponse<User>
 		XCTAssertNil(client.backoffs["info"], "backoff was not cleaned up")
 	}
-    
-    
-    
-    func testSitesRequest() {
-        //not working yet. Just to show how to use the test method
-        client.fetchSites() {
-            response, error in
-            print(error)
-        }
-    }
-    
+	
+	
+	
+	func testSitesRequest() throws {
+		client.onRequest { task in
+			return ("{\"items\": [{\"name\": \"Test Site\"}]}".data(using: .utf8), self.blankResponse(task), nil)
+		}
+		//not working yet. Just to show how to use the test method
+		do {
+			let response = try client.fetchSites()
+			XCTAssertNotNil(response.items, "items is nil")
+			XCTAssertEqual(response.items?.first?.name, "Test Site", "name was incorrect")
+			
+		} catch {
+			print(error)
+			XCTFail("fetchSites threw an error")
+		}
+	}
+	
 }

@@ -40,7 +40,7 @@ public class APIResponse<T: JsonConvertible>: JsonConvertible {
     
     public required convenience init?(jsonString json: String) {
         do {
-            guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
+            guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!) as? [String: Any] else {
                 return nil
             }
             
@@ -60,14 +60,7 @@ public class APIResponse<T: JsonConvertible>: JsonConvertible {
         
         //items
         if let array = dictionary["items"] as? [[String: Any]] {
-            var tmpItems = [T]()
-            for item in array {
-                tmpItems.append(T(dictionary: item))
-            }
-            
-            if tmpItems.count > 0 {
-                self.items = tmpItems
-            }
+			items = array.map { T(dictionary: $0) }
         }
         
     }
