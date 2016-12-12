@@ -12,7 +12,7 @@ import Dispatch
 /**
 This extension contains all requests in the SITES section of the StackExchange API Documentation.
 
-- author: FelixSFD
+- authors: FelixSFD, NobodyNada
 */
 public extension APIClient {
 	
@@ -21,6 +21,8 @@ public extension APIClient {
 	JUST A TEST!
 	
 	- warning: Just a test. No parameters can be set yet!
+     
+     - author: NobodyNada
 	*/
 	public func fetchSites(
 		_ parameters: [String:String] = [:],
@@ -36,5 +38,22 @@ public extension APIClient {
 			backoffBehavior: backoffBehavior
 		)
 	}
+    
+    public func fetchSites(_ parameters: [String: String] = [:], backoffBehavior: BackoffBehavior = .wait, completionHandler: @escaping (APIResponse<Site>?, Error?) -> ()) {
+        
+        DispatchQueue(label: "fetchSitesQueue").async {
+            var params = parameters
+            params["site"] = ""
+            
+            do {
+                let response: APIResponse<Site> = try self.performAPIRequest("sites", params, backoffBehavior: backoffBehavior)
+                completionHandler(response, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
+    }
+    
+    
 	
 }
