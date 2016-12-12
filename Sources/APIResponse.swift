@@ -11,7 +11,7 @@ import Foundation
 /**
  The common wrapper object that is returned by the StackExchange API.
  
- - author: FelixSFD
+ - authors: FelixSFD, NobodyNada
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/wrapper)
  */
