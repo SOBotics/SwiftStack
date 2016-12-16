@@ -54,7 +54,7 @@ public extension APIClient {
      */
     public func fetchSites(_ parameters: [String: String] = [:], backoffBehavior: BackoffBehavior = .wait, completionHandler: @escaping (APIResponse<Site>?, Error?) -> ()) {
         
-        DispatchQueue(label: "fetchSitesQueue").async {
+        queue.async {
             var params = parameters
             params["site"] = ""
             
