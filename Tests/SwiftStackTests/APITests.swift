@@ -43,6 +43,8 @@ class TestableClient: APIClient {
 class APITests: XCTestCase {
 	//MARK: - Helpers
 	var client: TestableClient!
+    
+    var expectation: XCTestExpectation?
 	
 	override func setUp() {
 		client = TestableClient()
@@ -240,9 +242,11 @@ class APITests: XCTestCase {
 		XCTAssertNil(client.backoffs["info"], "backoff was not cleaned up")
 	}
 	
+    
+    // - MARK: Sites
 	
 	
-	func testSitesRequest() throws {
+	func testFetchSitesSync() {
 		client.onRequest { task in
 			return ("{\"items\": [{\"name\": \"Test Site\"}]}".data(using: .utf8), self.blankResponse(task), nil)
 		}
@@ -257,5 +261,27 @@ class APITests: XCTestCase {
 			XCTFail("fetchSites threw an error")
 		}
 	}
+    
+    func testFetchSitesAsync() {
+        expectation = expectation(description: "Fetched sites")
+        
+        client.onRequest { task in
+            return ("{\"items\": [{\"name\": \"Test Site\"}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchSites([:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error)
+                XCTFail("Sites not fetched")
+                return
+            }
+            
+            print(response?.items)
+            self.expectation?.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30, handler: nil)
+    }
 	
 }

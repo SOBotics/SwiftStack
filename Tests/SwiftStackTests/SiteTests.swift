@@ -11,6 +11,8 @@ import SwiftStack
 
 class SiteTests: XCTestCase {
     
+    var client = TestableClient()
+    
     var expectation: XCTestExpectation?
     
     func testMainSite() {
@@ -20,28 +22,6 @@ class SiteTests: XCTestCase {
         let jsonSite = site?.jsonString
         print(jsonSite ?? "nil")
         XCTAssertNotNil(jsonSite)
-    }
-    
-    
-    func testFetchSites() {
-        expectation = expectation(description: "Fetched sites")
-        
-        let client = APIClient()
-        print("starting...")
-        client.fetchSites([:], backoffBehavior: .wait) {
-            response, error in
-            print("completion handler")
-            if error != nil {
-                print(error)
-                XCTFail("Sites not fetched")
-                return
-            }
-            
-            print(response?.items)
-            self.expectation?.fulfill()
-        }
-        
-        waitForExpectations(timeout: 30, handler: nil)
     }
     
 }
