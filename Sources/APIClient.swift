@@ -46,6 +46,9 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	///Which API filter to use if none is specified.
 	open var defaultFilter: String?
 	
+	///Whether to use a secure connection to communicate with the API.
+	open var useSSL: Bool = true
+	
 	///Which site to use if none is specified.
 	open var defaultSite: String = "stackoverflow"
 	
@@ -91,11 +94,11 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	///
 	///- parameter request: The request to make, for example `users/{ids}/answers`.
 	///- parameter parameters: Parameters to be URLEncoded into the request.
-	open func performAPIRequest(
+	open func performAPIRequest<T>(
 		_ request: String,
 		_ parameters: [String:String] = [:],
 		backoffBehavior: BackoffBehavior = .wait
-		) throws -> [Any] {
+		) throws -> APIResponse<T> {
 		
 		var params = parameters
 		
@@ -111,9 +114,12 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		if params["site"] == nil {
 			params["site"] = defaultSite
 		}
+		else if params["site"] == "" {
+			params["site"] = nil
+		}
 		
 		//Build the URL.
-		var url = "https://api.stackexchange.com/2.2"
+		var url = "\(useSSL ? "http" : "https")://api.stackexchange.com/2.2"
 		
 		let prefixedRequest = (request.hasPrefix("/") ? request : "/" + request)
 		url += prefixedRequest
@@ -151,19 +157,22 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 			throw APIError.notDictionary(response: response)
 		}
 		
-		if let backoff = json["backoff"] as? Int {
+		let apiResponse = APIResponse<T>(dictionary: json)
+		
+		if let backoff = apiResponse.backoff {
 			backoffs[backoffName] = Date().addingTimeInterval(TimeInterval(backoff))
 		}
 		cleanBackoffs()
 		
-		guard json["error_id"] == nil, json["error_message"] == nil else {
+		guard apiResponse.error_id == nil, apiResponse.error_message == nil else {
 			throw APIError.apiError(id: json["error_id"] as? Int, message: json["error_message"] as? String)
 		}
 		
-		maxQuota = (json["quota_max"] as? Int) ?? maxQuota
-		quota = (json["quota_remaining"] as? Int) ?? quota
 		
-		return (json["items"] as? [Any]) ?? []
+		maxQuota = apiResponse.quota_max ?? maxQuota
+		quota = apiResponse.quota_remaining ?? quota
+		
+		return apiResponse
 	}
 	
 	internal func wait(until date: Date) {

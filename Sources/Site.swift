@@ -37,7 +37,7 @@ public class Site: JsonConvertible {
         
         // - MARK: Initializers
         
-        public init?(dictionary: [String : Any]) {
+        public init(dictionary: [String : Any]) {
             self.api_site_parameter = dictionary["api_site_parameter"] as? String
             self.name = dictionary["name"] as? String
             
@@ -140,7 +140,7 @@ public class Site: JsonConvertible {
         
         // - MARK: Initializers
         
-        public init?(dictionary: [String : Any]) {
+        public init(dictionary: [String : Any]) {
             self.link_color = dictionary["link_color"] as? String
             self.tag_background_color = dictionary["tag_background_color"] as? String
             self.tag_foreground_color = dictionary["tag_foreground_color"] as? String
@@ -203,7 +203,7 @@ public class Site: JsonConvertible {
         
     }
     
-    public required init?(dictionary: [String : Any]) {
+    public required init(dictionary: [String : Any]) {
         self.aliases = dictionary["aliases"] as? [String]
         self.api_site_parameter = dictionary["api_site_parameter"] as? String
         self.audience = dictionary["audience"] as? String
@@ -243,9 +243,7 @@ public class Site: JsonConvertible {
             var relatedArray = [Related]()
             
             for related in relatedSites {
-                if let tmp = Related(dictionary: related) {
-                    relatedArray.append(tmp)
-                }
+                relatedArray.append(Related(dictionary: related))
             }
             
             if relatedArray.count > 0 {

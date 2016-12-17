@@ -129,7 +129,7 @@ public class Question: Post {
             }
         }
         
-        public init?(dictionary: [String : Any]) {
+        public init(dictionary: [String : Any]) {
             if let timestamp = dictionary["on_date"] as? Double {
                 self.on_date = Date(timeIntervalSince1970: timestamp)
             }

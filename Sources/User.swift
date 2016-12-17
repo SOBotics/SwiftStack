@@ -109,9 +109,7 @@ public class User: JsonConvertible, CustomStringConvertible {
         self.answer_count = dictionary["answer_count"] as? Int
         
         if let badgeCounts = dictionary["badge_counts"] as? [String: Any] {
-            if let badges = BadgeCount(dictionary: badgeCounts) {
-                self.badge_counts = badges
-            }
+            self.badge_counts = BadgeCount(dictionary: badgeCounts)
         }
         
         if let creationTimestamp = dictionary["creation_date"] as? Double {

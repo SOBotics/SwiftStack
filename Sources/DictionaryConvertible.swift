@@ -17,7 +17,7 @@ public protocol DictionaryConvertible {
     /**
      Initializes the object from a dictionary
      */
-    init?(dictionary: [String: Any])
+    init(dictionary: [String: Any])
     
     /**
      Returns the dictionary-representation of the object
