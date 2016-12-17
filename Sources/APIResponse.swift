@@ -56,6 +56,12 @@ public class APIResponse<T: JsonConvertible>: JsonConvertible {
         self.error_message = dictionary["error_message"] as? String
         self.error_name = dictionary["error_name"] as? String
         self.has_more = dictionary["has_more"] as? Bool
+		self.page = dictionary["page"] as? Int
+		self.page_size = dictionary["page_size"] as? Int
+		self.quota_remaining = dictionary["quota_remaining"] as? Int
+		self.quota_max = dictionary["quota_max"] as? Int
+		self.total = dictionary["total"] as? Int
+		self.type = dictionary["type"] as? String
         
         
         //items

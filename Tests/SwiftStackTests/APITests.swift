@@ -272,12 +272,12 @@ class APITests: XCTestCase {
         client.fetchSites([:], backoffBehavior: .wait) {
             response, error in
             if error != nil {
-                print(error)
+                print(error!)
                 XCTFail("Sites not fetched")
                 return
             }
             
-            print(response?.items)
+            print(response?.items ?? "no items")
             self.expectation?.fulfill()
         }
         
