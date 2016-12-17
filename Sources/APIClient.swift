@@ -157,19 +157,22 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 			throw APIError.notDictionary(response: response)
 		}
 		
-		if let backoff = json["backoff"] as? Int {
+		let apiResponse = APIResponse<T>(dictionary: json)
+		
+		if let backoff = apiResponse.backoff {
 			backoffs[backoffName] = Date().addingTimeInterval(TimeInterval(backoff))
 		}
 		cleanBackoffs()
 		
-		guard json["error_id"] == nil, json["error_message"] == nil else {
+		guard apiResponse.error_id == nil, apiResponse.error_message == nil else {
 			throw APIError.apiError(id: json["error_id"] as? Int, message: json["error_message"] as? String)
 		}
 		
-		maxQuota = (json["quota_max"] as? Int) ?? maxQuota
-		quota = (json["quota_remaining"] as? Int) ?? quota
 		
-		return APIResponse(dictionary: json)
+		maxQuota = apiResponse.quota_max ?? maxQuota
+		quota = apiResponse.quota_remaining ?? quota
+		
+		return apiResponse
 	}
 	
 	internal func wait(until date: Date) {
