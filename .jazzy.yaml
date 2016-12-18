@@ -2,5 +2,5 @@ module: SwiftStack
 author: NobodyNada & FelixSFD
 author_url: https://github.com/NobodyNada/SwiftStack
 github_url: https://github.com/NobodyNada/SwiftStack
-github_file_prefix: https://github.com/NobodyNada/SwiftStack/tree/0.1.0
+github_file_prefix: https://github.com/NobodyNada/SwiftStack/blob/0.1.0
 module_version: 0.1.0
