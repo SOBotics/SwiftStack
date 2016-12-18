@@ -17,6 +17,7 @@ public class Answer: Post {
         
         self.accepted = dictionary["accepted"] as? Bool
         self.answer_id = dictionary["answer_id"] as? Int
+		self.post_id = answer_id
         self.awarded_bounty_amount = dictionary["awarded_bounty_amount"] as? Int
         
         if let users = dictionary["awarded_bounty_users"] as? [[String: Any]] {
