@@ -55,11 +55,9 @@ public extension APIClient {
     public func fetchSites(_ parameters: [String: String] = [:], backoffBehavior: BackoffBehavior = .wait, completionHandler: @escaping (APIResponse<Site>?, Error?) -> ()) {
         
         queue.async {
-            var params = parameters
-            params["site"] = ""
             
             do {
-                let response: APIResponse<Site> = try self.performAPIRequest("sites", params, backoffBehavior: backoffBehavior)
+                let response: APIResponse<Site> = try self.fetchSites(parameters, backoffBehavior: backoffBehavior)
                 completionHandler(response, nil)
             } catch {
                 completionHandler(nil, error)
