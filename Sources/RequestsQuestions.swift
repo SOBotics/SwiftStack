@@ -1,8 +1,8 @@
 //
-//  RequestsSites.swift
+//  RequestsQuestions.swift
 //  SwiftStack
 //
-//  Created by FelixSFD on 11.12.16.
+//  Created by NobodyNada on 17.12.16.
 //
 //
 
@@ -12,7 +12,7 @@ import Dispatch
 /**
 This extension contains all requests in the SITES section of the StackExchange API Documentation.
 
-- authors: FelixSFD, NobodyNada
+- author: NobodyNada
 */
 public extension APIClient {
 	
