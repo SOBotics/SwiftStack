@@ -15,7 +15,7 @@ import Foundation
  
  - author: FelixSFD
  */
-public class Content: JsonConvertible {
+public class Content: JsonConvertible, CustomStringConvertible {
     
     // - MARK: Initializers
     
@@ -84,6 +84,14 @@ public class Content: JsonConvertible {
     public var jsonString: String? {
         return (try? JsonHelper.jsonString(from: self)) ?? nil
     }
+    
+    
+    // - MARK: CustomStringConvertible
+    
+    public var description: String {
+        return "\(dictionary)"
+    }
+    
     
     // - MARK: Fields
     

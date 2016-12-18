@@ -207,7 +207,7 @@ public class User: JsonConvertible, CustomStringConvertible {
         return (try? JsonHelper.jsonString(from: self)) ?? nil
     }
     
-    // - MARK: CustomStrinConvertible
+    // - MARK: CustomStringConvertible
     
     public var description: String {
         return "\(dictionary)"

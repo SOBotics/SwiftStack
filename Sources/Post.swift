@@ -29,7 +29,7 @@ public enum PostType: String, StringRepresentable {
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/post)
  */
-public class Post: Content, CustomStringConvertible {
+public class Post: Content {
     
     // - MARK: Post.Notice
     
@@ -176,16 +176,6 @@ public class Post: Content, CustomStringConvertible {
         dict["up_vote_count"] = up_vote_count
         
         return dict
-    }
-    
-    /*public var jsonString: String? {
-        return (try? JsonHelper.jsonString(from: self)) ?? nil
-    }*/
-    
-    // - MARK: CustomStrinConvertible
-    
-    public var description: String {
-        return "\(dictionary)"
     }
     
     

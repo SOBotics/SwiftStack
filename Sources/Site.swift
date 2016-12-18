@@ -15,14 +15,14 @@ import Foundation
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/site)
  */
-public class Site: JsonConvertible {
+public class Site: JsonConvertible, CustomStringConvertible {
     
     // - MARK: Site relations
     
     /**
      This type represents a site that is related in some way to another site
      */
-    public struct Related: JsonConvertible {
+    public struct Related: JsonConvertible, CustomStringConvertible {
         
         // - MARK: Relation type
         
@@ -92,6 +92,8 @@ public class Site: JsonConvertible {
             return (try? JsonHelper.jsonString(from: self)) ?? nil
         }
         
+        // - MARK: CustomStringConvertible
+        
         public var description: String {
             return "\(dictionary)"
         }
@@ -136,7 +138,7 @@ public class Site: JsonConvertible {
     /**
      Represents the style of a `Site`.
      */
-    public struct Styling: JsonConvertible {
+    public struct Styling: JsonConvertible, CustomStringConvertible {
         
         // - MARK: Initializers
         
@@ -179,6 +181,8 @@ public class Site: JsonConvertible {
         public var jsonString: String? {
             return (try? JsonHelper.jsonString(from: self)) ?? nil
         }
+        
+        // - MARK: CustomStringConvertible
         
         public var description: String {
             return "\(dictionary)"
@@ -326,6 +330,11 @@ public class Site: JsonConvertible {
         return (try? JsonHelper.jsonString(from: self)) ?? nil
     }
     
+    // - MARK: CustomStringConvertible
+    
+    public var description: String {
+        return "\(dictionary)"
+    }
     
     
     // - MARK: Fields

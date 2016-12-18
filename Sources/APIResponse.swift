@@ -15,7 +15,7 @@ import Foundation
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/wrapper)
  */
-public class APIResponse<T: JsonConvertible>: JsonConvertible {
+public class APIResponse<T: JsonConvertible>: JsonConvertible, CustomStringConvertible {
     
     // - MARK: Items
     
@@ -93,6 +93,12 @@ public class APIResponse<T: JsonConvertible>: JsonConvertible {
     
     public var jsonString: String? {
         return (try? JsonHelper.jsonString(from: self)) ?? nil
+    }
+    
+    // - MARK: CustomStringConvertible
+    
+    public var description: String {
+        return "\(dictionary)"
     }
     
     
