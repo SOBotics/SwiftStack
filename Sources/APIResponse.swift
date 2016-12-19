@@ -15,7 +15,7 @@ import Foundation
  
  - seealso: [StackExchange API](https://api.stackexchange.com/docs/wrapper)
  */
-public class APIResponse<T: JsonConvertible>: JsonConvertible {
+public class APIResponse<T: JsonConvertible>: JsonConvertible, CustomStringConvertible {
     
     // - MARK: Items
     
@@ -81,6 +81,16 @@ public class APIResponse<T: JsonConvertible>: JsonConvertible {
         dict["error_message"] = error_message
         dict["error_name"] = error_name
         dict["has_more"] = has_more
+        
+        if items != nil && (items?.count)! > 0 {
+            var tmpItems = [[String: Any]]()
+            for item in items! {
+                tmpItems.append(item.dictionary)
+            }
+            
+            dict["items"] = tmpItems
+        }
+        
         dict["page"] = page
         dict["page_size"] = page_size
         dict["quota_max"] = quota_max
@@ -93,6 +103,12 @@ public class APIResponse<T: JsonConvertible>: JsonConvertible {
     
     public var jsonString: String? {
         return (try? JsonHelper.jsonString(from: self)) ?? nil
+    }
+    
+    // - MARK: CustomStringConvertible
+    
+    public var description: String {
+        return "\(dictionary)"
     }
     
     
