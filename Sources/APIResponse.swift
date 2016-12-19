@@ -81,6 +81,16 @@ public class APIResponse<T: JsonConvertible>: JsonConvertible, CustomStringConve
         dict["error_message"] = error_message
         dict["error_name"] = error_name
         dict["has_more"] = has_more
+        
+        if items != nil && (items?.count)! > 0 {
+            var tmpItems = [[String: Any]]()
+            for item in items! {
+                tmpItems.append(item.dictionary)
+            }
+            
+            dict["items"] = tmpItems
+        }
+        
         dict["page"] = page
         dict["page_size"] = page_size
         dict["quota_max"] = quota_max
