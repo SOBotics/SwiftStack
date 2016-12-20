@@ -96,7 +96,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	///- parameter parameters: Parameters to be URLEncoded into the request.
 	open func performAPIRequest<T>(
 		_ request: String,
-		_ parameters: [String:String] = [:],
+		parameters: [String:String] = [:],
 		backoffBehavior: BackoffBehavior = .wait
 		) throws -> APIResponse<T> {
 		
@@ -249,7 +249,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	///	- fields: The data to POST.
 	///
 	///- returns: The data and response returned by the request.
-	open func post(_ url: String, _ fields: [String:String]) throws -> (Data, HTTPURLResponse) {
+	open func post(_ url: String, fields: [String:String]) throws -> (Data, HTTPURLResponse) {
 		guard let nsUrl = URL(string: url) else {
 			throw RequestError.invalidURL(url: url)
 		}
@@ -326,8 +326,8 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	///	- fields: The data to POST.
 	///
 	///- returns: The text returned by the request.
-	open func post(_ url: String, _ fields: [String:String]) throws -> String {
-		let (data, _) = try post(url, fields)
+	open func post(_ url: String, fields: [String:String]) throws -> String {
+        let (data, _) = try post(url, fields: fields)
 		guard let string = String(data: data, encoding: String.Encoding.utf8) else {
 			throw RequestError.notUTF8
 		}

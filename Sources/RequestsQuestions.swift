@@ -42,7 +42,7 @@ public extension APIClient {
 		
 		return try performAPIRequest(
 			"questions/\(ids.map {String($0)}.joined(separator: ";"))",
-			parameters,
+			parameters: parameters,
 			backoffBehavior: backoffBehavior
 		)
 	}

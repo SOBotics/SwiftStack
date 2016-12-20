@@ -38,7 +38,7 @@ public extension APIClient {
 		
 		return try performAPIRequest(
 			"sites",
-			params,
+			parameters: params,
 			backoffBehavior: backoffBehavior
 		)
 	}
