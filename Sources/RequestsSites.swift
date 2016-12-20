@@ -29,7 +29,7 @@ public extension APIClient {
      - author: NobodyNada
      */
 	public func fetchSites(
-		_ parameters: [String:String] = [:],
+		parameters: [String:String] = [:],
 		backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Site> {
 		
 		
@@ -52,12 +52,12 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchSites(_ parameters: [String: String] = [:], backoffBehavior: BackoffBehavior = .wait, completionHandler: @escaping (APIResponse<Site>?, Error?) -> ()) {
+    public func fetchSites(parameters: [String: String] = [:], backoffBehavior: BackoffBehavior = .wait, completionHandler: @escaping (APIResponse<Site>?, Error?) -> ()) {
         
         queue.async {
             
             do {
-                let response: APIResponse<Site> = try self.fetchSites(parameters, backoffBehavior: backoffBehavior)
+                let response: APIResponse<Site> = try self.fetchSites(parameters: parameters, backoffBehavior: backoffBehavior)
                 completionHandler(response, nil)
             } catch {
                 completionHandler(nil, error)

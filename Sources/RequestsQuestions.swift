@@ -32,7 +32,7 @@ public extension APIClient {
      */
 	public func fetchQuestions(
 		_ ids: [Int],
-		_ parameters: [String:String] = [:],
+		parameters: [String:String] = [:],
 		backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
 		
 		guard !ids.isEmpty else {
@@ -62,7 +62,7 @@ public extension APIClient {
      */
     public func fetchQuestions(
 		_ ids: [Int],
-		_ parameters: [String: String] = [:],
+		parameters: [String: String] = [:],
 		backoffBehavior: BackoffBehavior = .wait,
 		completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
         
@@ -70,7 +70,7 @@ public extension APIClient {
             do {
 				let response: APIResponse<Question> = try self.fetchQuestions(
 					ids,
-					parameters,
+					parameters: parameters,
 					backoffBehavior: backoffBehavior
 				)
 				
@@ -97,10 +97,10 @@ public extension APIClient {
 	*/
 	public func fetchQuestion(
 		_ id: Int,
-		_ parameters: [String:String] = [:],
+		parameters: [String:String] = [:],
 		backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
 		
-		return try fetchQuestions([id], parameters, backoffBehavior: backoffBehavior)
+		return try fetchQuestions([id], parameters: parameters, backoffBehavior: backoffBehavior)
 	}
 	
 	/**
@@ -118,11 +118,11 @@ public extension APIClient {
 	*/
 	public func fetchQuestion(
 		_ id: Int,
-		_ parameters: [String: String] = [:],
+		parameters: [String: String] = [:],
 		backoffBehavior: BackoffBehavior = .wait,
 		completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
 		
-		fetchQuestions([id], parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
+		fetchQuestions([id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
 	}
 	
 }
