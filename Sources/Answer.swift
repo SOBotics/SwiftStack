@@ -17,7 +17,7 @@ public class Answer: Post {
         
         self.accepted = dictionary["accepted"] as? Bool
         self.answer_id = dictionary["answer_id"] as? Int
-		self.post_id = answer_id
+        self.post_id = answer_id
         self.awarded_bounty_amount = dictionary["awarded_bounty_amount"] as? Int
         
         if let users = dictionary["awarded_bounty_users"] as? [[String: Any]] {
@@ -32,27 +32,27 @@ public class Answer: Post {
                 self.awarded_bounty_users = array
             }
         }
-                
+        
         if let timestamp = dictionary["community_owned_date"] as? Double {
             self.community_owned_date = Date(timeIntervalSince1970: timestamp)
-		} else if let timestamp = dictionary["community_owned_date"] as? Float {
-			self.community_owned_date = Date(timeIntervalSince1970: Double(timestamp))
-		}
-		
+        } else if let timestamp = dictionary["community_owned_date"] as? Float {
+            self.community_owned_date = Date(timeIntervalSince1970: Double(timestamp))
+        }
+        
         if let timestamp = dictionary["creation_date"] as? Double {
             self.creation_date = Date(timeIntervalSince1970: timestamp)
-		} else if let timestamp = dictionary["creation_date"] as? Float {
-			self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
-		}
-		
+        } else if let timestamp = dictionary["creation_date"] as? Float {
+            self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
+        }
+        
         self.is_accepted = dictionary["is_accepted"] as? Bool
         
         if let timestamp = dictionary["locked_date"] as? Double {
             self.locked_date = Date(timeIntervalSince1970: timestamp)
-		} else if let timestamp = dictionary["locked_date"] as? Float {
-			self.locked_date = Date(timeIntervalSince1970: Double(timestamp))
-		}
-			
+        } else if let timestamp = dictionary["locked_date"] as? Float {
+            self.locked_date = Date(timeIntervalSince1970: Double(timestamp))
+        }
+        
         self.question_id = dictionary["question_id"] as? Int
         self.tags = dictionary["tags"] as? [String]
     }
