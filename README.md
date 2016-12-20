@@ -5,6 +5,7 @@ SwiftStack is a wrapper for the Stack Exchange API written in Swift.
 # How to use
 
 To use SwiftStack via Swift Package Manager in your project, add it as dependency in your `Package.swift`.
+
 ```
 let package = Package(
     name: "MyProject",
