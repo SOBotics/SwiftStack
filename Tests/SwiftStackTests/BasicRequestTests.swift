@@ -19,7 +19,7 @@ class BasicRequestTests: XCTestCase {
 		let client = APIClient()
 		
 		let url = "https://httpbin.org/post"
-		let result = try? client.post(url, ["test":"123456"]) as String
+		let result = try? client.post(url, fields: ["test":"123456"]) as String
 		XCTAssert(result != nil)
 		
 		let json = (try? client.parseJSON(result!)) as? [String:Any]

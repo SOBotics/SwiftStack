@@ -131,7 +131,7 @@ class APITests: XCTestCase {
 			return ("{}".data(using: .utf8), self.blankResponse(task), nil)
 		}
 		
-		let _ = try client.performAPIRequest("info", ["page":"1"]) as APIResponse<Site>
+		let _ = try client.performAPIRequest("info", parameters: ["page":"1"]) as APIResponse<Site>
 	}
 	
 	
@@ -151,7 +151,7 @@ class APITests: XCTestCase {
 			return ("{}".data(using: .utf8), self.blankResponse(task), nil)
 		}
 		
-		let _ = try client.performAPIRequest("info", parameters) as APIResponse<Site>
+		let _ = try client.performAPIRequest("info", parameters: parameters) as APIResponse<Site>
 		//not actually a Site, but Info isn't implemented yet.
 	}
 	
@@ -269,7 +269,7 @@ class APITests: XCTestCase {
             return ("{\"items\": [{\"name\": \"Test Site\"}]}".data(using: .utf8), self.blankResponse(task), nil)
         }
         
-        client.fetchSites([:], backoffBehavior: .wait) {
+        client.fetchSites(parameters: [:], backoffBehavior: .wait) {
             response, error in
             if error != nil {
                 print(error!)
