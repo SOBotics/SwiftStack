@@ -72,7 +72,7 @@ public class Question: Post {
         
         public var dictionary: [String: Any] {
             var dict = [String: Any]()
-                        
+            
             if by_users != nil && (by_users?.count)! > 0 {
                 var tmpUsers = [[String: Any]]()
                 for user in by_users! {
@@ -132,6 +132,8 @@ public class Question: Post {
         public init(dictionary: [String : Any]) {
             if let timestamp = dictionary["on_date"] as? Double {
                 self.on_date = Date(timeIntervalSince1970: timestamp)
+            } else if let timestamp = dictionary["on_date"] as? Float {
+                self.on_date = Date(timeIntervalSince1970: Double(timestamp))
             }
             
             if let site = dictionary["other_site"] as? [String: Any] {
@@ -214,6 +216,8 @@ public class Question: Post {
         
         if let timestamp = dictionary["bounty_closes_date"] as? Double {
             self.bounty_closes_date = Date(timeIntervalSince1970: timestamp)
+        } else if let timestamp = dictionary["bounty_closes_date"] as? Float {
+            self.bounty_closes_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
         if let user = dictionary["bounty_user"] as? [String: Any] {
@@ -225,6 +229,8 @@ public class Question: Post {
         
         if let timestamp = dictionary["closed_date"] as? Double {
             self.closed_date = Date(timeIntervalSince1970: timestamp)
+        } else if let timestamp = dictionary["closed_date"] as? Float {
+            self.closed_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
         if let closedDetailsDict = dictionary["closed_details"] as? [String: Any] {
@@ -236,10 +242,14 @@ public class Question: Post {
         
         if let timestamp = dictionary["community_owned_date"] as? Double {
             self.community_owned_date = Date(timeIntervalSince1970: timestamp)
+        } else if let timestamp = dictionary["community_owned_date"] as? Float {
+            self.community_owned_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
         if let timestamp = dictionary["creation_date"] as? Double {
             self.creation_date = Date(timeIntervalSince1970: timestamp)
+        } else if let timestamp = dictionary["creation_date"] as? Float {
+            self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
         self.delete_vote_count = dictionary["delete_vote_count"] as? Int
@@ -249,6 +259,8 @@ public class Question: Post {
         
         if let timestamp = dictionary["locked_date"] as? Double {
             self.locked_date = Date(timeIntervalSince1970: timestamp)
+        } else if let timestamp = dictionary["locked_date"] as? Float {
+            self.locked_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
         if let migration = dictionary["migrated_from"] as? [String: Any] {
@@ -258,17 +270,19 @@ public class Question: Post {
         if let migration = dictionary["migrated_to"] as? [String: Any] {
             self.migrated_to = MigrationInfo(dictionary: migration)
         }
-                
+        
         if let noticeArray = dictionary["notice"] as? [String: Any] {
             self.notice = Notice(dictionary: noticeArray)
         }
         
         if let timestamp = dictionary["protected_date"] as? Double {
             self.protected_date = Date(timeIntervalSince1970: timestamp)
+        } else if let timestamp = dictionary["protected_date"] as? Float {
+            self.protected_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
         self.question_id = dictionary["question_id"] as? Int
-		self.post_id = question_id
+        self.post_id = question_id
         self.reopen_vote_count = dictionary["reopen_vote_count"] as? Int
         self.tags = dictionary["tags"] as? [String]
         
