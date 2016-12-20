@@ -214,10 +214,10 @@ public class Site: JsonConvertible, CustomStringConvertible {
         
         if let timestamp = dictionary["closed_beta_date"] as? Double {
             self.closed_beta_date = Date(timeIntervalSince1970: timestamp)
-		} else if let timestamp = dictionary["closed_beta_date"] as? Float {
-			self.closed_beta_date = Date(timeIntervalSince1970: Double(timestamp))
-		}
-		
+        } else if let timestamp = dictionary["closed_beta_date"] as? Float {
+            self.closed_beta_date = Date(timeIntervalSince1970: Double(timestamp))
+        }
+        
         if let url = dictionary["favicon_url"] as? String {
             self.favicon_url = URL(string: url)
         }
@@ -243,10 +243,10 @@ public class Site: JsonConvertible, CustomStringConvertible {
         
         if let timestamp = dictionary["open_beta_date"] as? Double {
             self.open_beta_date = Date(timeIntervalSince1970: timestamp)
-		} else if let timestamp = dictionary["open_beta_date"] as? Float {
-			self.open_beta_date = Date(timeIntervalSince1970: Double(timestamp))
-		}
-		
+        } else if let timestamp = dictionary["open_beta_date"] as? Float {
+            self.open_beta_date = Date(timeIntervalSince1970: Double(timestamp))
+        }
+        
         if let relatedSites = dictionary["related_sites"] as? [[String: Any]] {
             var relatedArray = [Related]()
             

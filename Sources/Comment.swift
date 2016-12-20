@@ -40,10 +40,10 @@ public class Comment: Content {
         
         if let timestamp = dictionary["creation_date"] as? Double {
             self.creation_date = Date(timeIntervalSince1970: timestamp)
-		} else if let timestamp = dictionary["creation_date"] as? Float {
-			self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
-		}
-		
+        } else if let timestamp = dictionary["creation_date"] as? Float {
+            self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
+        }
+        
         self.edited = dictionary["edited"] as? Bool
         
         if let user = dictionary["reply_to_user"] as? [String: Any] {

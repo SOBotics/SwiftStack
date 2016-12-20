@@ -57,10 +57,10 @@ public class Post: Content {
             
             if let timestamp = dictionary["creation_date"] as? Double {
                 self.creation_date = Date(timeIntervalSince1970: timestamp)
-			} else if let timestamp = dictionary["creation_date"] as? Float {
-				self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
-			}
-			
+            } else if let timestamp = dictionary["creation_date"] as? Float {
+                self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
+            }
+            
             self.owner_user_id = dictionary["owner_user_id"] as? Int
         }
         
