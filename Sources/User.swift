@@ -114,20 +114,26 @@ public class User: JsonConvertible, CustomStringConvertible {
         
         if let creationTimestamp = dictionary["creation_date"] as? Double {
             self.creation_date = Date(timeIntervalSince1970: creationTimestamp)
-        }
-        
+		} else if let creationTimestamp = dictionary["creation_date"] as? Float {
+			self.creation_date = Date(timeIntervalSince1970: Double(creationTimestamp))
+		}
+		
         self.display_name = dictionary["display_name"] as? String
         self.down_vote_count = dictionary["down_vote_count"] as? Int
         self.is_employee = dictionary["is_employee"] as? Bool
         
         if let lastAccessTimestamp = dictionary["last_access_date"] as? Double {
             self.last_access_date = Date(timeIntervalSince1970: lastAccessTimestamp)
-        }
-        
+		} else if let lastAccessTimestamp = dictionary["last_access_date"] as? Float {
+			self.last_access_date = Date(timeIntervalSince1970: Double(lastAccessTimestamp))
+		}
+		
         if let lastModifiedTimestamp = dictionary["last_modified_date"] as? Double {
             self.last_modified_date = Date(timeIntervalSince1970: lastModifiedTimestamp)
-        }
-        
+		} else if let lastModifiedTimestamp = dictionary["last_modified_date"] as? Float {
+			self.last_modified_date = Date(timeIntervalSince1970: Double(lastModifiedTimestamp))
+		}
+		
         if let urlString = dictionary["link"] as? String {
             self.link = URL(string: urlString)
         }
@@ -148,8 +154,10 @@ public class User: JsonConvertible, CustomStringConvertible {
         
         if let timedPenaltyTimestamp = dictionary["timed_penalty_date"] as? Double {
             self.timed_penalty_date = Date(timeIntervalSince1970: timedPenaltyTimestamp)
-        }
-        
+		} else if let timedPenaltyTimestamp = dictionary["timed_penalty_date"] as? Float {
+			self.timed_penalty_date = Date(timeIntervalSince1970: Double(timedPenaltyTimestamp))
+		}
+		
         self.up_vote_count = dictionary["up_vote_count"] as? Int
         self.user_id = dictionary["user_id"] as? Int
         
