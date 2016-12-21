@@ -10,7 +10,7 @@ import Foundation
 import Dispatch
 
 /**
-This extension contains all requests in the SITES section of the StackExchange API Documentation.
+This extension contains all requests in the QUESTIONS section of the StackExchange API Documentation.
 
 - author: NobodyNada
 */
