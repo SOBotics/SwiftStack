@@ -212,9 +212,7 @@ public class Site: JsonConvertible, CustomStringConvertible {
         self.api_site_parameter = dictionary["api_site_parameter"] as? String
         self.audience = dictionary["audience"] as? String
         
-        if let timestamp = dictionary["closed_beta_date"] as? Double {
-            self.closed_beta_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["closed_beta_date"] as? Float {
+        if let timestamp = dictionary["closed_beta_date"] as? Int {
             self.closed_beta_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
@@ -241,9 +239,7 @@ public class Site: JsonConvertible, CustomStringConvertible {
         self.markdown_extensions = dictionary["markdown_extensions"] as? [String]
         self.name = dictionary["name"] as? String
         
-        if let timestamp = dictionary["open_beta_date"] as? Double {
-            self.open_beta_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["open_beta_date"] as? Float {
+        if let timestamp = dictionary["open_beta_date"] as? Int {
             self.open_beta_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
