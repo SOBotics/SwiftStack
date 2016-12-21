@@ -130,9 +130,7 @@ public class Question: Post {
         }
         
         public init(dictionary: [String : Any]) {
-            if let timestamp = dictionary["on_date"] as? Double {
-                self.on_date = Date(timeIntervalSince1970: timestamp)
-            } else if let timestamp = dictionary["on_date"] as? Float {
+            if let timestamp = dictionary["on_date"] as? Int {
                 self.on_date = Date(timeIntervalSince1970: Double(timestamp))
             }
             
@@ -214,9 +212,7 @@ public class Question: Post {
         
         self.bounty_amount = dictionary["bounty_amount"] as? Int
         
-        if let timestamp = dictionary["bounty_closes_date"] as? Double {
-            self.bounty_closes_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["bounty_closes_date"] as? Float {
+        if let timestamp = dictionary["bounty_closes_date"] as? Int {
             self.bounty_closes_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
@@ -227,9 +223,7 @@ public class Question: Post {
         self.can_close = dictionary["can_close"] as? Bool
         self.close_vote_count = dictionary["close_vote_count"] as? Int
         
-        if let timestamp = dictionary["closed_date"] as? Double {
-            self.closed_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["closed_date"] as? Float {
+        if let timestamp = dictionary["closed_date"] as? Int {
             self.closed_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
@@ -240,15 +234,11 @@ public class Question: Post {
         
         self.closed_reason = dictionary["closed_reason"] as? String
         
-        if let timestamp = dictionary["community_owned_date"] as? Double {
-            self.community_owned_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["community_owned_date"] as? Float {
+        if let timestamp = dictionary["community_owned_date"] as? Int {
             self.community_owned_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
-        if let timestamp = dictionary["creation_date"] as? Double {
-            self.creation_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["creation_date"] as? Float {
+        if let timestamp = dictionary["creation_date"] as? Int {
             self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
@@ -257,9 +247,7 @@ public class Question: Post {
         self.favorited = dictionary["favorites"] as? Bool
         self.is_answered = dictionary["is_answered"] as? Bool
         
-        if let timestamp = dictionary["locked_date"] as? Double {
-            self.locked_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["locked_date"] as? Float {
+        if let timestamp = dictionary["locked_date"] as? Int {
             self.locked_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
@@ -275,9 +263,7 @@ public class Question: Post {
             self.notice = Notice(dictionary: noticeArray)
         }
         
-        if let timestamp = dictionary["protected_date"] as? Double {
-            self.protected_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["protected_date"] as? Float {
+        if let timestamp = dictionary["protected_date"] as? Int {
             self.protected_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         

@@ -38,9 +38,7 @@ public class Comment: Content {
         
         self.comment_id = dictionary["comment_id"] as? Int
         
-        if let timestamp = dictionary["creation_date"] as? Double {
-            self.creation_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["creation_date"] as? Float {
+        if let timestamp = dictionary["creation_date"] as? Int {
             self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         

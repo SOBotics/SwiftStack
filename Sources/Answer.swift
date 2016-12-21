@@ -33,23 +33,17 @@ public class Answer: Post {
             }
         }
         
-        if let timestamp = dictionary["community_owned_date"] as? Double {
-            self.community_owned_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["community_owned_date"] as? Float {
+        if let timestamp = dictionary["community_owned_date"] as? Int {
             self.community_owned_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
-        if let timestamp = dictionary["creation_date"] as? Double {
-            self.creation_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["creation_date"] as? Float {
+        if let timestamp = dictionary["creation_date"] as? Int {
             self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
         self.is_accepted = dictionary["is_accepted"] as? Bool
         
-        if let timestamp = dictionary["locked_date"] as? Double {
-            self.locked_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["locked_date"] as? Float {
+        if let timestamp = dictionary["locked_date"] as? Int {
             self.locked_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         

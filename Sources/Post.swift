@@ -55,9 +55,7 @@ public class Post: Content {
         public init(dictionary: [String: Any]) {
             self.body = dictionary["body"] as? String
             
-            if let timestamp = dictionary["creation_date"] as? Double {
-                self.creation_date = Date(timeIntervalSince1970: timestamp)
-            } else if let timestamp = dictionary["creation_date"] as? Float {
+            if let timestamp = dictionary["creation_date"] as? Int {
                 self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
             }
             
@@ -131,15 +129,11 @@ public class Post: Content {
         self.down_vote_count = dictionary["down_vote_count"] as? Int
         self.downvoted = dictionary["downvoted"] as? Bool
         
-        if let timestamp = dictionary["last_activity_date"] as? Double {
-            self.last_activity_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["last_activity_date"] as? Float {
+        if let timestamp = dictionary["last_activity_date"] as? Int {
             self.last_activity_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
-        if let timestamp = dictionary["last_edit_date"] as? Double {
-            self.last_edit_date = Date(timeIntervalSince1970: timestamp)
-        } else if let timestamp = dictionary["last_edit_date"] as? Float {
+        if let timestamp = dictionary["last_edit_date"] as? Int {
             self.last_edit_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         

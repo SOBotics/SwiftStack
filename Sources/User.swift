@@ -112,9 +112,7 @@ public class User: JsonConvertible, CustomStringConvertible {
 			self.badge_counts = BadgeCount(dictionary: badgeCounts)
 		}
 		
-		if let creationTimestamp = dictionary["creation_date"] as? Double {
-			self.creation_date = Date(timeIntervalSince1970: creationTimestamp)
-		} else if let creationTimestamp = dictionary["creation_date"] as? Float {
+		if let creationTimestamp = dictionary["creation_date"] as? Int {
 			self.creation_date = Date(timeIntervalSince1970: Double(creationTimestamp))
 		}
 		
@@ -122,15 +120,11 @@ public class User: JsonConvertible, CustomStringConvertible {
 		self.down_vote_count = dictionary["down_vote_count"] as? Int
 		self.is_employee = dictionary["is_employee"] as? Bool
 		
-		if let lastAccessTimestamp = dictionary["last_access_date"] as? Double {
-			self.last_access_date = Date(timeIntervalSince1970: lastAccessTimestamp)
-		} else if let lastAccessTimestamp = dictionary["last_access_date"] as? Float {
+		if let lastAccessTimestamp = dictionary["last_access_date"] as? Int {
 			self.last_access_date = Date(timeIntervalSince1970: Double(lastAccessTimestamp))
 		}
 		
-		if let lastModifiedTimestamp = dictionary["last_modified_date"] as? Double {
-			self.last_modified_date = Date(timeIntervalSince1970: lastModifiedTimestamp)
-		} else if let lastModifiedTimestamp = dictionary["last_modified_date"] as? Float {
+		if let lastModifiedTimestamp = dictionary["last_modified_date"] as? Int {
 			self.last_modified_date = Date(timeIntervalSince1970: Double(lastModifiedTimestamp))
 		}
 		
@@ -152,9 +146,7 @@ public class User: JsonConvertible, CustomStringConvertible {
 		self.reputation_change_quarter = dictionary["reputation_change_quarter"] as? Int
 		self.reputation_change_year = dictionary["reputation_change_year"] as? Int
 		
-		if let timedPenaltyTimestamp = dictionary["timed_penalty_date"] as? Double {
-			self.timed_penalty_date = Date(timeIntervalSince1970: timedPenaltyTimestamp)
-		} else if let timedPenaltyTimestamp = dictionary["timed_penalty_date"] as? Float {
+		if let timedPenaltyTimestamp = dictionary["timed_penalty_date"] as? Int {
 			self.timed_penalty_date = Date(timeIntervalSince1970: Double(timedPenaltyTimestamp))
 		}
 		
