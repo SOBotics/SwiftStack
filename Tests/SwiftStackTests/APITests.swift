@@ -326,5 +326,91 @@ class APITests: XCTestCase {
         
         waitForExpectations(timeout: 20, handler: nil)
     }
+    
+    
+    
+    // - MARK: Suggested edits
+    
+    func testFetchSuggestedEditsSync() {
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"title\": \"Just a test title\", \"suggested_edit_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchSuggestedEdit(id, parameters: [:], backoffBehavior: .wait)
+            XCTAssertEqual(id, response.items?[0].suggested_edit_id, "id was incorrect")
+        }  catch {
+            print(error)
+            XCTFail("fetchSuggestedEdit threw an error")
+        }
+    }
+    
+    func testFetchSuggestedEditsAsync() {
+        expectation = expectation(description: "Fetched suggested edit")
+        
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"suggested_edit_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchSuggestedEdit(id, parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("SuggestedEdit not fetched")
+                return
+            }
+            
+            if (response?.items?[0].suggested_edit_id)! == id {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("ids not equal")
+            }
+        }
+        
+        waitForExpectations(timeout: 20, handler: nil)
+    }
+    
+    func testFetchAllSuggestedEditsSync() {
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"title\": \"Just a test title\", \"suggested_edit_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchSuggestedEdits()
+            XCTAssertEqual(id, response.items?[0].suggested_edit_id, "id was incorrect")
+        }  catch {
+            print(error)
+            XCTFail("fetchSuggestedEdits threw an error")
+        }
+    }
+    
+    func testFetchAllSuggestedEditsAsync() {
+        expectation = expectation(description: "Fetched suggested edits")
+        
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"suggested_edit_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchSuggestedEdits(parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("SuggestedEdit not fetched")
+                return
+            }
+            
+            if (response?.items?[0].suggested_edit_id)! == id {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("ids not equal")
+            }
+        }
+        
+        waitForExpectations(timeout: 20, handler: nil)
+    }
 	
 }
