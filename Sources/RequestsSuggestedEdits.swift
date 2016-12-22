@@ -9,11 +9,68 @@
 import Foundation
 
 /**
- This extension contains all requests in the REVISIONS section of the StackExchange API Documentation.
+ This extension contains all requests in the SUGGESTED EDITS section of the StackExchange API Documentation.
  
  - authors: NobodyNada, FelixSFD
  */
 public extension APIClient {
+    
+    // - MARK: /suggested-edits
+    
+    /**
+     Fetches all `SuggestedEdit`s synchronously.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of sites as `APIResponse<SuggestedEdit>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchSuggestedEdits(
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<SuggestedEdit> {
+        
+        
+        return try performAPIRequest(
+            "suggested-edits",
+            parameters: parameters,
+            backoffBehavior: backoffBehavior
+        )
+    }
+    
+    /**
+     Fetches all `SuggestedEdit`s asynchronously.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler: Passes either an `APIResponse<SuggestedEdit>?` or an `Error?`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchSuggestedEdits(
+        parameters: [String: String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<SuggestedEdit>?, Error?) -> ()) {
+        
+        queue.async {
+            do {
+                let response: APIResponse<SuggestedEdit> = try self.fetchSuggestedEdits(
+                    parameters: parameters,
+                    backoffBehavior: backoffBehavior
+                )
+                
+                completionHandler(response, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
+    }
+    
+    
     // - MARK: /suggested-edits/{ids}
     
     /**
