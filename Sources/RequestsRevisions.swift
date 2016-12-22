@@ -27,10 +27,12 @@ public extension APIClient {
      
      - returns: The list of sites as `APIResponse<Revision>`
      
+     - note: Unlike most other id types in the API, `ids` representing `Revision.revision_guid`s is a `[String]`.
+     
      - authors: NobodyNada, FelixSFD
      */
     public func fetchRevisions(
-        _ ids: [Int],
+        _ ids: [String],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Revision> {
         
@@ -40,7 +42,7 @@ public extension APIClient {
         
         
         return try performAPIRequest(
-            "revisions/\(ids.map {String($0)}.joined(separator: ";"))",
+            "revisions/\(ids.map {$0}.joined(separator: ";"))",
             parameters: parameters,
             backoffBehavior: backoffBehavior
         )
@@ -57,10 +59,12 @@ public extension APIClient {
      
      - parameter completion
      
+     - note: Unlike most other id types in the API, `ids` representing `Revision.revision_guid`s is a `[String]`.
+     
      - authors: NobodyNada, FelixSFD
      */
     public func fetchRevisions(
-        _ ids: [Int],
+        _ ids: [String],
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
         completionHandler: @escaping (APIResponse<Revision>?, Error?) -> ()) {
@@ -89,12 +93,14 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
+     - note: Unlike most other id types in the API, `id` representing `Revision.revision_guid` is a `String`.
+     
      - returns: The list of sites as `APIResponse<Question>`
      
      - authors: NobodyNada, FelixSFD
      */
     public func fetchRevision(
-        _ id: Int,
+        _ id: String,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Revision> {
         
@@ -112,15 +118,17 @@ public extension APIClient {
      
      - parameter completion
      
+     - note: Unlike most other id types in the API, `id` representing `Revision.revision_guid` is a `String`.
+     
      - authors: NobodyNada, FelixSFD
      */
     public func fetchRevision(
-        _ id: Int,
+        _ id: String,
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
         completionHandler: @escaping (APIResponse<Revision>?, Error?) -> ()) {
         
-        fetchRevision([id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
+        fetchRevisions([id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
     }
     
 }

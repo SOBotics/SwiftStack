@@ -283,5 +283,48 @@ class APITests: XCTestCase {
         
         waitForExpectations(timeout: 30, handler: nil)
     }
+    
+    // - MARK: Revisions
+    
+    func testFetchRevisionsSync() {
+        let guid = "cc7cba9d-8eaa-4178-971d-4a678e7c430c"
+        client.onRequest { task in
+            return ("{\"items\": [{\"revision_type\": \"single_user\", \"revision_guid\": \"\(guid)\"}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchRevision(guid, parameters: [:], backoffBehavior: .wait)
+            XCTAssertEqual(guid, response.items?[0].revision_guid, "guid was incorrect")
+        }  catch {
+            print(error)
+            XCTFail("fetchRevision threw an error")
+        }
+    }
+    
+    func testFetchRevisionAsync() {
+        expectation = expectation(description: "Fetched revision")
+        
+        let guid = "cc7cba9d-8eaa-4178-971d-4a678e7c430c"
+        client.onRequest { task in
+            return ("{\"items\": [{\"revision_type\": \"single_user\", \"revision_guid\": \"\(guid)\"}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchRevision(guid, parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("Revision not fetched")
+                return
+            }
+            
+            if (response?.items?[0].revision_guid)! == guid {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("guids not equal")
+            }
+        }
+        
+        waitForExpectations(timeout: 20, handler: nil)
+    }
 	
 }
