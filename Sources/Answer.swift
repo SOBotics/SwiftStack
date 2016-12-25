@@ -8,9 +8,16 @@
 
 import Foundation
 
+/**
+ This class represents an answer with all fields, the API can return.
+ 
+ - author: FelixSFD
+ 
+ - seealso: [StackExchange API](https://api.stackexchange.com/docs/types/answer)
+ */
 public class Answer: Post {
     
-    // - Initializers
+    // - MARK: Initializers
     
     public required init(dictionary: [String : Any]) {
         super.init(dictionary: dictionary)

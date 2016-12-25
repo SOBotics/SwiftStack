@@ -20,11 +20,11 @@ public class User: JsonConvertible, CustomStringConvertible {
 	// - MARK: The user-type
 	
 	/**
-	The tpye of the user. The StackExchange API returns different types of users depending on the use-case.
-	
-	- author: FelixSFD
+	The type of the user. The StackExchange API returns different types of users depending on the use-case.
+     
+- warning: UserInfoType is deprecated and might be removed without replacement.
 	*/
-	public enum UserInfoType: String {
+	@available(*, deprecated: 0.4, message: "UserInfoType is deprecated and might be removed without replacement.") public enum UserInfoType: String {
 		/**
 		This user-type can contain all available properties
 		*/
@@ -62,11 +62,13 @@ public class User: JsonConvertible, CustomStringConvertible {
 	// - MARK: Public properties
 	
 	/**
-	The `User.UserType` of the user.
+	The `User.UserInfoType` of the user.
 	
 	This does not affect the other properties. It's just for the developers to see, which data they can expect.
+     
+- warning: UserInfoType is deprecated and might be removed without replacement.
 	*/
-	public var type = User.UserInfoType.undefined
+    @available(*, deprecated: 0.4, message: "UserInfoType is deprecated and might be removed without replacement.") public var type = User.UserInfoType.undefined
 	
 	
 	// - MARK: Initializers

@@ -29,6 +29,10 @@ public struct JsonHelper {
     /**
      Encodes the contents of a dictionary recursively.
      
+     - parameter object: The dictionary that should be encoded
+     
+     - returns: The `EncodedDictionary`
+     
      - author: FelixSFD
      */
     public static func encode(object: [String: Any]) -> EncodedDictionary {
@@ -64,6 +68,10 @@ public struct JsonHelper {
     
     /**
      Encodes the contents of an array recursively.
+     
+     - parameter object: The array that should be encoded
+     
+     - returns: The `EncodedArray`
      
      - author: FelixSFD
      
@@ -102,6 +110,10 @@ public struct JsonHelper {
     
     /**
      Encodes dictionary convertibles like `User`.
+     
+     - parameter object: The `DictionaryConvertible` that should be encoded
+     
+     - returns: The object as `EncodedDictionary`
      */
     public static func encode(object: DictionaryConvertible) -> EncodedDictionary {
         return JsonHelper.encode(object: object.dictionary)
@@ -109,6 +121,10 @@ public struct JsonHelper {
     
     /**
      Encodes objects that conform to `StringRepresentable`.
+     
+     - parameter object: The `StringRepresentable` that should be encoded
+     
+     - returns: The string representation of the object
      */
     public static func encode(object: StringRepresentable) -> String {
         return object.rawValue
@@ -117,6 +133,10 @@ public struct JsonHelper {
     
     /**
      Returns the UNIX timestamp from the `Date`
+     
+     - parameter object: The `Date` that should be encoded
+     
+     - returns: The UNIX timestamp as `Int`
      */
     public static func encode(object: Date) -> Int {
         return Int(object.timeIntervalSince1970)
@@ -124,6 +144,10 @@ public struct JsonHelper {
     
     /**
      Returns the absolute string of the `URL`.
+     
+     - parameter object: The `URL` that should be encoded
+     
+     - returns: The `URL` as `String`
      */
     public static func encode(object: URL) -> String {
         return object.absoluteString

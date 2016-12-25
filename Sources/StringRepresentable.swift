@@ -16,6 +16,17 @@ import Foundation
  - author: FelixSFD
  */
 public protocol StringRepresentable {
+    /**
+     The object as `String`
+     */
     var rawValue: String { get }
+    
+    /**
+     Initializes the object from it's `rawString`
+     
+     - note: The initializer could possible fail. However, if you use the `rawValue` for initialization, it shouldn't.
+     
+     - parameter rawValue: The `rawValue`
+     */
     init?(rawValue: String)
 }

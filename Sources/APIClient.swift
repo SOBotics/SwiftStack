@@ -9,13 +9,36 @@
 import Foundation
 import Dispatch
 
+/**
+ This extension extends `String` with properties and initializers to work with URL-encoded strings.
+ 
+ - author: NobodyNada
+ */
 extension String {
+    /**
+     Returns the `String` encoded for URLs
+     
+     - author: NobodyNada
+     */
 	var urlEncodedString: String {
 		var allowed = CharacterSet.urlQueryAllowed
 		allowed.remove(charactersIn: "&+")
 		return self.addingPercentEncoding(withAllowedCharacters: allowed)!
 	}
 	
+    /**
+     Initializes an URL-string from a `Dictionary<String, String>`
+     
+     **Example string:**
+     
+     ```
+     key1=value1&key2=value2
+     ```
+     
+     - parameter urlParameters: The parameters (key and value) the URL-string should contain
+     
+     - author: NobodyNada
+     */
 	init(urlParameters: [String:String]) {
 		var result = [String]()
 		
@@ -27,7 +50,7 @@ extension String {
 	}
 }
 
-//MARK: -
+// - MARK: APIClient
 
 
 ///An APIClient communicates to the Stack Exchange API over HTTP.
