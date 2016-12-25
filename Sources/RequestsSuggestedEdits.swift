@@ -141,7 +141,7 @@ public extension APIClient {
     /**
      Fetches a `SuggestedEdit` synchronously.
      
-     - parameter ids: The ID to fetch.
+     - parameter id: The ID to fetch.
      
      - parameter parameters: The dictionary of parameters used in the request
      
@@ -162,7 +162,7 @@ public extension APIClient {
     /**
      Fetches a `SuggestedEdit` asynchronously.
      
-     - parameter ids: The ID to fetch.
+     - parameter id: The ID to fetch.
      
      - parameter parameters: The dictionary of parameters used in the request
      

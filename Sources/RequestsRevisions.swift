@@ -57,7 +57,7 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
-     - parameter completion
+     - parameter completionHandler: Passes either an `APIResponse<Revision>?` or an `Error?`
      
      - note: Unlike most other id types in the API, `ids` representing `Revision.revision_guid`s is a `[String]`.
      
@@ -87,7 +87,7 @@ public extension APIClient {
     /**
      Fetches a revision synchronously.
      
-     - parameter ids: The revision ID to fetch.
+     - parameter id: The revision ID to fetch.
      
      - parameter parameters: The dictionary of parameters used in the request
      
@@ -110,13 +110,13 @@ public extension APIClient {
     /**
      Fetches a revision asynchronously.
      
-     - parameter ids: The revision ID to fetch.
+     - parameter id: The revision ID to fetch.
      
      - parameter parameters: The dictionary of parameters used in the request
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
-     - parameter completion
+     - parameter completionHandler: Passes either an `APIResponse<Revision>?` or an `Error?`
      
      - note: Unlike most other id types in the API, `id` representing `Revision.revision_guid` is a `String`.
      
