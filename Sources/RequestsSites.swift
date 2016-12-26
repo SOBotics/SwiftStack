@@ -18,7 +18,7 @@ public extension APIClient {
 	
 	// - MARK: /sites
     /**
-     Fetches all `Sites` in the Stack Exchange network synchronously.
+     Fetches all `Site`s in the Stack Exchange network synchronously.
      
      - parameter parameters: The dictionary of parameters used in the request
      
@@ -44,11 +44,13 @@ public extension APIClient {
 	}
     
     /**
-     Fetches all `Sites` in the Stack Exchange network asynchronously.
+     Fetches all `Site`s in the Stack Exchange network asynchronously.
      
      - parameter parameters: The dictionary of parameters used in the request
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
+     
+     - parameter completionHandler: Passes an `APIResponse<Site>?` when the request was successful or `Error?` if the request failed. There is no case, where both parameters are not `nil`.
      
      - author: FelixSFD
      */

@@ -10,7 +10,7 @@ import Foundation
 import Dispatch
 
 /**
-This extension contains all requests in the SITES section of the StackExchange API Documentation.
+This extension contains all requests in the QUESTIONS section of the StackExchange API Documentation.
 
 - author: NobodyNada
 */
@@ -26,7 +26,7 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
-     - returns: The list of sites as `APIResponse<Question>`
+     - returns: The list of questions as `APIResponse<Question>`
      
      - author: NobodyNada
      */
@@ -56,7 +56,7 @@ public extension APIClient {
 	
 	 - parameter backoffBehavior: The behavior when an APIRequest has a backoff
 	
-	 - parameter completion
+	 - parameter completionHandler: Passes an `APIResponse<Question>?` when the request was successful or `Error?` if the request failed. There is no case, where both parameters are not `nil`.
 	
       - author: NobodyNada
      */
@@ -91,7 +91,7 @@ public extension APIClient {
 	
 	- parameter backoffBehavior: The behavior when an APIRequest has a backoff
 	
-	- returns: The list of sites as `APIResponse<Question>`
+	- returns: The list of questions as `APIResponse<Question>`
 	
 	- author: NobodyNada
 	*/
@@ -112,7 +112,7 @@ public extension APIClient {
 	
 	- parameter backoffBehavior: The behavior when an APIRequest has a backoff
 	
-	- parameter completion
+	- parameter completionHandler: Passes an `APIResponse<Site>?` when the request was successful or `Error?` if the request failed. There is no case, where both parameters are not `nil`.
 	
 	- author: NobodyNada
 	*/

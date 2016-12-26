@@ -16,8 +16,19 @@ import Foundation
  - seealso: [StackExchage API](https://api.stackexchange.com/docs/types/badge-count)
  */
 public struct BadgeCount: JsonConvertible, CustomStringConvertible {
+    /**
+     The number of bronze-badges.
+     */
     public var bronze: Int?
+    
+    /**
+     The number of silver-badges.
+     */
     public var silver: Int?
+    
+    /**
+     The number of gold-badges.
+     */
     public var gold: Int?
     
     public var dictionary: [String: Any] {

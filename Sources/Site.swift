@@ -20,7 +20,7 @@ public class Site: JsonConvertible, CustomStringConvertible {
     // - MARK: Site relations
     
     /**
-     This type represents a site that is related in some way to another site
+     This type represents a `Site` that is related in some way to another `Site`
      */
     public struct Related: JsonConvertible, CustomStringConvertible {
         
@@ -30,8 +30,13 @@ public class Site: JsonConvertible, CustomStringConvertible {
          The type of relation
          */
         public enum Relation: String, StringRepresentable {
+            ///The site is the parent site
             case parent = "parent"
+            
+            ///The site is the meta-site of another site
             case meta = "meta"
+            
+            ///The site is the chat of another site
             case chat = "chat"
         }
         
@@ -112,11 +117,14 @@ public class Site: JsonConvertible, CustomStringConvertible {
     // - MARK: Site State
     
     /**
-     Represents the state of a site.
+     Represents the state of a `Site`.
      */
     public enum State: String, StringRepresentable {
+        ///The normal state of a site
         case normal = "normal"
+        ///The site is currently in closed beta
         case closed_beta = "closed_beta"
+        ///The site is currently in open beta
         case open_beta = "open_beta"
         case linked_meta = "linked_meta"
     }
@@ -124,12 +132,14 @@ public class Site: JsonConvertible, CustomStringConvertible {
     // - MARK: Site type
     
     /**
-     Represents the type of a site.
+     Represents the type of a `Site`.
      
      - warning: New types [could be added](https://api.stackexchange.com/docs/unsealed-enumerations).
      */
     public enum SiteType: String, StringRepresentable {
+        ///The site is a main-site
         case main_site = "main_site"
+        ///The site is a meta-site
         case meta_site = "meta_site"
     }
     

@@ -80,7 +80,7 @@ public class User: JsonConvertible, CustomStringConvertible {
 	
 	- author: FelixSFD
 	*/
-	public init(type: UserInfoType) {
+	@available(*, deprecated: 0.4, message: "UserInfoType is deprecated and might be removed without replacement.") public init(type: UserInfoType) {
 		self.type = type
 	}
 	

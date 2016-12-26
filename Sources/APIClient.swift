@@ -108,16 +108,30 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		case backoff(expiration: Date)
 	}
 	
+    /**
+     Defines the behavior of an API-request when a request has a backoff.
+     
+     - author: NobodyNada
+     */
 	public enum BackoffBehavior {
+        /**
+         The function should wait until the backoff expires and continue automatically.
+         */
 		case wait
+        
+        /**
+         The function should throw an error (or pass it in the completion handler). The request will not be resumed automatically.
+         */
 		case throwError
 	}
 	
 	///Performs an API request.  All functions using API calls should funnel into this one.
+    ///
+    ///The generic parameter `T` is the expected type of objects returned in the field `items`.
 	///
 	///- parameter request: The request to make, for example `users/{ids}/answers`.
 	///- parameter parameters: Parameters to be URLEncoded into the request.
-	open func performAPIRequest<T>(
+    open func performAPIRequest<T>(
 		_ request: String,
 		parameters: [String:String] = [:],
 		backoffBehavior: BackoffBehavior = .wait
@@ -198,10 +212,22 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		return apiResponse
 	}
 	
+    /**
+     Pauses the current thread until `date`.
+     
+     - parameter date: The `Date` when the thread should be resumed
+     
+     - author: NobodyNada
+     */
 	internal func wait(until date: Date) {
 		Thread.sleep(until: date)
 	}
 	
+    /**
+     Removes all backoffs that have expired.
+     
+     - author: NobodyNada
+     */
 	private func cleanBackoffs() {
 		//Remove backoffs that have expired.
 		var filteredBackoffs = [String:Date]()
@@ -267,9 +293,8 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	
 	///Performs a POST request to the specifed URL.
 	///
-	///- parameters:
-	///	- url: The URL to send the request to.
-	///	- fields: The data to POST.
+	///- parameter url: The URL to send the request to.
+	///- parameter fields: The data to POST.
 	///
 	///- returns: The data and response returned by the request.
 	open func post(_ url: String, fields: [String:String]) throws -> (Data, HTTPURLResponse) {
@@ -344,9 +369,8 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	
 	///Performs a POST request to the specifed URL.
 	///
-	///- parameters:
-	///	- url: The URL to send the request to.
-	///	- fields: The data to POST.
+	///- parameter url: The URL to send the request to.
+	///- parameter fields: The data to POST.
 	///
 	///- returns: The text returned by the request.
 	open func post(_ url: String, fields: [String:String]) throws -> String {
@@ -358,6 +382,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	}
 	
 	///Parses JSON using JSONSerialization.
+    ///
 	///- parameter json: The JSON to parse.
 	///- returns: The parsed JSON.
 	open func parseJSON(_ json: String) throws -> Any {
@@ -371,6 +396,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	//MARK: - Initializers
 	
 	///Initializes an APIClient with an optional proxy.
+    ///
 	///- parameter proxyAddress: The address of the proxy to use, or `nil` for no proxy.  Default is `nil`.
 	///- parameter proxyPort: The port on the proxy server to connect to.
 	public init(proxyAddress: String? = nil, proxyPort: Int = 80) {

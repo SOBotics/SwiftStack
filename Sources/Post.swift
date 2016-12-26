@@ -16,7 +16,10 @@ import Foundation
  - author: FelixSFD
  */
 public enum PostType: String, StringRepresentable {
+    ///The post is an answer
     case answer = "answer"
+    
+    ///The post is a question
     case question = "question"
 }
 

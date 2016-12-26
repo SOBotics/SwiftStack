@@ -19,7 +19,7 @@ public protocol DictionaryConvertible {
      
      This initializer should not fail. Since all fields are optionals, it should be possible, that none of the fields will be set.
      
-     When implementing this initializer in a subclass that conforms to `DictionaryConvertible`, you should only set the fields that are new in the subclass. The rest sould be initializes with `super.init(dictionary: dictionary)` at the beginning of this initializer.
+     When implementing this initializer in a subclass that conforms to `DictionaryConvertible`, you should only set the fields that are new in the subclass. The rest sould be initialized with `super.init(dictionary: dictionary)` at the beginning of this initializer.
      
      - parameter dictionary: The dictionary that represents the object.
      
