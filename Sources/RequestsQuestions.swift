@@ -668,6 +668,8 @@ public extension APIClient {
      
      - returns: The list of questions as `APIResponse<Question>`
      
+     - seealso: fetchUnansweredQuestions(parameters:backoffBehavior:)
+     
      - author: FelixSFD
      */
     public func fetchQuestionsWithNoAnswers(
@@ -690,6 +692,8 @@ public extension APIClient {
      
      - parameter completion
      
+     - seealso: fetchUnansweredQuestions(parameters:backoffBehavior:completionHandler:)
+     
      - author: FelixSFD
      */
     public func fetchQuestionsWithNoAnswers(
@@ -710,5 +714,65 @@ public extension APIClient {
             }
         }
     }
+    
+    
+    
+    // - MARK: /questions/unanswered
+    /**
+     Fetches all questions the site considers unanswered synchronously.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of questions as `APIResponse<Question>`
+     
+     - seealso: fetchQuestionsWithNoAnswers(parameters:backoffBehavior:)
+     
+     - author: FelixSFD
+     */
+    public func fetchUnansweredQuestions(
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
+        
+        return try performAPIRequest(
+            "questions/unanswered",
+            parameters: parameters,
+            backoffBehavior: backoffBehavior
+        )
+    }
+    
+    /**
+     Fetches all questions the site considers unanswered asynchronously.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completion
+     
+     - seealso: fetchQuestionsWithNoAnswers(parameters:backoffBehavior:completionHandler:)
+     
+     - author: FelixSFD
+     */
+    public func fetchUnansweredQuestions(
+        parameters: [String: String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
+        
+        queue.async {
+            do {
+                let response: APIResponse<Question> = try self.fetchQuestions(
+                    parameters: parameters,
+                    backoffBehavior: backoffBehavior
+                )
+                
+                completionHandler(response, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
+    }
+
 	
 }

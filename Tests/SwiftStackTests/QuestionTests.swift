@@ -398,4 +398,53 @@ class QuestionTests: APITests {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
+    
+    
+    // - MARK: Test unanswered questions
+    
+    func testFetchUnansweredQuestionsSync() {
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchUnansweredQuestions()
+            XCTAssertNotNil(response.items, "items is nil")
+            XCTAssertEqual(response.items?.first?.post_id, id, "id was incorrect")
+            
+        } catch {
+            print(error)
+            XCTFail("fetchQuestionsWithNoAnswers threw an error")
+        }
+    }
+    
+    func testFetchUnansweredQuestionsAsync() {
+        expectation = expectation(description: "Fetched questions")
+        
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchUnansweredQuestions(parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("Questions not fetched")
+                return
+            }
+            
+            print(response?.items ?? "no items")
+            
+            if response?.items?.first?.post_id == id {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("id was incorrect")
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
 }
