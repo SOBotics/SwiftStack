@@ -108,6 +108,53 @@ class QuestionTests: APITests {
     }
     
     
+    // - MARK: Test answers on question
+    
+    func testFetchAnswersOnQuestionSync() {
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"answer_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchAnswersOn(question: id)
+            XCTAssertNotNil(response.items, "items is nil")
+            XCTAssertEqual(response.items?.first?.answer_id, id, "id was incorrect")
+            
+        } catch {
+            print(error)
+            XCTFail("fetchAnswersOn(question:) threw an error")
+        }
+    }
+    
+    func testFetchAnswersOnQuestionAsync() {
+        expectation = expectation(description: "Fetched answers")
+        
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"answer_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchAnswersOn(question: id, parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("Answers not fetched")
+                return
+            }
+            
+            print(response?.items ?? "no items")
+            
+            if response?.items?.first?.answer_id == id {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("id was incorrect")
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
     
     // - MARK: Test comments on question
     

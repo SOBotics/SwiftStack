@@ -68,6 +68,7 @@ public extension APIClient {
         }
     }
     
+    
 	// - MARK: /questions/{ids}
     /**
      Fetches questions synchronously.
@@ -176,6 +177,112 @@ public extension APIClient {
 		
 		fetchQuestions([id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
 	}
+    
+    
+    // - MARK: /questions/{ids}/answers
+    
+    /**
+     Fetches `Answer`s on `Question`s synchronously.
+     
+     - parameter ids: The question IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of answers as `APIResponse<Answer>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchAnswersOn(
+        questions ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Answer> {
+        
+        guard !ids.isEmpty else {
+            fatalError("ids is empty")
+        }
+        
+        
+        return try performAPIRequest(
+            "questions/\(ids.map {String($0)}.joined(separator: ";"))/answers",
+            parameters: parameters,
+            backoffBehavior: backoffBehavior
+        )
+    }
+    
+    /**
+     Fetches `Answer`s on `Question`s asynchronously.
+     
+     - parameter ids: The question IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchAnswersOn(
+        questions ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Answer>?, Error?) -> ()) {
+        
+        queue.async {
+            do {
+                let response: APIResponse<Answer> = try self.fetchAnswersOn(questions: ids, parameters: parameters, backoffBehavior: backoffBehavior)
+                
+                completionHandler(response, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
+    }
+    
+    /**
+     Fetches `Answer`s on a single `Question` synchronously.
+     
+     - parameter id: The question ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of answers as `APIResponse<Answer>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchAnswersOn(
+        question id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Answer> {
+        return try fetchAnswersOn(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior)
+    }
+    
+    /**
+     Fetches `Answer`s on a single `Question` asynchronously.
+     
+     - parameter id: The question ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchAnswersOn(
+        question id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Answer>?, Error?) -> ()) {
+        
+        fetchAnswersOn(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
+    }
+    
     
     
     // - MARK: /questions/{ids}/comments
