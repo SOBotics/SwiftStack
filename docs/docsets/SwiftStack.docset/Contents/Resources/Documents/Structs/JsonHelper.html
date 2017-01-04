@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JsonHelper Struct Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/JsonHelper" class="dashAnchor"></a>
+    <a title="JsonHelper Struct Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">SwiftStack Docs</a> (44% documented)</p>
+        <p class="header-right"><a href="https://github.com/NobodyNada/SwiftStack"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">SwiftStack Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        JsonHelper Struct Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/APIClient.html">APIClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/APIClient/RequestError.html">– RequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/APIClient/APIError.html">– APIError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/APIClient/BackoffBehavior.html">– BackoffBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/APIResponse.html">APIResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Answer.html">Answer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Comment.html">Comment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Content.html">Content</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Post.html">Post</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Post/Notice.html">– Notice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Question.html">Question</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Question/ClosedDetails.html">– ClosedDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Question/MigrationInfo.html">– MigrationInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site.html">Site</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site/Related.html">– Related</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site/SiteType.html">– SiteType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site/Styling.html">– Styling</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User/UserInfoType.html">– UserInfoType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User/UserType.html">– UserType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/PostType.html">PostType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/DictionaryConvertible.html">DictionaryConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JsonConvertible.html">JsonConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StringRepresentable.html">StringRepresentable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/BadgeCount.html">BadgeCount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/JsonHelper.html">JsonHelper</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10SwiftStack12EncodedArray">EncodedArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10SwiftStack17EncodedDictionary">EncodedDictionary</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>JsonHelper</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">JsonHelper</span></code></pre>
+
+                </div>
+              </div>
+            <p>Helps to convert dictionaries/arrays with custom objects to a valid JSON string. (and back)</p>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    FelixSFD
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Prepare%20objects%20for%20encoding"></a>
+                <a name="//apple_ref/swift/Section/Prepare objects for encoding" class="dashAnchor"></a>
+                <a href="#/Prepare%20objects%20for%20encoding">
+                  <h3 class="section-name">Prepare objects for encoding</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectGVs10DictionarySSP___GS1_SSP__"></a>
+                    <a name="//apple_ref/swift/Method/encode(object:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectGVs10DictionarySSP___GS1_SSP__">encode(object:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encodes the contents of a dictionary recursively.</p>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    FelixSFD
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">object</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10SwiftStack17EncodedDictionary">EncodedDictionary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L34-L63">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectGSaP___GSaP__"></a>
+                    <a name="//apple_ref/swift/Method/encode(object:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectGSaP___GSaP__">encode(object:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encodes the contents of an array recursively.</p>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p>seealso <code>encode(object: [String: Any])</code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">object</span><span class="p">:</span> <span class="p">[</span><span class="kt">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10SwiftStack12EncodedArray">EncodedArray</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L72-L101">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectPS_21DictionaryConvertible__GVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Method/encode(object:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectPS_21DictionaryConvertible__GVs10DictionarySSP__">encode(object:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encodes dictionary convertibles like <code><a href="../Classes/User.html">User</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">object</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DictionaryConvertible.html">DictionaryConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10SwiftStack17EncodedDictionary">EncodedDictionary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L106-L108">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectPS_19StringRepresentable__SS"></a>
+                    <a name="//apple_ref/swift/Method/encode(object:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectPS_19StringRepresentable__SS">encode(object:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encodes objects that conform to <code><a href="../Protocols/StringRepresentable.html">StringRepresentable</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">object</span><span class="p">:</span> <span class="kt"><a href="../Protocols/StringRepresentable.html">StringRepresentable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L113-L115">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectV10Foundation4Date_Si"></a>
+                    <a name="//apple_ref/swift/Method/encode(object:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectV10Foundation4Date_Si">encode(object:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the UNIX timestamp from the <code>Date</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">object</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L121-L123">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectV10Foundation3URL_SS"></a>
+                    <a name="//apple_ref/swift/Method/encode(object:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper6encodeFT6objectV10Foundation3URL_SS">encode(object:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the absolute string of the <code>URL</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">object</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L128-L130">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Encode%20to%20JSON-string"></a>
+                <a name="//apple_ref/swift/Section/Encode to JSON-string" class="dashAnchor"></a>
+                <a href="#/Encode%20to%20JSON-string">
+                  <h3 class="section-name">Encode to JSON-string</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper10jsonStringFzT4fromGVs10DictionarySSP___GSqSS_"></a>
+                    <a name="//apple_ref/swift/Method/jsonString(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper10jsonStringFzT4fromGVs10DictionarySSP___GSqSS_">jsonString(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encodes a <code>[String: Any]</code> to a valid JSON-string.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>An error if the decoding failed</p>
+
+</div>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">jsonString</span><span class="p">(</span><span class="n">from</span> <span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dictionary</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The dictionary to encode</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The JSON-string</p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L145-L152">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper10jsonStringFzT4fromGSaP___GSqSS_"></a>
+                    <a name="//apple_ref/swift/Method/jsonString(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper10jsonStringFzT4fromGSaP___GSqSS_">jsonString(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encodes a <code>[Any]</code> to a valid JSON-string.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>An error if the decoding failed</p>
+
+</div>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">jsonString</span><span class="p">(</span><span class="n">from</span> <span class="nv">array</span><span class="p">:</span> <span class="p">[</span><span class="kt">Any</span><span class="p">])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>array</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array to encode</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The JSON-string</p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L165-L172">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper10jsonStringFzT4fromPS_21DictionaryConvertible__GSqSS_"></a>
+                    <a name="//apple_ref/swift/Method/jsonString(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper10jsonStringFzT4fromPS_21DictionaryConvertible__GSqSS_">jsonString(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encodes a <code><a href="../Protocols/DictionaryConvertible.html">DictionaryConvertible</a></code> to a valid JSON-string.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>An error if the decoding failed</p>
+
+</div>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">jsonString</span><span class="p">(</span><span class="n">from</span> <span class="nv">object</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DictionaryConvertible.html">DictionaryConvertible</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>object</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object to encode</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The JSON-string</p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L185-L192">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Decode%20JSON-String"></a>
+                <a name="//apple_ref/swift/Section/Decode JSON-String" class="dashAnchor"></a>
+                <a href="#/Decode%20JSON-String">
+                  <h3 class="section-name">Decode JSON-String</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV10SwiftStack10JsonHelper6decodeFzT10jsonStringSS_P_"></a>
+                    <a name="//apple_ref/swift/Method/decode(jsonString:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV10SwiftStack10JsonHelper6decodeFzT10jsonStringSS_P_">decode(jsonString:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decodes a given JSON-string</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Unlike the <code><a href="../Structs/JsonHelper.html#/s:ZFV10SwiftStack10JsonHelper10jsonStringFzT4fromGVs10DictionarySSP___GSqSS_">jsonString(from:)</a></code> method, this will not convert the String to custom objects. You will have to use their initializers.</p>
+
+</div>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Try to avoid this method. It&rsquo;s easier to use the JSON-initializer of <code><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></code> objects.</p>
+
+</div>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>An error if the decoding failed</p>
+
+</div>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">decode</span><span class="p">(</span><span class="n">jsonString</span> <span class="nv">json</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Any</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>json</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON-string</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The decoded object</p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/JsonHelper.swift#L212-L214">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/NobodyNada/SwiftStack" target="_blank" rel="external">NobodyNada &amp; FelixSFD</a>. All rights reserved. (Last updated: 2017-01-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

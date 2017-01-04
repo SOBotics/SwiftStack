@@ -1,0 +1,1216 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIClient.swift",
+      "line": 73,
+      "symbol": "APIClient.RequestError.unknownError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIClient.swift",
+      "line": 88,
+      "symbol": "APIClient.BackoffBehavior",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIClient.swift",
+      "line": 89,
+      "symbol": "APIClient.BackoffBehavior.wait",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIClient.swift",
+      "line": 90,
+      "symbol": "APIClient.BackoffBehavior.throwError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIClient.swift",
+      "line": 422,
+      "symbol": "APIClient.urlSession(_:dataTask:didReceive:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIClient.swift",
+      "line": 444,
+      "symbol": "APIClient.urlSession(_:dataTask:didReceive:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIClient.swift",
+      "line": 458,
+      "symbol": "APIClient.urlSession(_:task:didCompleteWithError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIClient.swift",
+      "line": 471,
+      "symbol": "APIClient.urlSession(_:task:willPerformHTTPRedirection:newRequest:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 117,
+      "symbol": "APIResponse.backoff",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 119,
+      "symbol": "APIResponse.error_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 121,
+      "symbol": "APIResponse.error_message",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 123,
+      "symbol": "APIResponse.error_name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 125,
+      "symbol": "APIResponse.has_more",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 127,
+      "symbol": "APIResponse.page",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 129,
+      "symbol": "APIResponse.page_size",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 131,
+      "symbol": "APIResponse.quota_max",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 133,
+      "symbol": "APIResponse.quota_remaining",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 135,
+      "symbol": "APIResponse.total",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/APIResponse.swift",
+      "line": 137,
+      "symbol": "APIResponse.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 11,
+      "symbol": "Answer",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 15,
+      "symbol": "Answer.init(dictionary:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 68,
+      "symbol": "Answer.accepted",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 70,
+      "symbol": "Answer.answer_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 72,
+      "symbol": "Answer.awarded_bounty_amount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 74,
+      "symbol": "Answer.awarded_bounty_users",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 76,
+      "symbol": "Answer.community_owned_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 78,
+      "symbol": "Answer.creation_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 80,
+      "symbol": "Answer.is_accepted",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 82,
+      "symbol": "Answer.locked_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 84,
+      "symbol": "Answer.question_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Answer.swift",
+      "line": 86,
+      "symbol": "Answer.tags",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/BadgeCount.swift",
+      "line": 19,
+      "symbol": "BadgeCount.bronze",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/BadgeCount.swift",
+      "line": 20,
+      "symbol": "BadgeCount.silver",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/BadgeCount.swift",
+      "line": 21,
+      "symbol": "BadgeCount.gold",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Comment.swift",
+      "line": 22,
+      "symbol": "Comment.init(jsonString:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Comment.swift",
+      "line": 34,
+      "symbol": "Comment.init(dictionary:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Comment.swift",
+      "line": 54,
+      "symbol": "Comment.dictionary",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Comment.swift",
+      "line": 68,
+      "symbol": "Comment.comment_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Comment.swift",
+      "line": 70,
+      "symbol": "Comment.creation_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Comment.swift",
+      "line": 72,
+      "symbol": "Comment.edited",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Comment.swift",
+      "line": 74,
+      "symbol": "Comment.reply_to_user",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Content.swift",
+      "line": 98,
+      "symbol": "Content.body",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Content.swift",
+      "line": 100,
+      "symbol": "Content.body_markdown",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Content.swift",
+      "line": 102,
+      "symbol": "Content.can_flag",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Content.swift",
+      "line": 104,
+      "symbol": "Content.link",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Content.swift",
+      "line": 106,
+      "symbol": "Content.owner",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Content.swift",
+      "line": 108,
+      "symbol": "Content.post_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Content.swift",
+      "line": 110,
+      "symbol": "Content.post_type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Content.swift",
+      "line": 112,
+      "symbol": "Content.score",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Content.swift",
+      "line": 114,
+      "symbol": "Content.upvoted",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 19,
+      "symbol": "PostType.answer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 20,
+      "symbol": "PostType.question",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 80,
+      "symbol": "Post.Notice.body",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 81,
+      "symbol": "Post.Notice.creation_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 82,
+      "symbol": "Post.Notice.owner_user_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 113,
+      "symbol": "Post.init(dictionary:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 155,
+      "symbol": "Post.dictionary",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 184,
+      "symbol": "Post.comment_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 186,
+      "symbol": "Post.comments",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 188,
+      "symbol": "Post.down_vote_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 190,
+      "symbol": "Post.downvoted",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 192,
+      "symbol": "Post.last_activity_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 194,
+      "symbol": "Post.last_edit_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 196,
+      "symbol": "Post.last_editor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 198,
+      "symbol": "Post.share_link",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 200,
+      "symbol": "Post.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Post.swift",
+      "line": 202,
+      "symbol": "Post.up_vote_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 99,
+      "symbol": "Question.ClosedDetails.by_users",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 101,
+      "symbol": "Question.ClosedDetails.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 103,
+      "symbol": "Question.ClosedDetails.on_hold",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 105,
+      "symbol": "Question.ClosedDetails.original_questions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 107,
+      "symbol": "Question.ClosedDetails.reason",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 162,
+      "symbol": "Question.MigrationInfo.on_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 164,
+      "symbol": "Question.MigrationInfo.other_site",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 166,
+      "symbol": "Question.MigrationInfo.question_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 192,
+      "symbol": "Question.init(dictionary:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 281,
+      "symbol": "Question.dictionary",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 327,
+      "symbol": "Question.accepted_answer_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 329,
+      "symbol": "Question.answer_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 331,
+      "symbol": "Question.answers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 333,
+      "symbol": "Question.bounty_amount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 335,
+      "symbol": "Question.bounty_closes_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 337,
+      "symbol": "Question.bounty_user",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 339,
+      "symbol": "Question.can_close",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 341,
+      "symbol": "Question.close_vote_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 343,
+      "symbol": "Question.closed_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 345,
+      "symbol": "Question.closed_details",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 347,
+      "symbol": "Question.closed_reason",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 349,
+      "symbol": "Question.community_owned_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 351,
+      "symbol": "Question.creation_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 353,
+      "symbol": "Question.delete_vote_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 355,
+      "symbol": "Question.favorite_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 357,
+      "symbol": "Question.favorited",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 359,
+      "symbol": "Question.is_answered",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 361,
+      "symbol": "Question.locked_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 363,
+      "symbol": "Question.migrated_from",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 365,
+      "symbol": "Question.migrated_to",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 367,
+      "symbol": "Question.notice",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 369,
+      "symbol": "Question.protected_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 371,
+      "symbol": "Question.question_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 373,
+      "symbol": "Question.reopen_vote_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 375,
+      "symbol": "Question.tags",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
+      "line": 377,
+      "symbol": "Question.view_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 33,
+      "symbol": "Site.Related.Relation.parent",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 34,
+      "symbol": "Site.Related.Relation.meta",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 35,
+      "symbol": "Site.Related.Relation.chat",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 103,
+      "symbol": "Site.Related.api_site_parameter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 105,
+      "symbol": "Site.Related.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 107,
+      "symbol": "Site.Related.relation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 109,
+      "symbol": "Site.Related.site_url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 118,
+      "symbol": "Site.State.normal",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 119,
+      "symbol": "Site.State.closed_beta",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 120,
+      "symbol": "Site.State.open_beta",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 121,
+      "symbol": "Site.State.linked_meta",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 132,
+      "symbol": "Site.SiteType.main_site",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 133,
+      "symbol": "Site.SiteType.meta_site",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 193,
+      "symbol": "Site.Styling.link_color",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 195,
+      "symbol": "Site.Styling.tag_background_color",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 197,
+      "symbol": "Site.Styling.tag_foreground_color",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 342,
+      "symbol": "Site.aliases",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 344,
+      "symbol": "Site.api_site_parameter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 346,
+      "symbol": "Site.audience",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 348,
+      "symbol": "Site.closed_beta_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 350,
+      "symbol": "Site.favicon_url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 352,
+      "symbol": "Site.high_resolution_icon_url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 354,
+      "symbol": "Site.icon_url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 356,
+      "symbol": "Site.launch_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 358,
+      "symbol": "Site.logo_url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 360,
+      "symbol": "Site.markdown_extensions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 362,
+      "symbol": "Site.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 364,
+      "symbol": "Site.open_beta_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 366,
+      "symbol": "Site.related_sites",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 368,
+      "symbol": "Site.site_state",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 370,
+      "symbol": "Site.site_type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 372,
+      "symbol": "Site.site_url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 374,
+      "symbol": "Site.styling",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Site.swift",
+      "line": 376,
+      "symbol": "Site.twitter_account",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/StringRepresentable.swift",
+      "line": 19,
+      "symbol": "StringRepresentable.rawValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/StringRepresentable.swift",
+      "line": 20,
+      "symbol": "StringRepresentable.init(rawValue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 32,
+      "symbol": "User.UserInfoType.shallow",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 33,
+      "symbol": "User.UserInfoType.network",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 56,
+      "symbol": "User.UserType.unregistered",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 57,
+      "symbol": "User.UserType.registered",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 58,
+      "symbol": "User.UserType.moderator",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 59,
+      "symbol": "User.UserType.doesNotExist",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 218,
+      "symbol": "User.about_me",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 220,
+      "symbol": "User.accept_rate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 222,
+      "symbol": "User.account_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 224,
+      "symbol": "User.age",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 226,
+      "symbol": "User.answer_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 228,
+      "symbol": "User.badge_counts",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 230,
+      "symbol": "User.creation_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 232,
+      "symbol": "User.display_name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 234,
+      "symbol": "User.down_vote_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 236,
+      "symbol": "User.is_employee",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 238,
+      "symbol": "User.last_access_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 240,
+      "symbol": "User.last_modified_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 242,
+      "symbol": "User.link",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 244,
+      "symbol": "User.location",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 246,
+      "symbol": "User.profile_image",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 248,
+      "symbol": "User.question_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 250,
+      "symbol": "User.reputation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 252,
+      "symbol": "User.reputation_change_day",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 254,
+      "symbol": "User.reputation_change_month",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 256,
+      "symbol": "User.reputation_change_quarter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 258,
+      "symbol": "User.reputation_change_week",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 260,
+      "symbol": "User.reputation_change_year",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 262,
+      "symbol": "User.timed_penalty_date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 264,
+      "symbol": "User.up_vote_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 266,
+      "symbol": "User.user_id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 268,
+      "symbol": "User.user_type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 270,
+      "symbol": "User.view_count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/User.swift",
+      "line": 272,
+      "symbol": "User.website_url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/Felix/Documents/Libraries/SwiftStack"
+}
