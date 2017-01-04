@@ -204,4 +204,52 @@ class QuestionTests: APITests {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
+    
+    // - MARK: Test linked questions
+    
+    func testFetchLinkedQuestionsSync() {
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchLinkedQuestionsTo(question: id)
+            XCTAssertNotNil(response.items, "items is nil")
+            XCTAssertEqual(response.items?.first?.question_id, id, "id was incorrect")
+            
+        } catch {
+            print(error)
+            XCTFail("fetchLinkedQuestionsTo(question:) threw an error")
+        }
+    }
+    
+    func testFetchLinkedQuestionsAsync() {
+        expectation = expectation(description: "Fetched questions")
+        
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchLinkedQuestionsTo(question: id, parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("Questions not fetched")
+                return
+            }
+            
+            print(response?.items ?? "no items")
+            
+            if response?.items?.first?.question_id == id {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("id was incorrect")
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
 }

@@ -388,5 +388,111 @@ public extension APIClient {
         
         fetchCommentsOn(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
     }
+    
+    
+    
+    // - MARK: /questions/{ids}/linked
+    
+    /**
+     Fetches linked `Question`s to `Question`s synchronously.
+     
+     - parameter ids: The question IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of answers as `APIResponse<Question>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchLinkedQuestionsTo(
+        questions ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
+        
+        guard !ids.isEmpty else {
+            fatalError("ids is empty")
+        }
+        
+        
+        return try performAPIRequest(
+            "questions/\(ids.map {String($0)}.joined(separator: ";"))/linked",
+            parameters: parameters,
+            backoffBehavior: backoffBehavior
+        )
+    }
+    
+    /**
+     Fetches linked `Question`s to `Question`s asynchronously.
+     
+     - parameter ids: The question IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchLinkedQuestionsTo(
+        questions ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
+        
+        queue.async {
+            do {
+                let response: APIResponse<Question> = try self.fetchLinkedQuestionsTo(questions: ids, parameters: parameters, backoffBehavior: backoffBehavior)
+                
+                completionHandler(response, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
+    }
+    
+    /**
+     Fetches linked `Question`s to a single `Question` synchronously.
+     
+     - parameter id: The question ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of answers as `APIResponse<Question>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchLinkedQuestionsTo(
+        question id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
+        return try fetchLinkedQuestionsTo(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior)
+    }
+    
+    /**
+     Fetches linked `Question`s to a single `Question`  asynchronously.
+     
+     - parameter id: The question ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchLinkedQuestionsTo(
+        question id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
+        
+        fetchLinkedQuestionsTo(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
+    }
 	
 }
