@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>User Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/User" class="dashAnchor"></a>
+    <a title="User Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">SwiftStack Docs</a> (44% documented)</p>
+        <p class="header-right"><a href="https://github.com/NobodyNada/SwiftStack"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">SwiftStack Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        User Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/APIClient.html">APIClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/APIClient/RequestError.html">– RequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/APIClient/APIError.html">– APIError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/APIClient/BackoffBehavior.html">– BackoffBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/APIResponse.html">APIResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Answer.html">Answer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Comment.html">Comment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Content.html">Content</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Post.html">Post</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Post/Notice.html">– Notice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Question.html">Question</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Question/ClosedDetails.html">– ClosedDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Question/MigrationInfo.html">– MigrationInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site.html">Site</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site/Related.html">– Related</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site/SiteType.html">– SiteType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Site/Styling.html">– Styling</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User/UserInfoType.html">– UserInfoType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User/UserType.html">– UserType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/PostType.html">PostType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/DictionaryConvertible.html">DictionaryConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JsonConvertible.html">JsonConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StringRepresentable.html">StringRepresentable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/BadgeCount.html">BadgeCount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/JsonHelper.html">JsonHelper</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10SwiftStack12EncodedArray">EncodedArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10SwiftStack17EncodedDictionary">EncodedDictionary</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>User</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a user on StackExchange.</p>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><a href="https://api.stackexchange.com/docs/types/user">StackExchange API</a></p>
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/The%20user-type"></a>
+                <a name="//apple_ref/swift/Section/The user-type" class="dashAnchor"></a>
+                <a href="#/The%20user-type">
+                  <h3 class="section-name">The user-type</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC10SwiftStack4User12UserInfoType"></a>
+                    <a name="//apple_ref/swift/Enum/UserInfoType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC10SwiftStack4User12UserInfoType">UserInfoType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The tpye of the user. The StackExchange API returns different types of users depending on the use-case.</p>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    FelixSFD
+
+</div>
+
+                        <a href="../Classes/User/UserInfoType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UserInfoType</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L27-L46">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC10SwiftStack4User8UserType"></a>
+                    <a name="//apple_ref/swift/Enum/UserType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC10SwiftStack4User8UserType">UserType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the user/account as returned form the API.</p>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><a href="https://api.stackexchange.com/docs/types/user">StackExchange API</a></p>
+
+</div>
+
+                        <a href="../Classes/User/UserType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UserType</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt"><a href="../Protocols/StringRepresentable.html">StringRepresentable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L55-L60">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20properties"></a>
+                <a name="//apple_ref/swift/Section/Public properties" class="dashAnchor"></a>
+                <a href="#/Public%20properties">
+                  <h3 class="section-name">Public properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User4typeOS0_12UserInfoType"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User4typeOS0_12UserInfoType">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Classes/User/UserType.html">User.UserType</a></code> of the user.</p>
+
+<p>This does not affect the other properties. It&rsquo;s just for the developers to see, which data they can expect.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">type</span> <span class="o">=</span> <span class="kt">User</span><span class="o">.</span><span class="kt"><a href="../Classes/User/UserInfoType.html">UserInfoType</a></span><span class="o">.</span><span class="n">undefined</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L69">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializers"></a>
+                <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
+                <a href="#/Initializers">
+                  <h3 class="section-name">Initializers</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SwiftStack4UsercFT4typeOS0_12UserInfoType_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SwiftStack4UsercFT4typeOS0_12UserInfoType_S0_">init(type:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simple initializer with an <code><a href="../Classes/User/UserInfoType.html">UserInfoType</a></code> as possible parameter.</p>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Classes/User/UserInfoType.html">UserInfoType</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UserType</code> the new instance should have</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L81-L83">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SwiftStack4UsercFT10jsonStringSS_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(jsonString:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SwiftStack4UsercFT10jsonStringSS_GSqS0__">init(jsonString:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the object from a JSON string.</p>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="n"><a href="../Classes/User.html#/s:vP10SwiftStack15JsonConvertible10jsonStringGSqSS_">jsonString</a></span> <span class="nv">json</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>json</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON string returned by the API</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L92-L102">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP10SwiftStack21DictionaryConvertiblecFT10dictionaryGVs10DictionarySSP___x"></a>
+                    <a name="//apple_ref/swift/Method/init(dictionary:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP10SwiftStack21DictionaryConvertiblecFT10dictionaryGVs10DictionarySSP___x">init(dictionary:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the object from a JSON string.</p>
+
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L104-L162">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SwiftStack4UsercFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SwiftStack4UsercFT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Basic initializer without any parameters</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L167">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/JsonConvertible"></a>
+                <a name="//apple_ref/swift/Section/JsonConvertible" class="dashAnchor"></a>
+                <a href="#/JsonConvertible">
+                  <h3 class="section-name">JsonConvertible</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP10SwiftStack21DictionaryConvertible10dictionaryGVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Property/dictionary" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP10SwiftStack21DictionaryConvertible10dictionaryGVs10DictionarySSP__">dictionary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L171-L204">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP10SwiftStack15JsonConvertible10jsonStringGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/jsonString" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP10SwiftStack15JsonConvertible10jsonStringGSqSS_">jsonString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">jsonString</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L206-L208">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/CustomStringConvertible"></a>
+                <a name="//apple_ref/swift/Section/CustomStringConvertible" class="dashAnchor"></a>
+                <a href="#/CustomStringConvertible">
+                  <h3 class="section-name">CustomStringConvertible</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vPs23CustomStringConvertible11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vPs23CustomStringConvertible11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L212-L214">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Values%20returned%20from%20API"></a>
+                <a name="//apple_ref/swift/Section/Values returned from API" class="dashAnchor"></a>
+                <a href="#/Values%20returned%20from%20API">
+                  <h3 class="section-name">Values returned from API</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User8about_meGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/about_me" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User8about_meGSqSS_">about_me</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User11accept_rateGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/accept_rate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User11accept_rateGSqSi_">accept_rate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User10account_idGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/account_id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User10account_idGSqSi_">account_id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User3ageGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/age" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User3ageGSqSi_">age</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User12answer_countGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/answer_count" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User12answer_countGSqSi_">answer_count</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User12badge_countsGSqVS_10BadgeCount_"></a>
+                    <a name="//apple_ref/swift/Property/badge_counts" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User12badge_countsGSqVS_10BadgeCount_">badge_counts</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User13creation_dateGSqV10Foundation4Date_"></a>
+                    <a name="//apple_ref/swift/Property/creation_date" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User13creation_dateGSqV10Foundation4Date_">creation_date</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User12display_nameGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/display_name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User12display_nameGSqSS_">display_name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User15down_vote_countGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/down_vote_count" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User15down_vote_countGSqSi_">down_vote_count</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User11is_employeeGSqSb_"></a>
+                    <a name="//apple_ref/swift/Property/is_employee" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User11is_employeeGSqSb_">is_employee</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User16last_access_dateGSqV10Foundation4Date_"></a>
+                    <a name="//apple_ref/swift/Property/last_access_date" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User16last_access_dateGSqV10Foundation4Date_">last_access_date</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User18last_modified_dateGSqV10Foundation4Date_"></a>
+                    <a name="//apple_ref/swift/Property/last_modified_date" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User18last_modified_dateGSqV10Foundation4Date_">last_modified_date</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User4linkGSqV10Foundation3URL_"></a>
+                    <a name="//apple_ref/swift/Property/link" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User4linkGSqV10Foundation3URL_">link</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User8locationGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/location" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User8locationGSqSS_">location</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User13profile_imageGSqV10Foundation3URL_"></a>
+                    <a name="//apple_ref/swift/Property/profile_image" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User13profile_imageGSqV10Foundation3URL_">profile_image</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User14question_countGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/question_count" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User14question_countGSqSi_">question_count</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User10reputationGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/reputation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User10reputationGSqSi_">reputation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User21reputation_change_dayGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/reputation_change_day" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User21reputation_change_dayGSqSi_">reputation_change_day</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User23reputation_change_monthGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/reputation_change_month" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User23reputation_change_monthGSqSi_">reputation_change_month</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User25reputation_change_quarterGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/reputation_change_quarter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User25reputation_change_quarterGSqSi_">reputation_change_quarter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User22reputation_change_weekGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/reputation_change_week" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User22reputation_change_weekGSqSi_">reputation_change_week</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User22reputation_change_yearGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/reputation_change_year" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User22reputation_change_yearGSqSi_">reputation_change_year</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User18timed_penalty_dateGSqV10Foundation4Date_"></a>
+                    <a name="//apple_ref/swift/Property/timed_penalty_date" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User18timed_penalty_dateGSqV10Foundation4Date_">timed_penalty_date</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User13up_vote_countGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/up_vote_count" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User13up_vote_countGSqSi_">up_vote_count</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User7user_idGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/user_id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User7user_idGSqSi_">user_id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User9user_typeGSqOS0_8UserType_"></a>
+                    <a name="//apple_ref/swift/Property/user_type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User9user_typeGSqOS0_8UserType_">user_type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User10view_countGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/view_count" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User10view_countGSqSi_">view_count</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SwiftStack4User11website_urlGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/website_url" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SwiftStack4User11website_urlGSqSS_">website_url</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JsonConvertible.html">JsonConvertible</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.3.1/Sources/User.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/NobodyNada/SwiftStack" target="_blank" rel="external">NobodyNada &amp; FelixSFD</a>. All rights reserved. (Last updated: 2017-01-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
