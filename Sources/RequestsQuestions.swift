@@ -23,7 +23,7 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
-     - returns: The list of sites as `APIResponse<Question>`
+     - returns: The list of questions as `APIResponse<Question>`
      
      - author: FelixSFD
      */
@@ -599,6 +599,61 @@ public extension APIClient {
         completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
         
         fetchRelatedQuestionsTo(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
+    }
+    
+    
+    
+    // - MARK: /questions/featured
+    /**
+     Fetches all questions with active bounties on the site synchronously.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of questions as `APIResponse<Question>`
+     
+     - author: FelixSFD
+     */
+    public func fetchFeaturedQuestions(
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
+        
+        return try performAPIRequest(
+            "questions/featured",
+            parameters: parameters,
+            backoffBehavior: backoffBehavior
+        )
+    }
+    
+    /**
+     Fetches all questions with active bounties on the site asynchronously.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completion
+     
+     - author: FelixSFD
+     */
+    public func fetchFeaturedQuestions(
+        parameters: [String: String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
+        
+        queue.async {
+            do {
+                let response: APIResponse<Question> = try self.fetchQuestions(
+                    parameters: parameters,
+                    backoffBehavior: backoffBehavior
+                )
+                
+                completionHandler(response, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
     }
 	
 }

@@ -299,4 +299,54 @@ class QuestionTests: APITests {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
+    
+    // - MARK: Test featured questions
+    
+    func testFetchFeaturedQuestionsSync() {
+        let bounty = 100
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id), \"bounty_amount\": \(bounty)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchFeaturedQuestions()
+            XCTAssertNotNil(response.items, "items is nil")
+            XCTAssertEqual(response.items?.first?.post_id, id, "id was incorrect")
+            
+        } catch {
+            print(error)
+            XCTFail("fetchFeaturedQuestions threw an error")
+        }
+    }
+    
+    func testFetchFeaturedQuestionAsync() {
+        expectation = expectation(description: "Fetched questions")
+        
+        let bounty = 100
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id), \"bounty_amount\": \(bounty)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchFeaturedQuestions(parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("Questions not fetched")
+                return
+            }
+            
+            print(response?.items ?? "no items")
+            
+            if response?.items?.first?.post_id == id {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("id was incorrect")
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
 }
