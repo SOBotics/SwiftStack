@@ -603,6 +603,112 @@ public extension APIClient {
     
     
     
+    // - MARK: /questions/{ids}/timeline
+    
+    /**
+     Fetches the `Question.Timeline` events of `Question`s synchronously.
+     
+     - parameter ids: The question IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of questions as `APIResponse<Question.Timeline>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchTimelineOf(
+        questions ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question.Timeline> {
+        
+        guard !ids.isEmpty else {
+            fatalError("ids is empty")
+        }
+        
+        
+        return try performAPIRequest(
+            "questions/\(ids.map {String($0)}.joined(separator: ";"))/timeline",
+            parameters: parameters,
+            backoffBehavior: backoffBehavior
+        )
+    }
+    
+    /**
+     Fetches the `Question.Timeline` events of `Question`s asynchronously.
+     
+     - parameter ids: The question IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchTimelineOf(
+        questions ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Question.Timeline>?, Error?) -> ()) {
+        
+        queue.async {
+            do {
+                let response: APIResponse<Question.Timeline> = try self.fetchTimelineOf(questions: ids, parameters: parameters, backoffBehavior: backoffBehavior)
+                
+                completionHandler(response, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
+    }
+    
+    /**
+     Fetches the `Question.Timeline` events of a single `Question` synchronously.
+     
+     - parameter id: The question ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of questions as `APIResponse<Question.Timeline>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchTimelineOf(
+        question id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question.Timeline> {
+        return try fetchTimelineOf(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior)
+    }
+    
+    /**
+     Fetches the `Question.Timeline` events of a single `Question` asynchronously.
+     
+     - parameter id: The question ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchTimelineOf(
+        question id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Question.Timeline>?, Error?) -> ()) {
+        
+        fetchTimelineOf(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
+    }
+    
+    
+    
     // - MARK: /questions/featured
     /**
      Fetches all questions with active bounties on the site synchronously.

@@ -351,6 +351,55 @@ class QuestionTests: APITests {
     
     
     
+    // - MARK: Test timeline of questions
+    
+    func testFetchQuestionsTimelineSync() {
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchTimelineOf(question: id)
+            XCTAssertNotNil(response.items, "items is nil")
+            XCTAssertEqual(response.items?.first?.question_id, id, "id was incorrect")
+            
+        } catch {
+            print(error)
+            XCTFail("fetchTimelineOf threw an error")
+        }
+    }
+    
+    func testFetchQuestionsTimelineAsync() {
+        expectation = expectation(description: "Fetched timeline")
+        
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchTimelineOf(question: id, parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("Timeline not fetched")
+                return
+            }
+            
+            print(response?.items ?? "no items")
+            
+            if response?.items?.first?.question_id == id {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("id was incorrect")
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    
+    
     // - MARK: Test questions with no answers
     
     func testFetchQuestionsWithNoAnswersSync() {
