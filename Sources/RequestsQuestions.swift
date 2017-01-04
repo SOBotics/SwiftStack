@@ -402,7 +402,7 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
      
-     - returns: The list of answers as `APIResponse<Question>`
+     - returns: The list of questions as `APIResponse<Question>`
      
      - authors: NobodyNada, FelixSFD
      */
@@ -462,7 +462,7 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
      
-     - returns: The list of answers as `APIResponse<Question>`
+     - returns: The list of questions as `APIResponse<Question>`
      
      - authors: NobodyNada, FelixSFD
      */
@@ -493,6 +493,112 @@ public extension APIClient {
         completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
         
         fetchLinkedQuestionsTo(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
+    }
+    
+    
+    
+    // - MARK: /questions/{ids}/related
+    
+    /**
+     Fetches related `Question`s to `Question`s synchronously.
+     
+     - parameter ids: The question IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of questions as `APIResponse<Question>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchRelatedQuestionsTo(
+        questions ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
+        
+        guard !ids.isEmpty else {
+            fatalError("ids is empty")
+        }
+        
+        
+        return try performAPIRequest(
+            "questions/\(ids.map {String($0)}.joined(separator: ";"))/related",
+            parameters: parameters,
+            backoffBehavior: backoffBehavior
+        )
+    }
+    
+    /**
+     Fetches related `Question`s to `Question`s asynchronously.
+     
+     - parameter ids: The question IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchRelatedQuestionsTo(
+        questions ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
+        
+        queue.async {
+            do {
+                let response: APIResponse<Question> = try self.fetchRelatedQuestionsTo(questions: ids, parameters: parameters, backoffBehavior: backoffBehavior)
+                
+                completionHandler(response, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
+    }
+    
+    /**
+     Fetches related `Question`s to a single `Question` synchronously.
+     
+     - parameter id: The question ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of questions as `APIResponse<Question>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchRelatedQuestionsTo(
+        question id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
+        return try fetchRelatedQuestionsTo(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior)
+    }
+    
+    /**
+     Fetches related `Question`s to a single `Question`  asynchronously.
+     
+     - parameter id: The question ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchRelatedQuestionsTo(
+        question id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
+        
+        fetchRelatedQuestionsTo(questions: [id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
     }
 	
 }
