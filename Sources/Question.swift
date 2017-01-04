@@ -168,6 +168,148 @@ public class Question: Post {
     }
     
     
+    // - MARK: Question Timeline
+    
+    /**
+     This type represents events in the history of a `Question`.
+     
+     - author: FelixSFD
+     */
+    public class Timeline: JsonConvertible {
+        
+        // - MARK: Timeline Type
+        
+        /**
+         The type of the timeline-event
+         
+         - author: FelixSFD
+         */
+        public enum TimelineType: String, StringRepresentable {
+            ////One of the answers was marked as "accepted"
+            case accepted_answer = "accepted_answer"
+            
+            ////An `Answer` was posted
+            case answer = "answer"
+            
+            ////A `Comment` was posted
+            case comment = "comment"
+            
+            ////The state of the post changed
+            case post_state_changed = "post_state_changed"
+            
+            ////The `Question` was asked
+            case question = "question"
+            
+            ////A post was modified
+            case revision = "revision"
+            
+            ////The accpeted answer was marked as "unaccepted"
+            case unaccepted_answer = "unaccepted_answer"
+            
+            ////???
+            case vote_aggregate = "vote_aggregate"
+        }
+        
+        
+        /**
+         Initializes the object from a JSON string.
+         
+         - parameter json: The JSON string returned by the API
+         
+         - author: FelixSFD
+         */
+        public required convenience init?(jsonString json: String) {
+            do {
+                guard let dictionary = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String: Any] else {
+                    return nil
+                }
+                
+                self.init(dictionary: dictionary)
+            } catch {
+                return nil
+            }
+        }
+        
+        public required init(dictionary: [String: Any]) {
+            self.comment_id = dictionary["comment_id"] as? Int
+            
+            if let timestamp = dictionary["creation_date"] as? Int {
+                self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
+            }
+            
+            self.down_vote_count = dictionary["down_vote_count"] as? Int
+            
+            if let user = dictionary["owner"] as? [String: Any] {
+                self.owner = User(dictionary: user)
+            }
+            
+            self.post_id = dictionary["post_id"] as? Int
+            self.question_id = dictionary["question_id"] as? Int
+            
+            self.revision_guid = dictionary["revision_quid"] as? String
+            
+            if let type = dictionary["timeline_type"] as? String {
+                self.timeline_type = TimelineType(rawValue: type)
+            }
+            
+            self.up_vote_count = dictionary["up_vote_count"] as? Int
+            
+            if let user = dictionary["user"] as? [String: Any] {
+                self.user = User(dictionary: user)
+            }
+        }
+        
+        
+        // - MARK: JsonConvertible
+        
+        public var dictionary: [String: Any] {
+            var dict = [String: Any]()
+            
+            dict["comment_id"] = comment_id
+            dict["creation_date"] = creation_date
+            dict["down_vote_count"] = down_vote_count
+            dict["owner"] = owner?.dictionary
+            dict["post_id"] = post_id
+            dict["question_id"] = question_id
+            dict["revision_guid"] = revision_guid
+            dict["timeline_type"] = timeline_type
+            dict["up_vote_count"] = up_vote_count
+            dict["user"] = user?.dictionary
+            
+            
+            return dict
+        }
+        
+        public var jsonString: String? {
+            return (try? JsonHelper.jsonString(from: self)) ?? nil
+        }
+        
+        
+        // - MARK: Fields
+        
+        public var comment_id: Int?
+        
+        public var creation_date: Date?
+        
+        public var down_vote_count: Int?
+        
+        public var owner: User?
+        
+        public var post_id: Int?
+        
+        public var question_id: Int?
+        
+        public var revision_guid: String?
+        
+        public var timeline_type: TimelineType?
+        
+        public var up_vote_count: Int?
+        
+        public var user: User?
+        
+    }
+    
+    
     // - MARK: Initializers
     
     /**
