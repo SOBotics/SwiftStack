@@ -53,3 +53,7 @@ Of course, the functions can be more complex, when you want to pass parameters.
 ## Returned objects
 
 Every object that contains data of the Stack Exchange API (for example `User`, `Question`,...) has properties with the exact same names as returned by the API, even when those names don't follow Swift conventions.
+
+## Documentation
+
+The documentation can be found on GitHub Pages: https://sobotics.github.io/SwiftStack/
