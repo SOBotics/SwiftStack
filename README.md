@@ -56,4 +56,4 @@ Every object that contains data of the Stack Exchange API (for example `User`, `
 
 ## Documentation
 
-The entire documentation can be found on GitHub Pages: https://sobotics.github.io/SwiftStack/
+The documentation can be found on GitHub Pages: https://sobotics.github.io/SwiftStack/
