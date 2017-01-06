@@ -44,9 +44,9 @@ public class SuggestedEdit {
             self.approval_date = Date(timeIntervalSince1970: TimeInterval(timestamp))
         }
         
-        self.body = dictionary["body"] as? String
+        self.body = (dictionary["body"] as? String)?.stringByDecodingHTMLEntities
         
-        self.comment = dictionary["comment"] as? String
+        self.comment = (dictionary["comment"] as? String)?.stringByDecodingHTMLEntities
         
         if let timestamp = dictionary["creation_date"] as? Int {
             self.creation_date = Date(timeIntervalSince1970: TimeInterval(timestamp))
@@ -70,7 +70,7 @@ public class SuggestedEdit {
         
         self.tags = dictionary["tags"] as? [String]
         
-        self.title = dictionary["title"] as? String
+        self.title = (dictionary["title"] as? String)?.stringByDecodingHTMLEntities
     }
     
     // - MARK: Fields

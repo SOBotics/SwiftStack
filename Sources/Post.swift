@@ -145,7 +145,7 @@ public class Post: Content {
             self.share_link = URL(string: urlString)
         }
         
-        self.title = dictionary["title"] as? String
+        self.title = (dictionary["title"] as? String)?.stringByDecodingHTMLEntities
         self.up_vote_count = dictionary["up_vote_count"] as? Int
     }
     

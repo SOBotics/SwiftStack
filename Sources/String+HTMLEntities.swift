@@ -2,11 +2,13 @@
 //  StringExtensions.swift
 //  SwiftStack
 //
-//  Created by Felix Deil on 06.01.17.
+//  Created by FelixSFD on 06.01.17.
 //
 //
 
 import Foundation
+
+//TODO: Functions for encoding
 
 // - MARK: HTML entities
 
@@ -275,8 +277,10 @@ fileprivate let characterEntities : [String: Character] = [
     "&diams;"    : "\u{2666}",
 ]
 
+// - MARK: Decoding
+
 /**
- Extends `String` by some useful functions to endocd/decode HTML entities.
+ Extends `String` by some useful functions to decode HTML entities.
  
  This is the extension, Martin R posted on [Stack Overflow](https://stackoverflow.com/a/30141700/3476191)
  
@@ -289,7 +293,7 @@ internal extension String {
      
      - author: [Martin R](http://stackoverflow.com/users/1187415/martin-r)
      */
-    public var stringByDecodingHTMLEntities : String {
+    internal var stringByDecodingHTMLEntities : String {
         
         // ===== Utility functions =====
         

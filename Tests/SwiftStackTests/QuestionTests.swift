@@ -15,11 +15,12 @@ class QuestionTests: APITests {
     func testFetchQuestionSync() {
         let id = 41463556
         client.onRequest { task in
-            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+            return ("{\"items\": [{\"question_id\": \(id), \"title\": \"Why and 1 ( &amp;1) bitwise operation always return 0 or 1\"}]}".data(using: .utf8), self.blankResponse(task), nil)
         }
         
         do {
             let response = try client.fetchQuestion(id)
+            print(response.items?.first?.title)
             XCTAssertNotNil(response.items, "items is nil")
             XCTAssertEqual(response.items?.first?.post_id, id, "id was incorrect")
             
@@ -35,7 +36,7 @@ class QuestionTests: APITests {
         let id = 41463556
         
         client.onRequest { task in
-            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+            return ("{\"items\": [{\"question_id\": \(id), \"title\": \"Why and 1 ( &amp;1) bitwise operation always return 0 or 1\"}]}".data(using: .utf8), self.blankResponse(task), nil)
         }
         
         client.fetchQuestion(id, parameters: [:], backoffBehavior: .wait) {
@@ -47,6 +48,7 @@ class QuestionTests: APITests {
             }
             
             print(response?.items ?? "no items")
+            print(response?.items?.first?.title)
             
             if response?.items?.first?.post_id == id {
                 self.expectation?.fulfill()

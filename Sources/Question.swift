@@ -246,7 +246,7 @@ public class Question: Post {
             self.post_id = dictionary["post_id"] as? Int
             self.question_id = dictionary["question_id"] as? Int
             
-            self.revision_guid = dictionary["revision_quid"] as? String
+            self.revision_guid = dictionary["revision_guid"] as? String
             
             if let type = dictionary["timeline_type"] as? String {
                 self.timeline_type = TimelineType(rawValue: type)
