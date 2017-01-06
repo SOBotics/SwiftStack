@@ -41,9 +41,9 @@ public class Revision {
     }
     
     public required init(dictionary: [String : Any]) {
-        self.body = dictionary["body"] as? String
+        self.body = (dictionary["body"] as? String)?.stringByDecodingHTMLEntities
         
-        self.comment = dictionary["comment"] as? String
+        self.comment = (dictionary["comment"] as? String)?.stringByDecodingHTMLEntities
         
         if let timestamp = dictionary["creation_date"] as? Int {
             self.creation_date = Date(timeIntervalSince1970: TimeInterval(timestamp))
@@ -51,11 +51,11 @@ public class Revision {
         
         self.is_rollback = dictionary["is_rollback"] as? Bool
         
-        self.last_body = dictionary["last_body"] as? String
+        self.last_body = (dictionary["last_body"] as? String)?.stringByDecodingHTMLEntities
         
         self.last_tags = dictionary["last_tags"] as? [String]
         
-        self.last_title = dictionary["last_title"] as? String
+        self.last_title = (dictionary["last_title"] as? String)?.stringByDecodingHTMLEntities
         
         self.post_id = dictionary["post_id"] as? Int
         
@@ -75,7 +75,7 @@ public class Revision {
         
         self.tags = dictionary["tags"] as? [String]
         
-        self.title = dictionary["title"] as? String
+        self.title = (dictionary["title"] as? String)?.stringByDecodingHTMLEntities
         
         if let user = dictionary["owner"] as? [String: Any] {
             self.user = User(dictionary: user)
@@ -84,8 +84,14 @@ public class Revision {
     
     // - MARK: Revision type
     
+    /**
+     The type of the revision. This can either be `single_user` or `vote_based`
+     */
     public enum RevisionType: String, StringRepresentable {
+        /// A revision of a single user
         case single_user = "single_user"
+        
+        /// The revision was approved by voting
         case vote_based = "vote_based"
     }
     

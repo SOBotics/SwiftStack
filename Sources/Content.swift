@@ -39,8 +39,8 @@ public class Content: JsonConvertible, CustomStringConvertible {
     }
     
     public required init(dictionary: [String : Any]) {
-        self.body = dictionary["body"] as? String
-        self.body_markdown = dictionary["body_markdown"] as? String
+        self.body = (dictionary["body"] as? String)?.stringByDecodingHTMLEntities
+        self.body_markdown = (dictionary["body_markdown"] as? String)?.stringByDecodingHTMLEntities
         
         self.can_flag = dictionary["can_flag"] as? Bool
         

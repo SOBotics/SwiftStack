@@ -102,7 +102,7 @@ public class User: JsonConvertible, CustomStringConvertible {
 	}
 	
 	public required init(dictionary: [String: Any]) {
-		self.about_me = dictionary["about_me"] as? String
+		self.about_me = (dictionary["about_me"] as? String)?.stringByDecodingHTMLEntities
 		self.accept_rate = dictionary["accept_rate"] as? Int
 		self.account_id = dictionary["account_id"] as? Int
 		self.age = dictionary["age"] as? Int
@@ -116,7 +116,7 @@ public class User: JsonConvertible, CustomStringConvertible {
 			self.creation_date = Date(timeIntervalSince1970: Double(creationTimestamp))
 		}
 		
-		self.display_name = dictionary["display_name"] as? String
+		self.display_name = (dictionary["display_name"] as? String)?.stringByDecodingHTMLEntities
 		self.down_vote_count = dictionary["down_vote_count"] as? Int
 		self.is_employee = dictionary["is_employee"] as? Bool
 		
@@ -132,7 +132,7 @@ public class User: JsonConvertible, CustomStringConvertible {
 			self.link = URL(string: urlString)
 		}
 		
-		self.location = dictionary["location"] as? String
+		self.location = (dictionary["location"] as? String)?.stringByDecodingHTMLEntities
 		
 		if let urlString = dictionary["profile_image"] as? String {
 			self.link = URL(string: urlString)
@@ -158,7 +158,7 @@ public class User: JsonConvertible, CustomStringConvertible {
 		}
 		
 		self.view_count = dictionary["view_count"] as? Int
-		self.website_url = dictionary["website_url"] as? String
+		self.website_url = (dictionary["website_url"] as? String)?.stringByDecodingHTMLEntities
 	}
 	
 	/**

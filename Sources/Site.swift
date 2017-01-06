@@ -210,7 +210,7 @@ public class Site: JsonConvertible, CustomStringConvertible {
     public required init(dictionary: [String : Any]) {
         self.aliases = dictionary["aliases"] as? [String]
         self.api_site_parameter = dictionary["api_site_parameter"] as? String
-        self.audience = dictionary["audience"] as? String
+        self.audience = (dictionary["audience"] as? String)?.stringByDecodingHTMLEntities
         
         if let timestamp = dictionary["closed_beta_date"] as? Int {
             self.closed_beta_date = Date(timeIntervalSince1970: Double(timestamp))
@@ -237,7 +237,7 @@ public class Site: JsonConvertible, CustomStringConvertible {
         }
         
         self.markdown_extensions = dictionary["markdown_extensions"] as? [String]
-        self.name = dictionary["name"] as? String
+        self.name = (dictionary["name"] as? String)?.stringByDecodingHTMLEntities
         
         if let timestamp = dictionary["open_beta_date"] as? Int {
             self.open_beta_date = Date(timeIntervalSince1970: Double(timestamp))
@@ -271,7 +271,7 @@ public class Site: JsonConvertible, CustomStringConvertible {
             self.styling = Styling(dictionary: styling)
         }
         
-        self.twitter_account = dictionary["twitter_account"] as? String
+        self.twitter_account = (dictionary["twitter_account"] as? String)?.stringByDecodingHTMLEntities
     }
     
     public required convenience init?(jsonString json: String) {
