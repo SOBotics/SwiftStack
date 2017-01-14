@@ -2,7 +2,7 @@ module: SwiftStack
 author: NobodyNada & FelixSFD
 author_url: https://github.com/NobodyNada/SwiftStack
 github_url: https://github.com/NobodyNada/SwiftStack
-github_file_prefix: https://github.com/NobodyNada/SwiftStack/blob/0.4.0
-module_version: 0.4.0
+github_file_prefix: https://github.com/NobodyNada/SwiftStack/blob/0.5.0
+module_version: 0.5.0
 output: ./docs
 min_acl: public

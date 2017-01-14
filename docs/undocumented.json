@@ -793,133 +793,112 @@
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 87,
-      "symbol": "Revision.RevisionType",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 88,
-      "symbol": "Revision.RevisionType.single_user",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 89,
-      "symbol": "Revision.RevisionType.vote_based",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 94,
+      "line": 100,
       "symbol": "Revision.body",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 96,
+      "line": 102,
       "symbol": "Revision.comment",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 98,
+      "line": 104,
       "symbol": "Revision.creation_date",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 100,
+      "line": 106,
       "symbol": "Revision.is_rollback",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 102,
+      "line": 108,
       "symbol": "Revision.last_body",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 104,
+      "line": 110,
       "symbol": "Revision.last_tags",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 106,
+      "line": 112,
       "symbol": "Revision.last_title",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 108,
+      "line": 114,
       "symbol": "Revision.post_id",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 110,
+      "line": 116,
       "symbol": "Revision.post_type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 112,
+      "line": 118,
       "symbol": "Revision.revision_guid",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 114,
+      "line": 120,
       "symbol": "Revision.revision_number",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 116,
+      "line": 122,
       "symbol": "Revision.revision_type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 118,
+      "line": 124,
       "symbol": "Revision.set_community_wiki",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 120,
+      "line": 126,
       "symbol": "Revision.tags",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 122,
+      "line": 128,
       "symbol": "Revision.title",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Revision.swift",
-      "line": 124,
+      "line": 130,
       "symbol": "Revision.user",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"

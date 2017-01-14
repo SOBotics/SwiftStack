@@ -25,7 +25,7 @@ class AnswersTests: APITests {
             
         } catch {
             print(error)
-            XCTFail("fetchQuestion threw an error")
+            XCTFail("fetchAnswer threw an error")
         }
     }
     
@@ -98,6 +98,55 @@ class AnswersTests: APITests {
             print(response?.items ?? "no items")
             
             if response?.items?.first?.answer_id == id {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("id was incorrect")
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    
+    // - MARK: Test questions of answers
+    
+    func testFetchQuestionOfAnswerSync() {
+        let id = 13371337
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchQuestionOfAnswer(id)
+            XCTAssertNotNil(response.items, "items is nil")
+            XCTAssertEqual(response.items?.first?.question_id, id, "id was incorrect")
+            
+        } catch {
+            print(error)
+            XCTFail("fetchQuestion threw an error")
+        }
+    }
+    
+    func testFetchQuestionOfAnswerAsync() {
+        expectation = expectation(description: "Fetched question")
+        
+        let id = 13371337
+        
+        client.onRequest { task in
+            return ("{\"items\": [{\"question_id\": \(id)}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchQuestionOfAnswer(id, parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("Question not fetched")
+                return
+            }
+            
+            print(response?.items ?? "no items")
+            
+            if response?.items?.first?.question_id == id {
                 self.expectation?.fulfill()
             } else {
                 XCTFail("id was incorrect")
