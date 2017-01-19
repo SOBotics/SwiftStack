@@ -2,7 +2,7 @@
 //  QuestionTests.swift
 //  SwiftStack
 //
-//  Created by Felix Deil on 04.01.17.
+//  Created by FelixSFD on 04.01.17.
 //
 //
 
