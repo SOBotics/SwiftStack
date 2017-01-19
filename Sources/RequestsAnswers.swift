@@ -2,7 +2,7 @@
 //  RequestsAnswers.swift
 //  SwiftStack
 //
-//  Created by Felix Deil on 14.01.17.
+//  Created by FelixSFD on 14.01.17.
 //
 //
 
@@ -11,7 +11,7 @@ import Foundation
 /**
  This extension contains all requests in the QUESTIONS section of the StackExchange API Documentation.
  
- - author: NobodyNada, FelixSFD
+ - authors: NobodyNada, FelixSFD
  */
 public extension APIClient {
     // - MARK: /answers
@@ -24,14 +24,14 @@ public extension APIClient {
      
      - returns: The list of questions as `APIResponse<Answer>`
      
-     - author: FelixSFD
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchAnswers(
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Answer> {
         
         return try performAPIRequest(
-            "answer",
+            "answers",
             parameters: parameters,
             backoffBehavior: backoffBehavior
         )
@@ -46,7 +46,7 @@ public extension APIClient {
      
      - parameter completion
      
-     - author: FelixSFD
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchAnswers(
         parameters: [String: String] = [:],
@@ -80,7 +80,7 @@ public extension APIClient {
      
      - returns: The list of sites as `APIResponse<Answer>`
      
-     - author: NobodyNada
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchAnswers(
         _ ids: [Int],
@@ -108,9 +108,9 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
-     - parameter completion
+     - parameter completionHandler
      
-     - author: NobodyNada
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchAnswers(
         _ ids: [Int],
@@ -145,7 +145,7 @@ public extension APIClient {
      
      - returns: The list of sites as `APIResponse<Answer>`
      
-     - author: NobodyNada
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchAnswer(
         _ id: Int,
@@ -164,9 +164,9 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
-     - parameter completion
+     - parameter completionHandler
      
-     - author: NobodyNada
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchAnswer(
         _ id: Int,
@@ -191,7 +191,7 @@ public extension APIClient {
      
      - returns: The list of sites as `APIResponse<Question>`
      
-     - author: NobodyNada
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchQuestionsOfAnswers(
         _ ids: [Int],
@@ -219,9 +219,9 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
-     - parameter completion
+     - parameter completionHandler
      
-     - author: NobodyNada
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchQuestionsOfAnswers(
         _ ids: [Int],
@@ -256,7 +256,7 @@ public extension APIClient {
      
      - returns: The list of sites as `APIResponse<Question>`
      
-     - author: NobodyNada
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchQuestionOfAnswer(
         _ id: Int,
@@ -275,9 +275,9 @@ public extension APIClient {
      
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
-     - parameter completion
+     - parameter completionHandler
      
-     - author: NobodyNada
+     - authors: NobodyNada, FelixSFD
      */
     public func fetchQuestionOfAnswer(
         _ id: Int,
