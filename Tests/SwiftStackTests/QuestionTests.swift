@@ -20,7 +20,7 @@ class QuestionTests: APITests {
         
         do {
             let response = try client.fetchQuestion(id)
-            print(response.items?.first?.title)
+            print(response.items?.first?.title ?? "nil")
             XCTAssertNotNil(response.items, "items is nil")
             XCTAssertEqual(response.items?.first?.post_id, id, "id was incorrect")
             
@@ -48,7 +48,7 @@ class QuestionTests: APITests {
             }
             
             print(response?.items ?? "no items")
-            print(response?.items?.first?.title)
+            print(response?.items?.first?.title ?? "nil")
             
             if response?.items?.first?.post_id == id {
                 self.expectation?.fulfill()

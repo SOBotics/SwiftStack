@@ -180,14 +180,14 @@ class APITests: XCTestCase {
 	let backoffTime: TimeInterval = 1
 	
 	
-	func prepareBackoff() throws {
+	func prepareBackoff(_ request: String = "info") throws {
 		client.onRequest {task in
 			let responseJSON = "{\"backoff\": \(Int(self.backoffTime))}"
 			
 			return (responseJSON.data(using: .utf8), self.blankResponse(task), nil)
 		}
 		
-		let _ = try client.performAPIRequest("info") as APIResponse<Site>
+		let _ = try client.performAPIRequest(request) as APIResponse<Site>
 		
 		client.onRequest {task in
 			return ("{}".data(using: .utf8), self.blankResponse(task), nil)
@@ -232,6 +232,12 @@ class APITests: XCTestCase {
 		
 		//make sure the backoff is cleaned up
 		XCTAssertNil(client.backoffs["info"], "backoff was not cleaned up after waiting")
+	}
+	
+	func testComplexRequestBackoff() throws {
+		try prepareBackoff("/questions/123456")
+		
+		XCTAssertThrowsError(try client.performAPIRequest("questions/123457", backoffBehavior: .throwError) as APIResponse<Site>)
 	}
 	
 	func testBackoffCleanup() throws {
