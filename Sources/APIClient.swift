@@ -119,7 +119,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		}
 		
 		//Build the URL.
-		var url = "\(useSSL ? "http" : "https")://api.stackexchange.com/2.2"
+		var url = "\(useSSL ? "https" : "http")://api.stackexchange.com/2.2"
 		
 		let prefixedRequest = (request.hasPrefix("/") ? request : "/" + request)
 		url += prefixedRequest
