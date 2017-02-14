@@ -178,6 +178,113 @@ public extension APIClient {
     }
     
     
+    // - MARK: /answers/{ids}/comments
+    
+    /**
+     Fetches `Comment`s on `Answer`s synchronously.
+     
+     - parameter ids: The answer IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of comments as `APIResponse<Comment>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchCommentsOn(
+        answers ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Comment> {
+        
+        guard !ids.isEmpty else {
+            fatalError("ids is empty")
+        }
+        
+        
+        return try performAPIRequest(
+            "answers/\(ids.map {String($0)}.joined(separator: ";"))/comments",
+            parameters: parameters,
+            backoffBehavior: backoffBehavior
+        )
+    }
+    
+    /**
+     Fetches `Comment`s on `Answer`s asynchronously.
+     
+     - parameter ids: The answers IDs to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchCommentsOn(
+        answers ids: [Int],
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Comment>?, Error?) -> ()) {
+        
+        queue.async {
+            do {
+                let response: APIResponse<Comment> = try self.fetchCommentsOn(answers: ids, parameters: parameters, backoffBehavior: backoffBehavior)
+                
+                completionHandler(response, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+        }
+    }
+    
+    /**
+     Fetches `Comment`s on a single `Answer` synchronously.
+     
+     - parameter id: The answer ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - returns: The list of comments as `APIResponse<Comment>`
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchCommentsOn(
+        answer id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Comment> {
+        return try fetchCommentsOn(answers: [id], parameters: parameters, backoffBehavior: backoffBehavior)
+    }
+    
+    /**
+     Fetches `Comment`s on a single `Answer` asynchronously.
+     
+     - parameter id: The answer ID to fetch.
+     
+     - parameter parameters: The dictionary of parameters used in the request
+     
+     - parameter backoffBehavior: The behavior when an `APIRequest` has a backoff
+     
+     - parameter completionHandler:
+     
+     - authors: NobodyNada, FelixSFD
+     */
+    public func fetchCommentsOn(
+        answer id: Int,
+        parameters: [String:String] = [:],
+        backoffBehavior: BackoffBehavior = .wait,
+        completionHandler: @escaping (APIResponse<Comment>?, Error?) -> ()) {
+        
+        fetchCommentsOn(answers: [id], parameters: parameters, backoffBehavior: backoffBehavior, completionHandler: completionHandler)
+    }
+    
+    
+    
+    
     // - MARK: /answers/{ids}/questions
     
     /**

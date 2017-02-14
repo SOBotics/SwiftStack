@@ -108,6 +108,55 @@ class AnswersTests: APITests {
     }
     
     
+    // - MARK: Test comments on answer
+    
+    func testFetchCommentsOnAnswerSync() {
+        let id = 41463556
+        client.onRequest { task in
+            return ("{\"items\": [{\"post_id\": \(id), \"comment_id\": 13371337}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        do {
+            let response = try client.fetchCommentsOn(answer: id)
+            XCTAssertNotNil(response.items, "items is nil")
+            XCTAssertEqual(response.items?.first?.post_id, id, "id was incorrect")
+            
+        } catch {
+            print(error)
+            XCTFail("fetchCommentsOn(answer:) threw an error")
+        }
+    }
+    
+    func testFetchCommentsOnAnswerAsync() {
+        expectation = expectation(description: "Fetched comments")
+        
+        let id = 41463556
+        
+        client.onRequest { task in
+            return ("{\"items\": [{\"post_id\": \(id), \"comment_id\": 13371337}]}".data(using: .utf8), self.blankResponse(task), nil)
+        }
+        
+        client.fetchCommentsOn(answer: id, parameters: [:], backoffBehavior: .wait) {
+            response, error in
+            if error != nil {
+                print(error!)
+                XCTFail("Comments not fetched")
+                return
+            }
+            
+            print(response?.items ?? "no items")
+            
+            if response?.items?.first?.post_id == id {
+                self.expectation?.fulfill()
+            } else {
+                XCTFail("id was incorrect")
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    
     // - MARK: Test questions of answers
     
     func testFetchQuestionOfAnswerSync() {
