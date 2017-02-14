@@ -39,7 +39,7 @@ public class Privilege: JsonConvertible, CustomStringConvertible {
     }
     
     public required init(dictionary: [String: Any]) {
-        description = (dictionary["description"] as? String)?.stringByDecodingHTMLEntities
+        description = (dictionary["description"] as? String)?.stringByDecodingHTMLEntities ?? ""
         reputation = dictionary["reputation"] as? Int
         short_description = (dictionary["short_description"] as? String)?.stringByDecodingHTMLEntities
     }
@@ -47,7 +47,9 @@ public class Privilege: JsonConvertible, CustomStringConvertible {
     /**
      Basic initializer without any parameters
      */
-    public init() { }
+    public init() {
+        description = ""
+    }
     
     
     // - MARK: JsonConvertible
@@ -67,16 +69,12 @@ public class Privilege: JsonConvertible, CustomStringConvertible {
     }
     
     
-    // - MARK: CustomStringConvertible
-    
-    public var description: String {
-        return "\(dictionary)"
-    }
-    
-    
     // - MARK: Values returned from API
     
-    public var description: String?
+    /**
+     - note: Not optional due to overlap with the `CustomStringConvertible`-protocol.
+     */
+    public var description: String
     
     public var reputation: Int?
     
