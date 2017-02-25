@@ -14,7 +14,7 @@
     <a title="APIClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">SwiftStack Docs</a> (51% documented)</p>
+        <p><a href="../index.html">SwiftStack Docs</a> (52% documented)</p>
         <p class="header-right"><a href="https://github.com/NobodyNada/SwiftStack"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -60,6 +60,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Post/Notice.html">– Notice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Privilege.html">Privilege</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Question.html">Question</a>
@@ -1283,6 +1286,178 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
+                <a name="//privileges"></a>
+                <a name="//apple_ref/swift/Section//privileges" class="dashAnchor"></a>
+                <a href="#//privileges">
+                  <h3 class="section-name">/privileges</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SwiftStack9APIClient15fetchPrivilegesFzT10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior_GCS_11APIResponseCS_9Privilege_"></a>
+                    <a name="//apple_ref/swift/Method/fetchPrivileges(parameters:backoffBehavior:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SwiftStack9APIClient15fetchPrivilegesFzT10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior_GCS_11APIResponseCS_9Privilege_">fetchPrivileges(parameters:backoffBehavior:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches all <code>Privileges</code>s synchronously.</p>
+
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetchPrivileges</span><span class="p">(</span>
+        <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+        <span class="nv">backoffBehavior</span><span class="p">:</span> <span class="kt"><a href="../Classes/APIClient/BackoffBehavior.html">BackoffBehavior</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">wait</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/APIResponse.html">APIResponse</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Privilege.html">Privilege</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The dictionary of parameters used in the request</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>backoffBehavior</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The behavior when an <code>APIRequest</code> has a backoff</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The list of sites as <code><a href="../Classes/APIResponse.html">APIResponse&lt;Privilege&gt;</a></code></p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsPrivileges.swift#L31-L41">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SwiftStack9APIClient15fetchPrivilegesFT10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior17completionHandlerFTGSqGCS_11APIResponseCS_9Privilege__GSqPs5Error___T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchPrivileges(parameters:backoffBehavior:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SwiftStack9APIClient15fetchPrivilegesFT10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior17completionHandlerFTGSqGCS_11APIResponseCS_9Privilege__GSqPs5Error___T__T_">fetchPrivileges(parameters:backoffBehavior:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches all <code>Privileges</code>s asynchronously.</p>
+
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetchPrivileges</span><span class="p">(</span>
+        <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+        <span class="nv">backoffBehavior</span><span class="p">:</span> <span class="kt"><a href="../Classes/APIClient/BackoffBehavior.html">BackoffBehavior</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">wait</span><span class="p">,</span>
+        <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/APIResponse.html">APIResponse</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Privilege.html">Privilege</a></span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The dictionary of parameters used in the request</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>backoffBehavior</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The behavior when an <code>APIRequest</code> has a backoff</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Passes either an <code>APIResponse&lt;Privilege&gt;?</code> or an <code>Error?</code></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsPrivileges.swift#L54-L71">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
                 <a name="//answers"></a>
                 <a name="//apple_ref/swift/Section//answers" class="dashAnchor"></a>
                 <a href="#//answers">
@@ -1305,9 +1480,9 @@
                       <div class="abstract">
                         <p>Fetches all answers on the site synchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>FelixSFD</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -1381,9 +1556,9 @@
                       <div class="abstract">
                         <p>Fetches all answers on the site asynchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>FelixSFD</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -1476,9 +1651,9 @@
                       <div class="abstract">
                         <p>Fetches answers synchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>NobodyNada</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -1566,9 +1741,9 @@
                       <div class="abstract">
                         <p>Fetches answers asynchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>NobodyNada</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -1631,7 +1806,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
@@ -1664,9 +1839,9 @@
                       <div class="abstract">
                         <p>Fetches an answer synchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>NobodyNada</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -1754,9 +1929,9 @@
                       <div class="abstract">
                         <p>Fetches an answer asynchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>NobodyNada</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -1819,7 +1994,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
@@ -1833,6 +2008,393 @@
                       </div>
                       <div class="slightly-smaller">
                         <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L171-L178">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="//answers/%7Bids%7D/comments"></a>
+                <a name="//apple_ref/swift/Section//answers/{ids}/comments" class="dashAnchor"></a>
+                <a href="#//answers/%7Bids%7D/comments">
+                  <h3 class="section-name">/answers/{ids}/comments</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SwiftStack9APIClient15fetchCommentsOnFzT7answersGSaSi_10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior_GCS_11APIResponseCS_7Comment_"></a>
+                    <a name="//apple_ref/swift/Method/fetchCommentsOn(answers:parameters:backoffBehavior:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SwiftStack9APIClient15fetchCommentsOnFzT7answersGSaSi_10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior_GCS_11APIResponseCS_7Comment_">fetchCommentsOn(answers:parameters:backoffBehavior:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches <code><a href="../Classes/Comment.html">Comment</a></code>s on <code><a href="../Classes/Answer.html">Answer</a></code>s synchronously.</p>
+
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetchCommentsOn</span><span class="p">(</span>
+        <span class="n">answers</span> <span class="nv">ids</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">],</span>
+        <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+        <span class="nv">backoffBehavior</span><span class="p">:</span> <span class="kt"><a href="../Classes/APIClient/BackoffBehavior.html">BackoffBehavior</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">wait</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/APIResponse.html">APIResponse</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Comment.html">Comment</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ids</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The answer IDs to fetch.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The dictionary of parameters used in the request</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>backoffBehavior</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The behavior when an <code>APIRequest</code> has a backoff</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The list of comments as <code><a href="../Classes/APIResponse.html">APIResponse&lt;Comment&gt;</a></code></p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L196-L211">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SwiftStack9APIClient15fetchCommentsOnFT7answersGSaSi_10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior17completionHandlerFTGSqGCS_11APIResponseCS_7Comment__GSqPs5Error___T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchCommentsOn(answers:parameters:backoffBehavior:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SwiftStack9APIClient15fetchCommentsOnFT7answersGSaSi_10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior17completionHandlerFTGSqGCS_11APIResponseCS_7Comment__GSqPs5Error___T__T_">fetchCommentsOn(answers:parameters:backoffBehavior:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches <code><a href="../Classes/Comment.html">Comment</a></code>s on <code><a href="../Classes/Answer.html">Answer</a></code>s asynchronously.</p>
+
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetchCommentsOn</span><span class="p">(</span>
+        <span class="n">answers</span> <span class="nv">ids</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">],</span>
+        <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+        <span class="nv">backoffBehavior</span><span class="p">:</span> <span class="kt"><a href="../Classes/APIClient/BackoffBehavior.html">BackoffBehavior</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">wait</span><span class="p">,</span>
+        <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/APIResponse.html">APIResponse</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Comment.html">Comment</a></span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ids</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The answers IDs to fetch.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The dictionary of parameters used in the request</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>backoffBehavior</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The behavior when an <code>APIRequest</code> has a backoff</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L226-L241">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SwiftStack9APIClient15fetchCommentsOnFzT6answerSi10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior_GCS_11APIResponseCS_7Comment_"></a>
+                    <a name="//apple_ref/swift/Method/fetchCommentsOn(answer:parameters:backoffBehavior:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SwiftStack9APIClient15fetchCommentsOnFzT6answerSi10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior_GCS_11APIResponseCS_7Comment_">fetchCommentsOn(answer:parameters:backoffBehavior:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches <code><a href="../Classes/Comment.html">Comment</a></code>s on a single <code><a href="../Classes/Answer.html">Answer</a></code> synchronously.</p>
+
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetchCommentsOn</span><span class="p">(</span>
+        <span class="n">answer</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+        <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+        <span class="nv">backoffBehavior</span><span class="p">:</span> <span class="kt"><a href="../Classes/APIClient/BackoffBehavior.html">BackoffBehavior</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">wait</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/APIResponse.html">APIResponse</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Comment.html">Comment</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The answer ID to fetch.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The dictionary of parameters used in the request</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>backoffBehavior</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The behavior when an <code>APIRequest</code> has a backoff</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The list of comments as <code><a href="../Classes/APIResponse.html">APIResponse&lt;Comment&gt;</a></code></p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L256-L261">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SwiftStack9APIClient15fetchCommentsOnFT6answerSi10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior17completionHandlerFTGSqGCS_11APIResponseCS_7Comment__GSqPs5Error___T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchCommentsOn(answer:parameters:backoffBehavior:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SwiftStack9APIClient15fetchCommentsOnFT6answerSi10parametersGVs10DictionarySSSS_15backoffBehaviorOS0_15BackoffBehavior17completionHandlerFTGSqGCS_11APIResponseCS_7Comment__GSqPs5Error___T__T_">fetchCommentsOn(answer:parameters:backoffBehavior:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches <code><a href="../Classes/Comment.html">Comment</a></code>s on a single <code><a href="../Classes/Answer.html">Answer</a></code> asynchronously.</p>
+
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetchCommentsOn</span><span class="p">(</span>
+        <span class="n">answer</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+        <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+        <span class="nv">backoffBehavior</span><span class="p">:</span> <span class="kt"><a href="../Classes/APIClient/BackoffBehavior.html">BackoffBehavior</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">wait</span><span class="p">,</span>
+        <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/APIResponse.html">APIResponse</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Comment.html">Comment</a></span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The answer ID to fetch.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The dictionary of parameters used in the request</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>backoffBehavior</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The behavior when an <code>APIRequest</code> has a backoff</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L276-L283">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1863,9 +2425,9 @@
                       <div class="abstract">
                         <p>Fetches questions of answers synchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>NobodyNada</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -1933,7 +2495,7 @@
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L196-L211">Show on GitHub</a>
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L303-L318">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1953,9 +2515,9 @@
                       <div class="abstract">
                         <p>Fetches questions of answers asynchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>NobodyNada</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -2018,7 +2580,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
@@ -2031,7 +2593,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L226-L245">Show on GitHub</a>
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L333-L352">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2051,9 +2613,9 @@
                       <div class="abstract">
                         <p>Fetches the question of an answer synchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>NobodyNada</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -2121,7 +2683,7 @@
 
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L261-L267">Show on GitHub</a>
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L368-L374">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2141,9 +2703,9 @@
                       <div class="abstract">
                         <p>Fetches the question of an answer asynchronously.</p>
 
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    <p>NobodyNada</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    <p>NobodyNada, FelixSFD</p>
 
 </div>
 
@@ -2206,7 +2768,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
@@ -2219,7 +2781,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L282-L289">Show on GitHub</a>
+                        <a href="https://github.com/NobodyNada/SwiftStack/blob/0.5.0/Sources/RequestsAnswers.swift#L389-L396">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6377,7 +6939,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://github.com/NobodyNada/SwiftStack" target="_blank" rel="external">NobodyNada &amp; FelixSFD</a>. All rights reserved. (Last updated: 2017-01-14)</p>
+          <p>&copy; 2017 <a class="link" href="https://github.com/NobodyNada/SwiftStack" target="_blank" rel="external">NobodyNada &amp; FelixSFD</a>. All rights reserved. (Last updated: 2017-02-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

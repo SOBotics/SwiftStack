@@ -470,6 +470,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Privilege.swift",
+      "line": 79,
+      "symbol": "Privilege.reputation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Privilege.swift",
+      "line": 81,
+      "symbol": "Privilege.short_description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/Felix/Documents/Libraries/SwiftStack/Sources/Question.swift",
       "line": 99,
       "symbol": "Question.ClosedDetails.by_users",
