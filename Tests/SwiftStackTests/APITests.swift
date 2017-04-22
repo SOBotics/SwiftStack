@@ -113,6 +113,8 @@ class APITests: XCTestCase {
 	
 	//MARK: - Tests
 	func testRequest() throws {
+		XCTAssertNotNil(client, "client should not be nil")
+		
 		let expectedHost = "api.stackexchange.com"
 		let expectedPath = "/2.2/info"
 		let expectedParameters = ["site":"stackoverflow", "filter":"default"]
@@ -120,7 +122,8 @@ class APITests: XCTestCase {
 		client.defaultSite = "stackoverflow"
 		client.defaultFilter = "default"
 		client.onRequest {task in
-			let url = task.currentRequest!.url!
+			let url: URL! = task.currentRequest?.url
+			XCTAssertNotNil(url, "url should not be nil")
 			
 			let actualHost = url.host
 			let actualPath = url.path
