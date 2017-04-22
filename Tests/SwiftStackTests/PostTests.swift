@@ -16,7 +16,7 @@ class PostTests: XCTestCase {
         
         let question = Question(jsonString: json)
         let jsonQuestion = question?.jsonString
-        print(jsonQuestion ?? "nil")
+        //print(jsonQuestion ?? "nil")
         XCTAssertNotNil(jsonQuestion)
     }
     
@@ -25,7 +25,7 @@ class PostTests: XCTestCase {
         
         let answer = Answer(jsonString: json)
         let jsonAnswer = answer?.jsonString
-        print(jsonAnswer ?? "nil")
+        //print(jsonAnswer ?? "nil")
         XCTAssertNotNil(jsonAnswer)
     }
     

@@ -20,9 +20,8 @@ class QuestionTests: APITests {
         
         do {
             let response = try client.fetchQuestion(id)
-            print(response.items?.first?.title ?? "nil")
             XCTAssertNotNil(response.items, "items is nil")
-            XCTAssertEqual(response.items?.first?.post_id, id, "id was incorrect")
+			XCTAssertEqual(response.items?.first?.post_id, id, "id was incorrect (was \(String(describing: response.items?.first?.post_id))")
             
         } catch {
             print(error)
@@ -46,13 +45,13 @@ class QuestionTests: APITests {
                 XCTFail("Question not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
-            print(response?.items?.first?.title ?? "nil")
+			
             
             if response?.items?.first?.post_id == id {
                 self.expectation?.fulfill()
-            } else {
+			} else {
+				print(response?.items ?? "no items")
+				print(response?.items?.first?.title ?? "nil")
                 XCTFail("id was incorrect")
             }
         }
@@ -97,12 +96,11 @@ class QuestionTests: APITests {
                 return
             }
             
-            print(response?.items ?? "no items")
-            
             if response?.items?.first?.post_id == id {
                 self.expectation?.fulfill()
-            } else {
-                XCTFail("id was incorrect")
+			} else {
+				print(response?.items ?? "no items")
+				XCTFail("id was incorrect")
             }
         }
         
@@ -144,12 +142,12 @@ class QuestionTests: APITests {
                 XCTFail("Answers not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.answer_id == id {
                 self.expectation?.fulfill()
-            } else {
+			} else {
+				print(response?.items ?? "no items")
                 XCTFail("id was incorrect")
             }
         }
@@ -193,12 +191,12 @@ class QuestionTests: APITests {
                 XCTFail("Comments not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.post_id == id {
                 self.expectation?.fulfill()
-            } else {
+			} else {
+				print(response?.items ?? "no items")
                 XCTFail("id was incorrect")
             }
         }
@@ -241,12 +239,12 @@ class QuestionTests: APITests {
                 XCTFail("Questions not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.question_id == id {
                 self.expectation?.fulfill()
-            } else {
+			} else {
+				print(response?.items ?? "no items")
                 XCTFail("id was incorrect")
             }
         }
@@ -288,12 +286,12 @@ class QuestionTests: APITests {
                 XCTFail("Questions not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.question_id == id {
                 self.expectation?.fulfill()
-            } else {
+			} else {
+				print(response?.items ?? "no items")
                 XCTFail("id was incorrect")
             }
         }
@@ -338,12 +336,12 @@ class QuestionTests: APITests {
                 XCTFail("Questions not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.post_id == id {
                 self.expectation?.fulfill()
-            } else {
+			} else {
+				print(response?.items ?? "no items")
                 XCTFail("id was incorrect")
             }
         }
@@ -387,12 +385,12 @@ class QuestionTests: APITests {
                 XCTFail("Timeline not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.question_id == id {
                 self.expectation?.fulfill()
-            } else {
+			} else {
+				print(response?.items ?? "no items")
                 XCTFail("id was incorrect")
             }
         }
@@ -436,12 +434,12 @@ class QuestionTests: APITests {
                 XCTFail("Questions not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.post_id == id {
                 self.expectation?.fulfill()
-            } else {
+			} else {
+				print(response?.items ?? "no items")
                 XCTFail("id was incorrect")
             }
         }
@@ -485,12 +483,12 @@ class QuestionTests: APITests {
                 XCTFail("Questions not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.post_id == id {
                 self.expectation?.fulfill()
-            } else {
+			} else {
+				print(response?.items ?? "no items")
                 XCTFail("id was incorrect")
             }
         }

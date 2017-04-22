@@ -63,10 +63,9 @@ class APITests: XCTestCase {
 			("testBackoffCleanup", testBackoffCleanup),
 			
 			("testFetchSitesSync", testFetchSitesSync),
-			("testFetchSitesASync", testFetchSitesASync),
+			("testFetchSitesAsync", testFetchSitesAsync),
 			
 			("testFetchRevisionSync", testFetchRevisionsSync),
-			("testFetchRevisionSync", testFetchRevisionSync),
 			("testFetchRevisionAsync", testFetchRevisionAsync),
 			
 			("testFetchSuggestedEditsSync", testFetchSuggestedEditsSync),
@@ -192,10 +191,10 @@ class APITests: XCTestCase {
 		let _ = try client.performAPIRequest("info") as APIResponse<Site>
 		
 		XCTAssert(client.quota == expectedQuota,
-		          "quota \"\(client.quota)\" is incorrect (should be \"\(expectedQuota)\")")
+		          "quota \"\(String(describing: client.quota))\" is incorrect (should be \"\(expectedQuota)\")")
 		
 		XCTAssert(client.maxQuota == expectedMaxQuota,
-		          "quotaMax \"\(client.maxQuota)\" is incorrect (should be \"\(expectedMaxQuota)\")")
+		          "quotaMax \"\(String(describing: client.maxQuota))\" is incorrect (should be \"\(expectedMaxQuota)\")")
 	}
 	
 	
@@ -304,9 +303,13 @@ class APITests: XCTestCase {
                 XCTFail("Sites not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
-            self.expectation?.fulfill()
+			
+			if response?.items?.first?.name == "Test Site" {
+				self.expectation?.fulfill()
+			} else {
+				print(response?.items ?? "no items")
+				XCTFail("name was incorrect")
+			}
         }
         
         waitForExpectations(timeout: 30, handler: nil)
