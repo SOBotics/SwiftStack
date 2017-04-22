@@ -20,4 +20,4 @@ install:
     fi;
 
 script:
-  - swift build
+  - swift test
