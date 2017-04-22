@@ -52,6 +52,28 @@ class APITests: XCTestCase {
 	
 	static var allTests : [(String, (APITests) -> () throws -> Void)] {
 		return [
+			("testRequest", testRequest),
+			("testCustomParameters", testCustomParameters),
+			("testOverridenParameters", testOverridenParameters),
+			
+			("testBackoff", testBackoff),
+			("testThrowingBackoff", testThrowingBackoff),
+			("testWaitingBackoff", testWaitingBackoff),
+			("testComplexRequestBackoff", testComplexRequestBackoff),
+			("testBackoffCleanup", testBackoffCleanup),
+			
+			("testFetchSitesSync", testFetchSitesSync),
+			("testFetchSitesASync", testFetchSitesASync),
+			
+			("testFetchRevisionSync", testFetchRevisionsSync),
+			("testFetchRevisionSync", testFetchRevisionSync),
+			("testFetchRevisionAsync", testFetchRevisionAsync),
+			
+			("testFetchSuggestedEditsSync", testFetchSuggestedEditsSync),
+			("testFetchSuggestedEditsAsync", testFetchSuggestedEditsAsync),
+			("testFetchAllSuggestedEditsSync", testFetchAllSuggestedEditsSync),
+			("testFetchAllSuggestedEditsAsync", testFetchAllSuggestedEditsAsync),
+			
 			("testQuota", testQuota)
 		]
 	}
