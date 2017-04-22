@@ -122,7 +122,7 @@ class APITests: XCTestCase {
 		client.defaultSite = "stackoverflow"
 		client.defaultFilter = "default"
 		client.onRequest {task in
-			let url: URL! = task.currentRequest?.url
+			let url: URL! = task.originalRequest?.url
 			XCTAssertNotNil(url, "url should not be nil")
 			
 			let actualHost = url.host
