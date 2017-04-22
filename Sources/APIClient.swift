@@ -213,7 +213,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		//TODO: I don't think this needs to be on the client queue anymore
 		queue.async {
 			let task = self.session.dataTask(with: req)
-			self.performTask(task) {inData, inResp, inError in
+			self.performTask(task, request: req) {inData, inResp, inError in
 				(data, resp, error) = (inData, inResp, inError)
 				sema.signal()
 			}
@@ -269,7 +269,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 		
 		queue.async {
 			let task = self.session.uploadTask(with: request, from: data)
-			self.performTask(task) {data, response, error in
+			self.performTask(task, request: request) {data, response, error in
 				(responseData, resp, responseError) = (data, response, error)
 				sema.signal()
 			}
@@ -389,27 +389,30 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	
 	
 	//MARK: - Task management
-	private class HTTPTask {
+	internal class HTTPTask {
 		var task: URLSessionTask
 		var completion: (Data?, HTTPURLResponse?, Error?) -> Void
+		
+		var request: URLRequest!
 		
 		var data: Data?
 		var response: HTTPURLResponse?
 		var error: Error?
 		
-		init(task: URLSessionTask, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) {
+		init(task: URLSessionTask, request: URLRequest!, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) {
 			self.task = task
 			self.completion = completion
+			self.request = request
 		}
 	}
 	
-	private var tasks = [URLSessionTask:HTTPTask]()
+	internal var tasks = [URLSessionTask:HTTPTask]()
 	
 	private var responseSemaphore: DispatchSemaphore?
 	
 	
-	internal func performTask(_ task: URLSessionTask, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) {
-		tasks[task] = HTTPTask(task: task, completion: completion)
+	internal func performTask(_ task: URLSessionTask, request: URLRequest!, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) {
+		tasks[task] = HTTPTask(task: task, request: request, completion: completion)
 		task.resume()
 	}
 	
