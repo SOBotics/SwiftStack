@@ -9,7 +9,7 @@
 import XCTest
 
 class AnswersTests: APITests {
-    
+	
     // - MARK: Test answers
     
     func testFetchAnswerSync() {
@@ -46,15 +46,14 @@ class AnswersTests: APITests {
                 return
             }
             
-            print(response?.items ?? "no items")
-            
             if response?.items?.first?.answer_id == id {
                 self.expectation?.fulfill()
-            } else {
-                XCTFail("id was incorrect")
+			} else {
+				print(response?.items ?? "no items")
+				XCTFail("id was incorrect")
             }
         }
-        
+		
         waitForExpectations(timeout: 10, handler: nil)
     }
     
@@ -94,13 +93,13 @@ class AnswersTests: APITests {
                 XCTFail("Answers not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.answer_id == id {
                 self.expectation?.fulfill()
-            } else {
-                XCTFail("id was incorrect")
+			} else {
+				print(response?.items ?? "no items")
+				XCTFail("id was incorrect")
             }
         }
         
@@ -143,13 +142,13 @@ class AnswersTests: APITests {
                 XCTFail("Comments not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.post_id == id {
                 self.expectation?.fulfill()
-            } else {
-                XCTFail("id was incorrect")
+			} else {
+				print(response?.items ?? "no items")
+				XCTFail("id was incorrect")
             }
         }
         
@@ -192,13 +191,13 @@ class AnswersTests: APITests {
                 XCTFail("Question not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
+			
             
             if response?.items?.first?.question_id == id {
                 self.expectation?.fulfill()
-            } else {
-                XCTFail("id was incorrect")
+			} else {
+				print(response?.items ?? "no items")
+				XCTFail("id was incorrect")
             }
         }
         

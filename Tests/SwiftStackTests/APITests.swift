@@ -14,6 +14,8 @@ class TestableClient: APIClient {
 	var requestHandler: ((URLSessionTask) -> (Data?, HTTPURLResponse?, Error?))?
 	var waitHandler: ((Date) -> Void)?
 	
+	private var handledTasks: [URLSessionTask:HTTPTask] = [:]
+	
 	func onRequest(_ handler: ((URLSessionTask) -> (Data?, HTTPURLResponse?, Error?))?) {
 		requestHandler = handler
 	}
@@ -22,12 +24,18 @@ class TestableClient: APIClient {
 		waitHandler = handler
 	}
 	
-	override func performTask(_ task: URLSessionTask, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) {
+	func url(for task: URLSessionTask) -> URL! {
+		return (tasks[task] ?? handledTasks[task])?.request.url
+	}
+	
+	override func performTask(_ task: URLSessionTask, request: URLRequest!, completion: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) {
 		if let handler = requestHandler {
+			handledTasks[task] = HTTPTask(task: task, request: request, completion: completion)
 			let result = handler(task)
 			completion(result.0, result.1, result.2)
+			handledTasks[task] = nil
 		} else {
-			super.performTask(task, completion: completion)
+			super.performTask(task, request: request, completion: completion)
 		}
 	}
 	
@@ -63,10 +71,9 @@ class APITests: XCTestCase {
 			("testBackoffCleanup", testBackoffCleanup),
 			
 			("testFetchSitesSync", testFetchSitesSync),
-			("testFetchSitesASync", testFetchSitesASync),
+			("testFetchSitesAsync", testFetchSitesAsync),
 			
 			("testFetchRevisionSync", testFetchRevisionsSync),
-			("testFetchRevisionSync", testFetchRevisionSync),
 			("testFetchRevisionAsync", testFetchRevisionAsync),
 			
 			("testFetchSuggestedEditsSync", testFetchSuggestedEditsSync),
@@ -82,7 +89,7 @@ class APITests: XCTestCase {
 	
 	func blankResponse(_ task: URLSessionTask) -> HTTPURLResponse {
 		return HTTPURLResponse(
-			url: task.currentRequest!.url!,
+			url: client.url(for: task),
 			statusCode: 200,
 			httpVersion: nil,
 			headerFields: nil
@@ -114,6 +121,8 @@ class APITests: XCTestCase {
 	
 	//MARK: - Tests
 	func testRequest() throws {
+		XCTAssertNotNil(client, "client should not be nil")
+		
 		let expectedHost = "api.stackexchange.com"
 		let expectedPath = "/2.2/info"
 		let expectedParameters = ["site":"stackoverflow", "filter":"default"]
@@ -121,7 +130,8 @@ class APITests: XCTestCase {
 		client.defaultSite = "stackoverflow"
 		client.defaultFilter = "default"
 		client.onRequest {task in
-			let url = task.currentRequest!.url!
+			let url: URL! = self.client.url(for: task)
+			XCTAssertNotNil(url, "url should not be nil")
 			
 			let actualHost = url.host
 			let actualPath = url.path
@@ -145,7 +155,7 @@ class APITests: XCTestCase {
 		client.defaultFilter = "default"
 		
 		client.onRequest {task in
-			let url = task.currentRequest!.url!
+			let url = self.client.url(for: task)!
 			
 			let actualParameters = self.parameters(from: url)
 			XCTAssertEqual(expectedParameters, actualParameters)
@@ -165,7 +175,7 @@ class APITests: XCTestCase {
 		client.defaultFilter = "default"
 		
 		client.onRequest {task in
-			let url = task.currentRequest!.url!
+			let url = self.client.url(for: task)!
 			
 			let actualParameters = self.parameters(from: url)
 			XCTAssertEqual(parameters, actualParameters)
@@ -192,10 +202,10 @@ class APITests: XCTestCase {
 		let _ = try client.performAPIRequest("info") as APIResponse<Site>
 		
 		XCTAssert(client.quota == expectedQuota,
-		          "quota \"\(client.quota)\" is incorrect (should be \"\(expectedQuota)\")")
+		          "quota \"\(String(describing: client.quota))\" is incorrect (should be \"\(expectedQuota)\")")
 		
 		XCTAssert(client.maxQuota == expectedMaxQuota,
-		          "quotaMax \"\(client.maxQuota)\" is incorrect (should be \"\(expectedMaxQuota)\")")
+		          "quotaMax \"\(String(describing: client.maxQuota))\" is incorrect (should be \"\(expectedMaxQuota)\")")
 	}
 	
 	
@@ -304,9 +314,13 @@ class APITests: XCTestCase {
                 XCTFail("Sites not fetched")
                 return
             }
-            
-            print(response?.items ?? "no items")
-            self.expectation?.fulfill()
+			
+			if response?.items?.first?.name == "Test Site" {
+				self.expectation?.fulfill()
+			} else {
+				print(response?.items ?? "no items")
+				XCTFail("name was incorrect")
+			}
         }
         
         waitForExpectations(timeout: 30, handler: nil)

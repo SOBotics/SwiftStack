@@ -20,9 +20,9 @@ class JsonHelperTests: XCTestCase {
         
         print(encoded)
         XCTAssertNotNil(encoded)*/
-        
+		
 		let jsonUser = user?.jsonString
-		print(jsonUser ?? "nil")
+		//print(jsonUser ?? "nil")
 		XCTAssertNotNil(jsonUser)
     }
     
