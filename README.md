@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SOBotics/SwiftStack.svg?branch=master)](https://travis-ci.org/SOBotics/SwiftStack)
+
 # About SwiftStack
 SwiftStack is a wrapper for the Stack Exchange API written in Swift.
 
