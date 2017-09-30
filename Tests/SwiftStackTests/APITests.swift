@@ -232,7 +232,7 @@ class APITests: XCTestCase {
 		let expiration = client.backoffs["info"]?.timeIntervalSinceReferenceDate
 		
 		XCTAssertNotNil(expiration, "backoff missing")
-		XCTAssertEqualWithAccuracy(
+        XCTAssertEqual(
 			expiration ?? -1,
 			backoffTime + Date().timeIntervalSinceReferenceDate,
 			accuracy: 0.1, "backoff incorrect"
@@ -251,7 +251,7 @@ class APITests: XCTestCase {
 		let expiration = client.backoffs["info"]?.timeIntervalSinceReferenceDate ?? -1
 		
 		client.onWait {date in
-			XCTAssertEqualWithAccuracy(
+            XCTAssertEqual(
 				date.timeIntervalSinceReferenceDate,
 				expiration,
 				accuracy: 0.1, "waiting time incorrect"

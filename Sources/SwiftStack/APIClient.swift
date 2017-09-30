@@ -23,7 +23,7 @@ extension String {
 			result.append("\(key.urlEncodedString)=\(value.urlEncodedString)")
 		}
 		
-		self.init(result.joined(separator: "&"))!
+		self.init(result.joined(separator: "&"))
 	}
 }
 
