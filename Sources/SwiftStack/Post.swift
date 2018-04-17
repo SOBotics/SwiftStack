@@ -133,6 +133,10 @@ public class Post: Content {
             self.last_activity_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
+        if let timestamp = dictionary["creation_date"] as? Int {
+            self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
+        }
+        
         if let timestamp = dictionary["last_edit_date"] as? Int {
             self.last_edit_date = Date(timeIntervalSince1970: Double(timestamp))
         }
@@ -170,6 +174,7 @@ public class Post: Content {
         dict["downvoted"] = downvoted
         dict["last_activity_date"] = last_activity_date
         dict["last_edit_date"] = last_edit_date
+        dict["creation_date"] = creation_date
         dict["last_editor"] = last_editor?.dictionary
         dict["share_link"] = share_link
         dict["title"] = title
@@ -192,6 +197,8 @@ public class Post: Content {
     public var last_activity_date: Date?
     
     public var last_edit_date: Date?
+    
+    public var creation_date: Date?
     
     public var last_editor: User?
     
