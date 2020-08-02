@@ -1,6 +1,6 @@
 language: generic
 sudo: required
-env: SWIFT_VERSION=5.2
+env: SWIFT_VERSION=5.2.4
 
 matrix:
   include:
