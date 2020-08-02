@@ -28,7 +28,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchPrivileges(
+    func fetchPrivileges(
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Privilege> {
         
@@ -51,7 +51,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchPrivileges(
+    func fetchPrivileges(
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
         completionHandler: @escaping (APIResponse<Privilege>?, Error?) -> ()) {

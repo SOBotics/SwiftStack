@@ -38,7 +38,7 @@ open class APIClient: NSObject, URLSessionDataDelegate {
 	open var session: URLSession!
 	
 	///The queue used for asynchronous operations.
-	open let queue = DispatchQueue(label: "API queue", attributes: [.concurrent])
+    public let queue = DispatchQueue(label: "API queue", attributes: [.concurrent])
 	
 	///The API key to use.
 	open var key: String?

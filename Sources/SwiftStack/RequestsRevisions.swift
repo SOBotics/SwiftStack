@@ -31,7 +31,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchRevisions(
+    func fetchRevisions(
         _ ids: [String],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Revision> {
@@ -63,7 +63,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchRevisions(
+    func fetchRevisions(
         _ ids: [String],
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -99,7 +99,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchRevision(
+    func fetchRevision(
         _ id: String,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Revision> {
@@ -122,7 +122,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchRevision(
+    func fetchRevision(
         _ id: String,
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,

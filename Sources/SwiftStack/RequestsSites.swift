@@ -21,14 +21,14 @@ public extension APIClient {
      Fetches all `Sites` in the Stack Exchange network synchronously.
      
      - parameter parameters: The dictionary of parameters used in the request
-     
+     ≈
      - parameter backoffBehavior: The behavior when an APIRequest has a backoff
      
      - returns: The list of sites as `APIResponse<Site>`
      
      - author: NobodyNada
      */
-	public func fetchSites(
+    func fetchSites(
 		parameters: [String:String] = [:],
 		backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Site> {
 		
@@ -52,7 +52,7 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchSites(parameters: [String: String] = [:], backoffBehavior: BackoffBehavior = .wait, completionHandler: @escaping (APIResponse<Site>?, Error?) -> ()) {
+    func fetchSites(parameters: [String: String] = [:], backoffBehavior: BackoffBehavior = .wait, completionHandler: @escaping (APIResponse<Site>?, Error?) -> ()) {
         
         queue.async {
             

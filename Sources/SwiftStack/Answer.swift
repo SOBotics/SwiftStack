@@ -37,10 +37,6 @@ public class Answer: Post {
             self.community_owned_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
-        if let timestamp = dictionary["creation_date"] as? Int {
-            self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
-        }
-        
         self.is_accepted = dictionary["is_accepted"] as? Bool
         
         if let timestamp = dictionary["locked_date"] as? Int {
@@ -74,8 +70,6 @@ public class Answer: Post {
     public var awarded_bounty_users: [User]?
     
     public var community_owned_date: Date?
-    
-    public var creation_date: Date?
     
     public var is_accepted: Bool?
     

@@ -129,6 +129,10 @@ public class Post: Content {
         self.down_vote_count = dictionary["down_vote_count"] as? Int
         self.downvoted = dictionary["downvoted"] as? Bool
         
+        if let timestamp = dictionary["creation_date"] as? Int {
+            self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
+        }
+        
         if let timestamp = dictionary["last_activity_date"] as? Int {
             self.last_activity_date = Date(timeIntervalSince1970: Double(timestamp))
         }
@@ -155,6 +159,8 @@ public class Post: Content {
     public override var dictionary: [String: Any] {
         var dict = super.dictionary
         
+        dict["creation_date"] = creation_date
+        
         dict["comment_count"] = comment_count
         
         if comments != nil && (comments?.count)! > 0 {
@@ -180,6 +186,8 @@ public class Post: Content {
     
     
     // - MARK: Fields
+    
+    public var creation_date: Date?
     
     public var comment_count: Int?
     

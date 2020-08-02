@@ -293,7 +293,7 @@ internal extension String {
      
      - author: [Martin R](http://stackoverflow.com/users/1187415/martin-r)
      */
-    internal var stringByDecodingHTMLEntities : String {
+    var stringByDecodingHTMLEntities : String {
         
         // ===== Utility functions =====
         

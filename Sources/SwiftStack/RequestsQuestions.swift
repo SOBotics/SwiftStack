@@ -27,7 +27,7 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchQuestions(
+    func fetchQuestions(
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
         
@@ -49,7 +49,7 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchQuestions(
+    func fetchQuestions(
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
         completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
@@ -83,7 +83,7 @@ public extension APIClient {
      
      - author: NobodyNada
      */
-	public func fetchQuestions(
+    func fetchQuestions(
 		_ ids: [Int],
 		parameters: [String:String] = [:],
 		backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
@@ -113,7 +113,7 @@ public extension APIClient {
 	
       - author: NobodyNada
      */
-    public func fetchQuestions(
+    func fetchQuestions(
 		_ ids: [Int],
 		parameters: [String: String] = [:],
 		backoffBehavior: BackoffBehavior = .wait,
@@ -148,7 +148,7 @@ public extension APIClient {
 	
 	- author: NobodyNada
 	*/
-	public func fetchQuestion(
+    func fetchQuestion(
 		_ id: Int,
 		parameters: [String:String] = [:],
 		backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
@@ -169,7 +169,7 @@ public extension APIClient {
 	
 	- author: NobodyNada
 	*/
-	public func fetchQuestion(
+    func fetchQuestion(
 		_ id: Int,
 		parameters: [String: String] = [:],
 		backoffBehavior: BackoffBehavior = .wait,
@@ -194,7 +194,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchAnswersOn(
+    func fetchAnswersOn(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Answer> {
@@ -224,7 +224,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchAnswersOn(
+    func fetchAnswersOn(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -254,7 +254,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchAnswersOn(
+    func fetchAnswersOn(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Answer> {
@@ -274,7 +274,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchAnswersOn(
+    func fetchAnswersOn(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -300,7 +300,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchCommentsOn(
+    func fetchCommentsOn(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Comment> {
@@ -330,7 +330,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchCommentsOn(
+    func fetchCommentsOn(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -360,7 +360,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchCommentsOn(
+    func fetchCommentsOn(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Comment> {
@@ -380,7 +380,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchCommentsOn(
+    func fetchCommentsOn(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -406,7 +406,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchLinkedQuestionsTo(
+    func fetchLinkedQuestionsTo(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
@@ -436,7 +436,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchLinkedQuestionsTo(
+    func fetchLinkedQuestionsTo(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -466,7 +466,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchLinkedQuestionsTo(
+    func fetchLinkedQuestionsTo(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
@@ -486,7 +486,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchLinkedQuestionsTo(
+    func fetchLinkedQuestionsTo(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -512,7 +512,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchRelatedQuestionsTo(
+    func fetchRelatedQuestionsTo(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
@@ -542,7 +542,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchRelatedQuestionsTo(
+    func fetchRelatedQuestionsTo(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -572,7 +572,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchRelatedQuestionsTo(
+    func fetchRelatedQuestionsTo(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
@@ -592,7 +592,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchRelatedQuestionsTo(
+    func fetchRelatedQuestionsTo(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -618,7 +618,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchTimelineOf(
+    func fetchTimelineOf(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question.Timeline> {
@@ -648,7 +648,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchTimelineOf(
+    func fetchTimelineOf(
         questions ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -678,7 +678,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchTimelineOf(
+    func fetchTimelineOf(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question.Timeline> {
@@ -698,7 +698,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchTimelineOf(
+    func fetchTimelineOf(
         question id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -721,7 +721,7 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchFeaturedQuestions(
+    func fetchFeaturedQuestions(
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
         
@@ -743,7 +743,7 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchFeaturedQuestions(
+    func fetchFeaturedQuestions(
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
         completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
@@ -778,7 +778,7 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchQuestionsWithNoAnswers(
+    func fetchQuestionsWithNoAnswers(
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
         
@@ -802,7 +802,7 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchQuestionsWithNoAnswers(
+    func fetchQuestionsWithNoAnswers(
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
         completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {
@@ -837,7 +837,7 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchUnansweredQuestions(
+    func fetchUnansweredQuestions(
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<Question> {
         
@@ -861,7 +861,7 @@ public extension APIClient {
      
      - author: FelixSFD
      */
-    public func fetchUnansweredQuestions(
+    func fetchUnansweredQuestions(
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
         completionHandler: @escaping (APIResponse<Question>?, Error?) -> ()) {

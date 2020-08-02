@@ -380,10 +380,6 @@ public class Question: Post {
             self.community_owned_date = Date(timeIntervalSince1970: Double(timestamp))
         }
         
-        if let timestamp = dictionary["creation_date"] as? Int {
-            self.creation_date = Date(timeIntervalSince1970: Double(timestamp))
-        }
-        
         self.delete_vote_count = dictionary["delete_vote_count"] as? Int
         self.favorite_count = dictionary["favorite_count"] as? Int
         self.favorited = dictionary["favorites"] as? Bool
@@ -444,7 +440,6 @@ public class Question: Post {
         dict["closed_details"] = closed_details?.dictionary
         dict["closed_reason"] = closed_reason
         dict["community_owned_date"] = community_owned_date
-        dict["creation_date"] = creation_date
         dict["delete_vote_count"] = delete_vote_count
         dict["favorite_count"] = favorite_count
         dict["favorited"] = favorited
@@ -489,8 +484,6 @@ public class Question: Post {
     public var closed_reason: String?
     
     public var community_owned_date: Date?
-    
-    public var creation_date: Date?
     
     public var delete_vote_count: Int?
     

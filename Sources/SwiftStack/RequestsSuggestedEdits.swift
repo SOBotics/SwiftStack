@@ -28,7 +28,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchSuggestedEdits(
+    func fetchSuggestedEdits(
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<SuggestedEdit> {
         
@@ -51,7 +51,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchSuggestedEdits(
+    func fetchSuggestedEdits(
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
         completionHandler: @escaping (APIResponse<SuggestedEdit>?, Error?) -> ()) {
@@ -86,7 +86,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchSuggestedEdits(
+    func fetchSuggestedEdits(
         _ ids: [Int],
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<SuggestedEdit> {
@@ -116,7 +116,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchSuggestedEdits(
+    func fetchSuggestedEdits(
         _ ids: [Int],
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
@@ -151,7 +151,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchSuggestedEdit(
+    func fetchSuggestedEdit(
         _ id: Int,
         parameters: [String:String] = [:],
         backoffBehavior: BackoffBehavior = .wait) throws -> APIResponse<SuggestedEdit> {
@@ -172,7 +172,7 @@ public extension APIClient {
      
      - authors: NobodyNada, FelixSFD
      */
-    public func fetchSuggestedEdit(
+    func fetchSuggestedEdit(
         _ id: Int,
         parameters: [String: String] = [:],
         backoffBehavior: BackoffBehavior = .wait,
