@@ -5,7 +5,7 @@ env: SWIFT_VERSION=5.2.4
 matrix:
   include:
     - os: linux
-      dist: trusty
+      dist: focal
     - os: osx
       osx_image: xcode11
 
