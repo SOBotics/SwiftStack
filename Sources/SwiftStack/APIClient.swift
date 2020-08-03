@@ -9,6 +9,10 @@
 import Foundation
 import Dispatch
 
+#if os(Linux)
+import FoundationNetworking
+#endif
+
 extension String {
 	var urlEncodedString: String {
 		var allowed = CharacterSet.urlQueryAllowed
