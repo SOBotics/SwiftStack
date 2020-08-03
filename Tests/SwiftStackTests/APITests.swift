@@ -9,6 +9,10 @@
 import XCTest
 @testable import SwiftStack
 
+#if os(Linux)
+import FoundationNetworking
+#endif
+
 ///An APIClient that allows inspecting and overriding requests and responses.
 class TestableClient: APIClient {
 	var requestHandler: ((URLSessionTask) -> (Data?, HTTPURLResponse?, Error?))?
